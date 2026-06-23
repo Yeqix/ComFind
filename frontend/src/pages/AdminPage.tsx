@@ -19,6 +19,7 @@ export default function AdminPage() {
   const [editingFormula, setEditingFormula] = useState<Formula | null>(null)
   const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedTag, setSelectedTag] = useState('')
+  const [selectedReviewStatus, setSelectedReviewStatus] = useState('')
 
   const categoryCounts = useMemo(() => {
     const counts = new Map<string, number>()
@@ -40,9 +41,10 @@ export default function AdminPage() {
     return formulas.filter((formula) => {
       const categoryMatched = !selectedCategory || formula.category === selectedCategory
       const tagMatched = !selectedTag || formula.tags.includes(selectedTag)
-      return categoryMatched && tagMatched
+      const reviewMatched = !selectedReviewStatus || formula.review_status === selectedReviewStatus
+      return categoryMatched && tagMatched && reviewMatched
     })
-  }, [formulas, selectedCategory, selectedTag])
+  }, [formulas, selectedCategory, selectedTag, selectedReviewStatus])
 
   const handleReview = async (formulaId: string, reviewStatus: 'approved' | 'rejected') => {
     const updated = await reviewFormula(formulaId, reviewStatus)
@@ -278,17 +280,47 @@ export default function AdminPage() {
                 <aside className="h-fit rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
                   <div className="mb-3 flex items-center justify-between">
                     <h3 className="font-semibold text-gray-900">筛选</h3>
-                    {(selectedCategory || selectedTag) && (
+                    {(selectedCategory || selectedTag || selectedReviewStatus) && (
                       <button
                         onClick={() => {
                           setSelectedCategory('')
                           setSelectedTag('')
+                          setSelectedReviewStatus('')
                         }}
                         className="text-xs text-primary-600 hover:text-primary-700"
                       >
                         清空
                       </button>
                     )}
+                  </div>
+
+                  <div className="mb-5">
+                    <p className="mb-2 text-xs font-medium text-gray-500">审核状态</p>
+                    <div className="space-y-1">
+                      {[
+                        ['', '全部状态'],
+                        ['pending', '待审核'],
+                        ['approved', '已通过'],
+                        ['rejected', '已驳回'],
+                      ].map(([status, label]) => (
+                        <button
+                          key={status || 'all-review'}
+                          onClick={() => setSelectedReviewStatus(status)}
+                          className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition-colors ${
+                            selectedReviewStatus === status
+                              ? 'bg-primary-50 text-primary-700'
+                              : 'text-gray-700 hover:bg-gray-50'
+                          }`}
+                        >
+                          <span>{label}</span>
+                          <span className="text-xs text-gray-400">
+                            {status
+                              ? formulas.filter((formula) => formula.review_status === status).length
+                              : formulas.length}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="mb-5">
@@ -359,8 +391,17 @@ export default function AdminPage() {
                     <span>
                       当前显示 {filteredFormulas.length} / {formulas.length} 条公式
                     </span>
-                    {(selectedCategory || selectedTag) && (
+                    {(selectedCategory || selectedTag || selectedReviewStatus) && (
                       <span className="text-xs text-gray-500">
+                        {selectedReviewStatus &&
+                          `状态：${
+                            selectedReviewStatus === 'pending'
+                              ? '待审核'
+                              : selectedReviewStatus === 'rejected'
+                                ? '已驳回'
+                                : '已通过'
+                          }`}
+                        {selectedReviewStatus && (selectedCategory || selectedTag) && ' · '}
                         {selectedCategory && `分类：${selectedCategory}`}
                         {selectedCategory && selectedTag && ' · '}
                         {selectedTag && `标签：${selectedTag}`}

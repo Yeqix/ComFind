@@ -11,10 +11,12 @@ export interface Formula {
   id: string
   title: string
   latex: string
+  formula_type?: string
   category: string
   tags: string[]
   description?: string
   conditions?: string
+  aliases?: string[]
   references: string[]
   difficulty?: string
   proof_sketch?: string
@@ -25,6 +27,7 @@ export interface Formula {
   reviewed_at?: string
   review_notes?: string
   relation_ids?: string[]
+  related_formula_ids?: string[]
   import_batch_id?: string
 }
 
@@ -50,10 +53,12 @@ export interface SearchResponse {
 export interface CreateFormulaRequest {
   title: string
   latex: string
+  formula_type?: string
   category: string
   tags: string[]
   description?: string
   conditions?: string
+  aliases?: string[]
   references: string[]
   difficulty?: string
   proof_sketch?: string
@@ -63,6 +68,7 @@ export interface CreateFormulaRequest {
   review_status?: 'pending' | 'approved' | 'rejected'
   review_notes?: string
   relation_ids?: string[]
+  related_formula_ids?: string[]
   import_batch_id?: string
 }
 
@@ -73,6 +79,11 @@ export async function searchFormulas(formula: string): Promise<SearchResponse> {
 
 export async function getFormula(id: string): Promise<Formula> {
   const { data } = await api.get(`/formulas/${id}`)
+  return data
+}
+
+export async function getRelatedFormulas(id: string, limit: number = 6): Promise<Formula[]> {
+  const { data } = await api.get(`/formulas/${id}/related`, { params: { limit } })
   return data
 }
 

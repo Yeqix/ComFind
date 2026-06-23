@@ -3,16 +3,26 @@ from typing import List, Optional
 from datetime import datetime
 
 
+class ProofStep(BaseModel):
+    order: int
+    title: str
+    detail: str
+    method: Optional[str] = None
+
+
 class FormulaBase(BaseModel):
     title: str
     latex: str
+    formula_type: Optional[str] = None
     category: str
     tags: List[str] = []
     description: Optional[str] = None
     conditions: Optional[str] = None
+    aliases: List[str] = []
     references: List[str] = []
     difficulty: Optional[str] = None
     proof_sketch: Optional[str] = None
+    proof_steps: List[ProofStep] = []
     application_scenarios: List[str] = []
     source: Optional[str] = None
     source_page: Optional[int] = None
@@ -20,6 +30,7 @@ class FormulaBase(BaseModel):
     reviewed_at: Optional[datetime] = None
     review_notes: Optional[str] = None
     relation_ids: List[str] = []
+    related_formula_ids: List[str] = []
     import_batch_id: Optional[str] = None
 
 
@@ -41,6 +52,12 @@ class FormulaResponse(FormulaBase):
 class SearchRequest(BaseModel):
     formula: str
     input_type: str = "latex"
+    category: Optional[str] = None
+    tags: List[str] = []
+    difficulty: Optional[str] = None
+    source: Optional[str] = None
+    structure: Optional[str] = None
+    review_status: Optional[str] = "approved"
 
 
 class SearchResult(FormulaResponse):
@@ -73,4 +90,22 @@ class ParseResponse(BaseModel):
     variables: List[str] = []
     hints: List[str] = []
     structures: List[str] = []
+    operators: List[str] = []
+    ast_hash: Optional[str] = None
+    has_summation: bool = False
+    has_recurrence: bool = False
+    has_generating_function: bool = False
     complexity: Optional[int] = None
+
+
+class FormulaFeatureResponse(BaseModel):
+    formula_id: str
+    symbols: List[str] = []
+    operators: List[str] = []
+    has_summation: bool = False
+    has_recurrence: bool = False
+    has_generating_function: bool = False
+    ast_hash: Optional[str] = None
+    variable_count: int = 0
+    free_variables: List[str] = []
+    embedding: List[float] = []

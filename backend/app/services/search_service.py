@@ -1,3 +1,4 @@
+import hashlib
 import math
 import re
 from collections import Counter
@@ -71,6 +72,7 @@ class SearchService:
 
         normalized = latex.strip()
         normalized = self._normalize_matrix_binomials(normalized)
+        normalized = self._normalize_sum_bounds(normalized)
         normalized = normalized.replace("\\\\", " ")
         normalized = re.sub(r"\\(left|right)([(){}\[\]|.]?)", r"\2", normalized)
 
@@ -99,6 +101,8 @@ class SearchService:
         normalized = re.sub(r"\s+", "", normalized)
         normalized = normalized.replace("\\{", "{").replace("\\}", "}")
         normalized = normalized.replace(" ", "")
+        normalized = self._normalize_combinatorial_notation(normalized)
+        normalized = self._normalize_variable_names(normalized)
         return normalized
 
     def _normalize_matrix_binomials(self, latex: str) -> str:
@@ -113,6 +117,54 @@ class SearchService:
             lambda m: f"\\binom{{{m.group('top').strip()}}}{{{m.group('bottom').strip()}}}",
             latex,
         )
+
+    def _normalize_sum_bounds(self, latex: str) -> str:
+        """Make common summation bounds easier to compare structurally."""
+        normalized = re.sub(
+            r"\\sum\s*_\s*\{\s*(?P<idx>[a-zA-Z])\s*=\s*(?P<lo>[^{}]+?)\s*\}\s*\^\s*\{\s*(?P<hi>[^{}]+?)\s*\}",
+            lambda m: f"\\sum_{{{m.group('idx')}={m.group('lo').strip()}}}^{{{m.group('hi').strip()}}}",
+            latex,
+        )
+        normalized = re.sub(
+            r"\\sum\s*_\s*(?P<idx>[a-zA-Z])\s*=\s*(?P<lo>[0-9a-zA-Z+-]+)\s*\^\s*(?P<hi>[0-9a-zA-Z+-]+)",
+            lambda m: f"\\sum_{{{m.group('idx')}={m.group('lo')}}}^{{{m.group('hi')}}}",
+            normalized,
+        )
+        return normalized
+
+    def _normalize_variable_names(self, expression: str) -> str:
+        """Alpha-normalize single-letter variables while preserving command words."""
+        mapping: Dict[str, str] = {}
+        next_index = 0
+
+        def replace(match: re.Match[str]) -> str:
+            nonlocal next_index
+            name = match.group(1)
+            next_char = expression[match.end() : match.end() + 1]
+            if name in {"a", "c", "h"} and next_char in {"_", "^"}:
+                return name
+            if name in {"e"}:
+                return name
+            if name not in mapping:
+                mapping[name] = f"v{next_index}"
+                next_index += 1
+            return mapping[name]
+
+        return re.sub(r"(?<![a-z])([a-z])(?![a-z])", replace, expression)
+
+    def _normalize_combinatorial_notation(self, expression: str) -> str:
+        """Canonicalize common A/C/H subscript-superscript teaching notation."""
+        normalized = re.sub(
+            r"([ach])\^\{([^{}]+)\}_\{([^{}]+)\}",
+            lambda m: f"{m.group(1)}_{{{m.group(3)}}}^{{{m.group(2)}}}",
+            expression,
+        )
+        normalized = re.sub(
+            r"([ach])\^([a-z0-9]+)_([a-z0-9]+)",
+            lambda m: f"{m.group(1)}_{{{m.group(3)}}}^{{{m.group(2)}}}",
+            normalized,
+        )
+        return normalized
 
     def extract_variables(self, latex: str) -> List[str]:
         """Extract likely mathematical variables while ignoring LaTeX commands."""
@@ -131,6 +183,8 @@ class SearchService:
         normalized = self.normalize(latex)
         tokens = self.extract_tokens(latex)
         token_set = set(tokens)
+        variables = set(self.extract_variables(latex))
+        operators = self.extract_operators(normalized)
         structures = {
             name
             for name, needles in self.STRUCTURE_PATTERNS.items()
@@ -145,9 +199,42 @@ class SearchService:
             "normalized": normalized,
             "tokens": tokens,
             "token_set": token_set,
-            "variables": set(self.extract_variables(latex)),
+            "variables": variables,
             "structures": structures,
+            "operators": operators,
+            "ast_hash": self.ast_hash(normalized),
+            "has_summation": "求和结构" in structures,
+            "has_recurrence": "递推关系" in structures,
+            "has_generating_function": "生成函数" in structures,
             "complexity": self.calculate_complexity(latex),
+        }
+
+    def extract_operators(self, normalized: str) -> List[str]:
+        operators = []
+        for operator in ["sum", "prod", "binom", "frac", "sqrt", "=", "+", "-", "*", "/", "^", "_", "!"]:
+            if operator in normalized:
+                operators.append(operator)
+        return operators
+
+    def ast_hash(self, normalized: str) -> str:
+        skeleton = re.sub(r"v\d+", "v", normalized)
+        skeleton = re.sub(r"\d+", "0", skeleton)
+        return hashlib.sha256(skeleton.encode("utf-8")).hexdigest()[:16]
+
+    def build_formula_feature(self, formula: FormulaResponse) -> Dict[str, Any]:
+        features = self.extract_features(formula.latex)
+        embedding = self.vector_service.embed_tokens(features["tokens"])
+        return {
+            "formula_id": formula.id,
+            "symbols": sorted(features["token_set"]),
+            "operators": features["operators"],
+            "has_summation": features["has_summation"],
+            "has_recurrence": features["has_recurrence"],
+            "has_generating_function": features["has_generating_function"],
+            "ast_hash": features["ast_hash"],
+            "variable_count": len(features["variables"]),
+            "free_variables": sorted(features["variables"]),
+            "embedding": embedding,
         }
 
     def calculate_complexity(self, latex: str) -> int:

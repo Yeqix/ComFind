@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import FormulaPreview from '../components/FormulaPreview'
-import { getFormula, type Formula } from '../services/api'
+import { getFormula, getRelatedFormulas, type Formula } from '../services/api'
 
 export default function FormulaDetailPage() {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const [formula, setFormula] = useState<Formula | null>(null)
+  const [relatedFormulas, setRelatedFormulas] = useState<Formula[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -21,6 +22,8 @@ export default function FormulaDetailPage() {
     try {
       const data = await getFormula(formulaId)
       setFormula(data)
+      const related = await getRelatedFormulas(formulaId)
+      setRelatedFormulas(related)
     } catch (err) {
       setError('加载公式详情失败')
     } finally {
@@ -66,11 +69,48 @@ export default function FormulaDetailPage() {
 
           <div className="space-y-4">
             <div>
+              <h3 className="text-sm font-medium text-gray-500 mb-1">审核状态</h3>
+              <span className={`inline-block px-3 py-1 rounded-full text-sm ${
+                formula.review_status === 'pending'
+                  ? 'bg-yellow-100 text-yellow-800'
+                  : formula.review_status === 'rejected'
+                    ? 'bg-red-100 text-red-800'
+                    : 'bg-green-100 text-green-800'
+              }`}>
+                {formula.review_status === 'pending'
+                  ? '待审核'
+                  : formula.review_status === 'rejected'
+                    ? '已驳回'
+                    : '已通过'}
+              </span>
+            </div>
+
+            <div>
               <h3 className="text-sm font-medium text-gray-500 mb-1">分类</h3>
               <span className="inline-block px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm">
                 {formula.category}
               </span>
             </div>
+
+            {formula.formula_type && (
+              <div>
+                <h3 className="text-sm font-medium text-gray-500 mb-1">公式类型</h3>
+                <p className="text-gray-800">{formula.formula_type}</p>
+              </div>
+            )}
+
+            {formula.aliases && formula.aliases.length > 0 && (
+              <div>
+                <h3 className="text-sm font-medium text-gray-500 mb-1">别名</h3>
+                <div className="flex flex-wrap gap-2">
+                  {formula.aliases.map((alias, idx) => (
+                    <span key={idx} className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-sm">
+                      {alias}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {formula.tags.length > 0 && (
               <div>
@@ -102,6 +142,36 @@ export default function FormulaDetailPage() {
               </div>
             )}
 
+            {formula.proof_sketch && (
+              <div>
+                <h3 className="text-sm font-medium text-gray-500 mb-1">证明思路</h3>
+                <p className="text-gray-800">{formula.proof_sketch}</p>
+              </div>
+            )}
+
+            {formula.application_scenarios && formula.application_scenarios.length > 0 && (
+              <div>
+                <h3 className="text-sm font-medium text-gray-500 mb-1">应用场景</h3>
+                <div className="flex flex-wrap gap-2">
+                  {formula.application_scenarios.map((scenario, idx) => (
+                    <span key={idx} className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-sm">
+                      {scenario}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {(formula.source || formula.source_page) && (
+              <div>
+                <h3 className="text-sm font-medium text-gray-500 mb-1">来源定位</h3>
+                <p className="text-gray-800">
+                  {formula.source || '未填写来源'}
+                  {formula.source_page ? ` · 第 ${formula.source_page} 页` : ''}
+                </p>
+              </div>
+            )}
+
             {formula.references.length > 0 && (
               <div>
                 <h3 className="text-sm font-medium text-gray-500 mb-1">参考来源</h3>
@@ -110,6 +180,27 @@ export default function FormulaDetailPage() {
                     <li key={idx}>{ref}</li>
                   ))}
                 </ul>
+              </div>
+            )}
+
+            {relatedFormulas.length > 0 && (
+              <div>
+                <h3 className="text-sm font-medium text-gray-500 mb-2">相关公式</h3>
+                <div className="space-y-2">
+                  {relatedFormulas.map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => navigate(`/formula/${item.id}`)}
+                      className="block w-full rounded border border-gray-200 px-3 py-2 text-left hover:bg-gray-50"
+                    >
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="font-medium text-gray-800">{item.title}</span>
+                        <span className="text-xs text-gray-400">#{item.id}</span>
+                      </div>
+                      <p className="mt-1 text-xs text-gray-500">{item.category}</p>
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
           </div>

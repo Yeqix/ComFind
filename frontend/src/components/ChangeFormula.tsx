@@ -12,11 +12,17 @@ interface ChangeFormulaProps {
 interface FormData {
   title: string
   latex: string
+  formula_type: string
   category: string
   tags: string
+  aliases: string
   description: string
   conditions: string
   references: string
+  source: string
+  source_page: string
+  difficulty: string
+  proof_sketch: string
 }
 
 interface ParsedInfo {
@@ -47,11 +53,17 @@ export default function ChangeFormula({ formula, onSuccess, onCancel }: ChangeFo
   const [formData, setFormData] = useState<FormData>({
     title: '',
     latex: '',
+    formula_type: '',
     category: '二项式恒等式',
     tags: '',
+    aliases: '',
     description: '',
     conditions: '',
     references: '',
+    source: '',
+    source_page: '',
+    difficulty: '基础',
+    proof_sketch: '',
   })
 
   const [submitting, setSubmitting] = useState(false)
@@ -67,11 +79,17 @@ export default function ChangeFormula({ formula, onSuccess, onCancel }: ChangeFo
       setFormData({
         title: formula.title,
         latex: formula.latex,
+        formula_type: formula.formula_type || '',
         category: formula.category,
         tags: formula.tags.join(', '),
+        aliases: (formula.aliases || []).join(', '),
         description: formula.description || '',
         conditions: formula.conditions || '',
         references: formula.references.join('\n'),
+        source: formula.source || '',
+        source_page: formula.source_page ? String(formula.source_page) : '',
+        difficulty: formula.difficulty || '基础',
+        proof_sketch: formula.proof_sketch || '',
       })
       // 初始解析
       handleLatexChange(formula.latex)
@@ -127,11 +145,21 @@ export default function ChangeFormula({ formula, onSuccess, onCancel }: ChangeFo
       await updateFormula(formula.id, {
         title: formData.title.trim(),
         latex: formData.latex.trim(),
+        formula_type: formData.formula_type.trim() || undefined,
         category: formData.category,
         tags: formData.tags.split(',').map(t => t.trim()).filter(Boolean),
+        aliases: formData.aliases.split(',').map(t => t.trim()).filter(Boolean),
         description: formData.description.trim() || undefined,
         conditions: formData.conditions.trim() || undefined,
         references: formData.references.split('\n').map(r => r.trim()).filter(Boolean),
+        source: formData.source.trim() || undefined,
+        source_page: formData.source_page.trim() ? Number(formData.source_page) : undefined,
+        difficulty: formData.difficulty || undefined,
+        proof_sketch: formData.proof_sketch.trim() || undefined,
+        review_status: formula.review_status,
+        review_notes: formula.review_notes,
+        relation_ids: formula.relation_ids || [],
+        import_batch_id: formula.import_batch_id,
       })
 
       setMessage({ type: 'success', text: '公式修改成功！' })
@@ -154,11 +182,17 @@ export default function ChangeFormula({ formula, onSuccess, onCancel }: ChangeFo
     setFormData({
       title: formula.title,
       latex: formula.latex,
+      formula_type: formula.formula_type || '',
       category: formula.category,
       tags: formula.tags.join(', '),
+      aliases: (formula.aliases || []).join(', '),
       description: formula.description || '',
       conditions: formula.conditions || '',
       references: formula.references.join('\n'),
+      source: formula.source || '',
+      source_page: formula.source_page ? String(formula.source_page) : '',
+      difficulty: formula.difficulty || '基础',
+      proof_sketch: formula.proof_sketch || '',
     })
     setHasChanges(false)
     setMessage(null)
@@ -310,19 +344,33 @@ export default function ChangeFormula({ formula, onSuccess, onCancel }: ChangeFo
         )}
 
         {/* 分类 */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            公式分类 <span className="text-red-500">*</span>
-          </label>
-          <select
-            value={formData.category}
-            onChange={(e) => updateField('category', e.target.value)}
-            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-          >
-            {CATEGORIES.map(cat => (
-              <option key={cat} value={cat}>{cat}</option>
-            ))}
-          </select>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              公式分类 <span className="text-red-500">*</span>
+            </label>
+            <select
+              value={formData.category}
+              onChange={(e) => updateField('category', e.target.value)}
+              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            >
+              {CATEGORIES.map(cat => (
+                <option key={cat} value={cat}>{cat}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              公式类型
+            </label>
+            <input
+              type="text"
+              value={formData.formula_type}
+              onChange={(e) => updateField('formula_type', e.target.value)}
+              placeholder="例如：恒等式、递推式、生成函数"
+              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            />
+          </div>
         </div>
 
         {/* 标签 */}
@@ -338,6 +386,19 @@ export default function ChangeFormula({ formula, onSuccess, onCancel }: ChangeFo
             className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           />
           <p className="text-xs text-gray-500 mt-1">多个标签用逗号分隔</p>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            别名
+          </label>
+          <input
+            type="text"
+            value={formData.aliases}
+            onChange={(e) => updateField('aliases', e.target.value)}
+            placeholder="用逗号分隔，例如：Vandermonde 恒等式"
+            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          />
         </div>
 
         {/* 说明 */}
@@ -381,6 +442,62 @@ export default function ChangeFormula({ formula, onSuccess, onCancel }: ChangeFo
             rows={3}
           />
           <p className="text-xs text-gray-500 mt-1">每行一个来源，支持书籍、论文、OEIS 等</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="md:col-span-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              来源文件/书籍
+            </label>
+            <input
+              type="text"
+              value={formData.source}
+              onChange={(e) => updateField('source', e.target.value)}
+              placeholder="例如：4_组合数学(1).pdf"
+              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              页码
+            </label>
+            <input
+              type="number"
+              min="1"
+              value={formData.source_page}
+              onChange={(e) => updateField('source_page', e.target.value)}
+              placeholder="页码"
+              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            难度
+          </label>
+          <select
+            value={formData.difficulty}
+            onChange={(e) => updateField('difficulty', e.target.value)}
+            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          >
+            <option value="基础">基础</option>
+            <option value="中等">中等</option>
+            <option value="较难">较难</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            证明思路
+          </label>
+          <textarea
+            value={formData.proof_sketch}
+            onChange={(e) => updateField('proof_sketch', e.target.value)}
+            placeholder="简要说明公式可如何推导，不写严格证明也可以"
+            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            rows={3}
+          />
         </div>
 
         {/* 操作按钮 */}

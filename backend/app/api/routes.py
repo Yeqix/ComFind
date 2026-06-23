@@ -16,6 +16,8 @@ from app.schemas.formula import (
     SearchResult,
     ParseRequest,
     ParseResponse,
+    FormulaFeatureResponse,
+    ProofStep,
 )
 from app.schemas.ai_config import (
     AIConfigCreate,
@@ -43,11 +45,15 @@ DATA_DIR.mkdir(exist_ok=True)
 AI_CONFIGS_FILE = DATA_DIR / "ai_configs.json"
 AI_CONFIG_SECRETS_FILE = DATA_DIR / "ai_config_secrets.json"
 FORMULAS_FILE = DATA_DIR / "formulas.json"
+SEARCH_HISTORY_FILE = DATA_DIR / "search_history.json"
+FAVORITES_FILE = DATA_DIR / "favorites.json"
 
 # 内存数据库
 AI_CONFIGS_DB: List[AIConfigResponse] = []
 AI_CONFIG_SECRETS_DB: dict = {}
 FORMULAS_DB: List[FormulaResponse] = []
+SEARCH_HISTORY_DB: List[dict] = []
+FAVORITES_DB: List[dict] = []
 
 
 def next_formula_id() -> str:
@@ -60,9 +66,63 @@ def searchable_formulas() -> List[FormulaResponse]:
     return [formula for formula in FORMULAS_DB if formula.review_status == "approved"]
 
 
+def load_json_list(path: Path) -> List[dict]:
+    if not path.exists():
+        return []
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return data if isinstance(data, list) else []
+    except Exception:
+        return []
+
+
+def save_json_list(path: Path, data: List[dict]):
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2, default=str)
+
+
+def filter_formulas(formulas: List[FormulaResponse], request: SearchRequest) -> List[FormulaResponse]:
+    filtered = formulas
+    if request.review_status:
+        filtered = [formula for formula in filtered if formula.review_status == request.review_status]
+    if request.category:
+        filtered = [formula for formula in filtered if formula.category == request.category]
+    if request.tags:
+        tag_set = set(request.tags)
+        filtered = [formula for formula in filtered if tag_set.issubset(set(formula.tags))]
+    if request.difficulty:
+        filtered = [formula for formula in filtered if formula.difficulty == request.difficulty]
+    if request.source:
+        filtered = [
+            formula for formula in filtered
+            if request.source in (formula.source or "") or any(request.source in ref for ref in formula.references)
+        ]
+    if request.structure:
+        filtered = [
+            formula for formula in filtered
+            if request.structure in search_service.extract_features(formula.latex)["structures"]
+        ]
+    return filtered
+
+
+def save_search_history(query: str, normalized: str, results: List[SearchResult], filters: dict):
+    record = {
+        "id": str(uuid4()),
+        "input_formula": query,
+        "normalized_formula": normalized,
+        "result_ids": [result.id for result in results],
+        "filters": filters,
+        "created_at": datetime.now().isoformat(),
+    }
+    SEARCH_HISTORY_DB.insert(0, record)
+    del SEARCH_HISTORY_DB[100:]
+    save_json_list(SEARCH_HISTORY_FILE, SEARCH_HISTORY_DB)
+
+
 def load_data():
     """从JSON文件加载数据"""
-    global AI_CONFIGS_DB, AI_CONFIG_SECRETS_DB, FORMULAS_DB
+    global AI_CONFIGS_DB, AI_CONFIG_SECRETS_DB, FORMULAS_DB, SEARCH_HISTORY_DB, FAVORITES_DB
     
     # 加载AI配置
     if AI_CONFIGS_FILE.exists():
@@ -101,6 +161,9 @@ def load_data():
         except Exception as e:
             print(f"[ERROR] 加载公式失败: {e}")
             FORMULAS_DB = []
+
+    SEARCH_HISTORY_DB = load_json_list(SEARCH_HISTORY_FILE)
+    FAVORITES_DB = load_json_list(FAVORITES_FILE)
 
 
 def save_ai_configs():
@@ -465,6 +528,7 @@ def enrich_formula_metadata():
         source = formula.source or (references[0] if references else "待补充")
         difficulty = formula.difficulty or infer_formula_difficulty(formula)
         proof_sketch = formula.proof_sketch or infer_proof_sketch(formula)
+        proof_steps = formula.proof_steps or infer_proof_steps(formula, proof_sketch)
         application_scenarios = formula.application_scenarios or infer_application_scenarios(formula)
         review_status = formula.review_status or "approved"
         enriched.append(
@@ -475,6 +539,7 @@ def enrich_formula_metadata():
                     "references": references,
                     "difficulty": difficulty,
                     "proof_sketch": proof_sketch,
+                    "proof_steps": proof_steps,
                     "application_scenarios": application_scenarios,
                     "source": source,
                     "review_status": review_status,
@@ -508,6 +573,25 @@ def infer_proof_sketch(formula: FormulaResponse) -> str:
     return "可通过组合计数解释、生成函数展开或代数恒等变形证明。"
 
 
+def infer_proof_steps(formula: FormulaResponse, proof_sketch: str) -> List[ProofStep]:
+    features = search_service.extract_features(formula.latex)
+    method = "结构识别"
+    if features["has_summation"]:
+        method = "求和/容斥"
+    elif features["has_generating_function"]:
+        method = "生成函数"
+    elif "递推关系" in features["structures"]:
+        method = "递推分类"
+    elif "binom" in features["token_set"]:
+        method = "组合计数"
+
+    return [
+        ProofStep(order=1, title="识别计数对象", detail=f"将公式归入“{formula.category}”并确认适用条件。", method="分类"),
+        ProofStep(order=2, title="选择推导方法", detail=proof_sketch, method=method),
+        ProofStep(order=3, title="整理为目标形式", detail="对中间表达式做代数整理或系数比较，得到当前公式的标准写法。", method="化简"),
+    ]
+
+
 def infer_application_scenarios(formula: FormulaResponse) -> List[str]:
     text = " ".join([formula.category, formula.title, *formula.tags])
     scenarios = []
@@ -530,10 +614,25 @@ enrich_formula_metadata()
 @router.post("/search", response_model=SearchResponse)
 async def search(request: SearchRequest):
     """搜索相似公式"""
-    results = search_service.search(request.formula, searchable_formulas())
+    formula_pool = filter_formulas(FORMULAS_DB, request)
+    results = search_service.search(request.formula, formula_pool)
+    normalized = search_service.normalize(request.formula)
+    save_search_history(
+        request.formula,
+        normalized,
+        results,
+        {
+            "category": request.category,
+            "tags": request.tags,
+            "difficulty": request.difficulty,
+            "source": request.source,
+            "structure": request.structure,
+            "review_status": request.review_status,
+        },
+    )
     return SearchResponse(
         results=results,
-        normalized_formula=request.formula,
+        normalized_formula=normalized,
         type_info="二项式恒等式" if "binom" in request.formula else "未知类型",
     )
 
@@ -555,6 +654,15 @@ async def ai_enhanced_search(request: dict):
     use_ai = request.get("use_ai", True)
     top_k = request.get("top_k", 10)
     config_id = request.get("config_id")
+    filters = SearchRequest(
+        formula=query or "x",
+        category=request.get("category"),
+        tags=request.get("tags") or [],
+        difficulty=request.get("difficulty"),
+        source=request.get("source"),
+        structure=request.get("structure"),
+        review_status=request.get("review_status", "approved"),
+    )
     
     if not query:
         raise HTTPException(status_code=400, detail="请提供查询公式")
@@ -569,7 +677,7 @@ async def ai_enhanced_search(request: dict):
     )
     
     # 转换公式列表为字典列表
-    formulas = [f.model_dump() for f in searchable_formulas()]
+    formulas = [f.model_dump() for f in filter_formulas(FORMULAS_DB, filters)]
     
     # 本地规则推理链无需外部 Key；配置了 Key 时可在 ai_service 内继续扩展真实 LLM 调用。
     if use_ai:
@@ -608,7 +716,7 @@ async def ai_enhanced_search(request: dict):
                     reasoning_steps=r.get('reasoning_steps', []),
                 ))
             
-            return {
+            response = {
                 "results": search_results,
                 "normalized_formula": search_service.normalize(query),
                 "type_info": ai_service.analyze_formula(query).get("category", "未知类型"),
@@ -616,12 +724,14 @@ async def ai_enhanced_search(request: dict):
                 "ai_available": True,
                 "reasoning_mode": "local-rule-chain" if not (active_configs or has_env_key) else "llm-ready"
             }
+            save_search_history(query, response["normalized_formula"], search_results, request)
+            return response
         except Exception as e:
             import traceback
             print(f"[ERROR] AI enhanced search failed: {e}")
             print(traceback.format_exc())
             # 降级到传统搜索
-            results = search_service.search(query, searchable_formulas(), top_k)
+            results = search_service.search(query, filter_formulas(FORMULAS_DB, filters), top_k)
             return {
                 "results": results,
                 "normalized_formula": search_service.normalize(query),
@@ -632,7 +742,7 @@ async def ai_enhanced_search(request: dict):
             }
     else:
         # 降级到传统搜索
-        results = search_service.search(query, searchable_formulas(), top_k)
+        results = search_service.search(query, filter_formulas(FORMULAS_DB, filters), top_k)
         return {
             "results": results,
             "normalized_formula": search_service.normalize(query),
@@ -664,8 +774,22 @@ async def parse(request: ParseRequest):
         variables=variables,
         hints=hints,
         structures=sorted(features["structures"]),
+        operators=features["operators"],
+        ast_hash=features["ast_hash"],
+        has_summation=features["has_summation"],
+        has_recurrence=features["has_recurrence"],
+        has_generating_function=features["has_generating_function"],
         complexity=features["complexity"],
     )
+
+
+@router.get("/formulas/{formula_id}/features", response_model=FormulaFeatureResponse)
+async def get_formula_features(formula_id: str):
+    """获取公式结构特征字段，用于调试标准化、结构召回和向量检索。"""
+    for formula in FORMULAS_DB:
+        if formula.id == formula_id:
+            return search_service.build_formula_feature(formula)
+    raise HTTPException(status_code=404, detail="公式不存在")
 
 
 @router.get("/formulas/{formula_id}", response_model=FormulaResponse)
@@ -677,6 +801,41 @@ async def get_formula(formula_id: str):
     raise HTTPException(status_code=404, detail="公式不存在")
 
 
+@router.get("/formulas/{formula_id}/related", response_model=List[FormulaResponse])
+async def get_related_formulas(formula_id: str, limit: int = 6):
+    """获取相关公式，优先使用显式 relation_ids，再按分类和标签推断。"""
+    target = next((formula for formula in FORMULAS_DB if formula.id == formula_id), None)
+    if target is None:
+        raise HTTPException(status_code=404, detail="公式不存在")
+
+    related: List[FormulaResponse] = []
+    seen = {target.id}
+    by_id = {formula.id: formula for formula in FORMULAS_DB}
+
+    for related_id in [*target.relation_ids, *target.related_formula_ids]:
+        formula = by_id.get(related_id)
+        if formula and formula.id not in seen and formula.review_status == "approved":
+            related.append(formula)
+            seen.add(formula.id)
+        if len(related) >= limit:
+            return related
+
+    target_tags = set(target.tags)
+    candidates = []
+    for formula in FORMULAS_DB:
+        if formula.id in seen or formula.review_status != "approved":
+            continue
+        overlap = len(target_tags & set(formula.tags))
+        category_match = 1 if formula.category == target.category else 0
+        score = category_match * 2 + overlap
+        if score > 0:
+            candidates.append((score, formula))
+
+    candidates.sort(key=lambda item: item[0], reverse=True)
+    related.extend(formula for _, formula in candidates[: max(0, limit - len(related))])
+    return related
+
+
 @router.post("/admin/formulas", response_model=FormulaResponse)
 async def create_formula(formula: FormulaCreate):
     """创建新公式"""
@@ -685,14 +844,22 @@ async def create_formula(formula: FormulaCreate):
         id=next_formula_id(),
         title=formula.title,
         latex=formula.latex,
+        formula_type=formula.formula_type,
         normalized_expression=search_service.normalize(formula.latex),
         category=formula.category,
         tags=formula.tags,
         description=formula.description,
         conditions=formula.conditions,
+        aliases=formula.aliases,
         references=formula.references,
         difficulty=formula.difficulty,
         proof_sketch=formula.proof_sketch,
+        proof_steps=formula.proof_steps or infer_proof_steps(
+            FormulaResponse(id="0", title=formula.title, latex=formula.latex, category=formula.category, tags=formula.tags),
+            formula.proof_sketch or infer_proof_sketch(
+                FormulaResponse(id="0", title=formula.title, latex=formula.latex, category=formula.category, tags=formula.tags)
+            ),
+        ),
         application_scenarios=formula.application_scenarios,
         source=formula.source,
         source_page=formula.source_page,
@@ -700,6 +867,7 @@ async def create_formula(formula: FormulaCreate):
         reviewed_at=formula.reviewed_at,
         review_notes=formula.review_notes,
         relation_ids=formula.relation_ids,
+        related_formula_ids=formula.related_formula_ids,
         import_batch_id=formula.import_batch_id,
         created_at=now,
         updated_at=now,
@@ -713,6 +881,92 @@ async def create_formula(formula: FormulaCreate):
 async def list_formulas():
     """获取所有公式列表"""
     return FORMULAS_DB
+
+
+@router.post("/admin/formulas/duplicate-check")
+async def duplicate_check(request: dict):
+    """检查标准化、结构哈希、标题近似的重复候选。"""
+    latex = str(request.get("latex", "")).strip()
+    title = str(request.get("title", "")).strip()
+    if not latex:
+        raise HTTPException(status_code=400, detail="请提供 LaTeX 公式")
+
+    normalized = search_service.normalize(latex)
+    features = search_service.extract_features(latex)
+    query_tokens = set(features["token_set"])
+    candidates = []
+
+    for formula in FORMULAS_DB:
+        formula_features = search_service.extract_features(formula.latex)
+        reasons = []
+        score = 0.0
+        if formula.normalized_expression == normalized:
+            reasons.append("标准化表达式完全一致")
+            score += 1.0
+        if formula_features["ast_hash"] == features["ast_hash"]:
+            reasons.append("结构哈希一致")
+            score += 0.8
+        if title and formula.title:
+            title_score = search_service._cosine(title, formula.title)
+            if title_score > 0.6:
+                reasons.append("标题高度相似")
+                score += title_score * 0.4
+        token_overlap = search_service._jaccard(query_tokens, set(formula_features["token_set"]))
+        if token_overlap > 0.75:
+            reasons.append("符号结构高度重合")
+            score += token_overlap * 0.5
+        if reasons:
+            candidates.append(
+                {
+                    "formula": formula,
+                    "score": round(score, 4),
+                    "reasons": reasons,
+                }
+            )
+
+    candidates.sort(key=lambda item: item["score"], reverse=True)
+    return {
+        "normalized_expression": normalized,
+        "ast_hash": features["ast_hash"],
+        "duplicate_count": len(candidates),
+        "candidates": candidates[:10],
+    }
+
+
+@router.get("/history/search")
+async def list_search_history(limit: int = 30):
+    return {"history": SEARCH_HISTORY_DB[:limit]}
+
+
+@router.delete("/history/search")
+async def clear_search_history():
+    SEARCH_HISTORY_DB.clear()
+    save_json_list(SEARCH_HISTORY_FILE, SEARCH_HISTORY_DB)
+    return {"success": True}
+
+
+@router.get("/favorites")
+async def list_favorites():
+    favorite_ids = {item["formula_id"] for item in FAVORITES_DB}
+    formulas = [formula for formula in FORMULAS_DB if formula.id in favorite_ids]
+    return {"favorites": FAVORITES_DB, "formulas": formulas}
+
+
+@router.post("/favorites/{formula_id}")
+async def add_favorite(formula_id: str):
+    if not any(formula.id == formula_id for formula in FORMULAS_DB):
+        raise HTTPException(status_code=404, detail="公式不存在")
+    if not any(item["formula_id"] == formula_id for item in FAVORITES_DB):
+        FAVORITES_DB.insert(0, {"formula_id": formula_id, "created_at": datetime.now().isoformat()})
+        save_json_list(FAVORITES_FILE, FAVORITES_DB)
+    return {"success": True}
+
+
+@router.delete("/favorites/{formula_id}")
+async def remove_favorite(formula_id: str):
+    FAVORITES_DB[:] = [item for item in FAVORITES_DB if item["formula_id"] != formula_id]
+    save_json_list(FAVORITES_FILE, FAVORITES_DB)
+    return {"success": True}
 
 
 @router.post("/admin/formulas/{formula_id}/review", response_model=FormulaResponse)
@@ -839,20 +1093,28 @@ async def import_confirmed_pdf_formulas(request: dict):
             id=next_formula_id(),
             title=item.get("title") or analysis.get("title", "PDF 导入公式"),
             latex=latex,
+            formula_type=item.get("formula_type"),
             normalized_expression=normalized,
             category=item.get("category") or analysis.get("category", "其他"),
             tags=item.get("tags") or analysis.get("tags", []),
             description=item.get("description") or "",
             conditions=item.get("conditions") or "",
+            aliases=item.get("aliases") or [],
             references=item.get("references") or [item.get("source") or request.get("source") or "PDF 导入"],
             difficulty=item.get("difficulty") or infer_formula_difficulty(
                 FormulaResponse(id="0", title="", latex=latex, category=item.get("category") or "", tags=[])
             ),
             proof_sketch=item.get("proof_sketch") or "",
+            proof_steps=item.get("proof_steps") or infer_proof_steps(
+                FormulaResponse(id="0", title=item.get("title") or "", latex=latex, category=item.get("category") or "", tags=item.get("tags") or []),
+                item.get("proof_sketch") or "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+            ),
             application_scenarios=item.get("application_scenarios") or [],
             source=item.get("source") or request.get("source"),
             source_page=item.get("source_page"),
             review_status=review_status,
+            relation_ids=item.get("relation_ids") or [],
+            related_formula_ids=item.get("related_formula_ids") or [],
             import_batch_id=batch_id,
             created_at=now,
             updated_at=now,
@@ -892,7 +1154,7 @@ async def formula_relations(limit: int = 200, max_edges: int = 500):
     seen = set()
 
     for formula in formulas:
-        for target_id in formula.relation_ids:
+        for target_id in [*formula.relation_ids, *formula.related_formula_ids]:
             if target_id in by_id:
                 key = tuple(sorted([formula.id, target_id])) + ("explicit",)
                 if key not in seen:
@@ -949,6 +1211,12 @@ async def vector_status():
     return search_service.vector_service.pgvector_status()
 
 
+@router.post("/admin/vector/migrate")
+async def migrate_vector_schema():
+    """自动执行 PostgreSQL + pgvector schema 迁移。"""
+    return search_service.vector_service.migrate_pgvector()
+
+
 @router.get("/admin/vector/export")
 async def export_vector_records():
     """导出当前公式库向量，供 pgvector 初始化或离线检查使用。"""
@@ -983,14 +1251,17 @@ async def update_formula(formula_id: str, formula_update: FormulaCreate):
                 id=formula_id,
                 title=formula_update.title,
                 latex=formula_update.latex,
+                formula_type=formula_update.formula_type,
                 normalized_expression=search_service.normalize(formula_update.latex),
                 category=formula_update.category,
                 tags=formula_update.tags,
                 description=formula_update.description,
                 conditions=formula_update.conditions,
+                aliases=formula_update.aliases,
                 references=formula_update.references,
                 difficulty=formula_update.difficulty,
                 proof_sketch=formula_update.proof_sketch,
+                proof_steps=formula_update.proof_steps or formula.proof_steps,
                 application_scenarios=formula_update.application_scenarios,
                 source=formula_update.source,
                 source_page=formula_update.source_page,
@@ -998,6 +1269,7 @@ async def update_formula(formula_id: str, formula_update: FormulaCreate):
                 reviewed_at=formula_update.reviewed_at or formula.reviewed_at,
                 review_notes=formula_update.review_notes if formula_update.review_notes is not None else formula.review_notes,
                 relation_ids=formula_update.relation_ids,
+                related_formula_ids=formula_update.related_formula_ids,
                 import_batch_id=formula_update.import_batch_id or formula.import_batch_id,
                 created_at=formula.created_at,
                 updated_at=datetime.now(),

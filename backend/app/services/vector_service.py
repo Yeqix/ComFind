@@ -69,6 +69,14 @@ class VectorService:
 
     def sync_pgvector(self, formulas, search_service) -> Dict[str, object]:
         """Write formulas and local embeddings into PostgreSQL/pgvector when configured."""
+        migration = self.migrate_pgvector()
+        if not migration.get("success"):
+            return {
+                "success": False,
+                "synced_count": 0,
+                "message": f"pgvector migration failed before sync: {migration.get('message')}",
+            }
+
         conn = self._connect()
         if conn is None:
             return {
@@ -183,6 +191,30 @@ class VectorService:
         finally:
             conn.close()
 
+    def migrate_pgvector(self) -> Dict[str, object]:
+        """Apply the bundled pgvector schema when a database is configured."""
+        schema_path = Path(__file__).parent.parent / "db" / "pgvector_schema.sql"
+        if not schema_path.exists():
+            return {"success": False, "message": "pgvector schema file is missing"}
+
+        conn = self._connect()
+        if conn is None:
+            return {
+                "success": False,
+                "message": "pgvector database is not configured or psycopg2 cannot connect",
+            }
+
+        try:
+            sql = schema_path.read_text(encoding="utf-8")
+            with conn:
+                with conn.cursor() as cursor:
+                    cursor.execute(sql)
+            return {"success": True, "message": "pgvector schema migrated"}
+        except Exception as exc:
+            return {"success": False, "message": f"pgvector migration failed: {exc}"}
+        finally:
+            conn.close()
+
     def pgvector_status(self) -> Dict[str, object]:
         database_url = self._database_url()
         schema_path = Path(__file__).parent.parent / "db" / "pgvector_schema.sql"
@@ -199,6 +231,7 @@ class VectorService:
             "schema_file_exists": schema_path.exists(),
             "dimensions": self.dimensions,
             "ready": bool(database_url and driver_available),
+            "migration_available": bool(database_url and driver_available and schema_path.exists()),
             "retrieval_mode": "pgvector" if database_url and driver_available else "local-token-vector",
             "message": (
                 "pgvector ready"
