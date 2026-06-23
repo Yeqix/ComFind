@@ -1,0 +1,5302 @@
+[
+  {
+    "title": "二项式求和公式",
+    "latex": "\\sum_{k=0}^{n} \\binom{n}{k} = 2^n",
+    "category": "二项式恒等式",
+    "tags": [
+      "求和",
+      "二项式系数",
+      "基本恒等式"
+    ],
+    "description": "二项式系数的基本求和公式，表示 n 元集合的所有子集个数",
+    "conditions": "n \\geq 0",
+    "references": [
+      "组合数学, Stanley, 第1章",
+      "Concrete Mathematics, Graham et al."
+    ],
+    "id": "1",
+    "normalized_expression": "sum_{k=0}^{n} binom{n}{k} = 2^n",
+    "created_at": "2026-04-27 17:16:13.236449",
+    "updated_at": "2026-04-27 17:16:13.236449",
+    "difficulty": "中等",
+    "proof_sketch": "可由二项式定理展开或从集合子集计数的两种方式得到。",
+    "application_scenarios": [
+      "子集计数",
+      "组合恒等式化简"
+    ],
+    "source": "组合数学, Stanley, 第1章",
+    "review_status": "approved"
+  },
+  {
+    "title": "交错二项式求和",
+    "latex": "\\sum_{k=0}^{n} (-1)^k \\binom{n}{k} = 0",
+    "category": "二项式恒等式",
+    "tags": [
+      "求和",
+      "二项式系数",
+      "交错"
+    ],
+    "description": "n > 0 时，奇数项与偶数项二项式系数之和相等",
+    "conditions": "n > 0",
+    "references": [
+      "组合数学, Stanley, 第1章"
+    ],
+    "id": "2",
+    "normalized_expression": "sum_{k=0}^{n} (-1)^k binom{n}{k} = 0",
+    "created_at": "2026-04-27 17:16:13.236449",
+    "updated_at": "2026-04-27 17:16:13.236449",
+    "difficulty": "中等",
+    "proof_sketch": "可由二项式定理展开或从集合子集计数的两种方式得到。",
+    "application_scenarios": [
+      "子集计数",
+      "组合恒等式化简"
+    ],
+    "source": "组合数学, Stanley, 第1章",
+    "review_status": "approved"
+  },
+  {
+    "title": "二项式系数对称性",
+    "latex": "\\binom{n}{k} = \\binom{n}{n-k}",
+    "category": "二项式恒等式",
+    "tags": [
+      "对称性",
+      "二项式系数"
+    ],
+    "description": "二项式系数的对称性质",
+    "conditions": "0 \\leq k \\leq n",
+    "references": [
+      "组合数学, Stanley, 第1章"
+    ],
+    "id": "3",
+    "normalized_expression": "binom{n}{k} = binom{n}{n-k}",
+    "created_at": "2026-04-27 17:16:13.236449",
+    "updated_at": "2026-04-27 17:16:13.236449",
+    "difficulty": "基础",
+    "proof_sketch": "可由二项式定理展开或从集合子集计数的两种方式得到。",
+    "application_scenarios": [
+      "子集计数",
+      "组合恒等式化简"
+    ],
+    "source": "组合数学, Stanley, 第1章",
+    "review_status": "approved"
+  },
+  {
+    "title": "范德蒙德卷积",
+    "latex": "\\sum_{k=0}^{r} \\binom{m}{k}\\binom{n}{r-k} = \\binom{m+n}{r}",
+    "category": "二项式恒等式",
+    "tags": [
+      "卷积",
+      "二项式系数",
+      "求和"
+    ],
+    "description": "两个二项式系数序列的卷积公式",
+    "conditions": "m, n, r \\geq 0",
+    "references": [
+      "组合数学, Stanley, 第1章"
+    ],
+    "id": "4",
+    "normalized_expression": "sum_{k=0}^{r} binom{m}{k} binom{n}{r-k} = binom{m+n}{r}",
+    "created_at": "2026-04-27 17:16:13.236449",
+    "updated_at": "2026-04-27 17:16:13.236449",
+    "difficulty": "中等",
+    "proof_sketch": "可由二项式定理展开或从集合子集计数的两种方式得到。",
+    "application_scenarios": [
+      "子集计数",
+      "组合恒等式化简"
+    ],
+    "source": "组合数学, Stanley, 第1章",
+    "review_status": "approved"
+  },
+  {
+    "title": "中心二项式系数",
+    "latex": "\\binom{2n}{n}",
+    "category": "二项式恒等式",
+    "tags": [
+      "中心",
+      "二项式系数"
+    ],
+    "description": "中心二项式系数，Catalan 数的基础",
+    "conditions": "n \\geq 0",
+    "references": [
+      "OEIS A000984"
+    ],
+    "id": "5",
+    "normalized_expression": "binom{2n}{n}",
+    "created_at": "2026-04-27 17:16:13.236449",
+    "updated_at": "2026-04-27 17:16:13.236449",
+    "difficulty": "基础",
+    "proof_sketch": "可由二项式定理展开或从集合子集计数的两种方式得到。",
+    "application_scenarios": [
+      "子集计数",
+      "组合恒等式化简"
+    ],
+    "source": "OEIS A000984",
+    "review_status": "approved"
+  },
+  {
+    "title": "Catalan 数闭式公式",
+    "latex": "C_n = \\frac{1}{n+1}\\binom{2n}{n}",
+    "category": "Catalan 数",
+    "tags": [
+      "闭式",
+      "组合数",
+      "经典序列"
+    ],
+    "description": "Catalan 数的闭式表达式，计数多种组合结构",
+    "conditions": "n \\geq 0",
+    "references": [
+      "组合数学, Stanley, 第2章",
+      "OEIS A000108"
+    ],
+    "id": "6",
+    "normalized_expression": "C_n = frac{1}{n+1} binom{2n}{n}",
+    "created_at": "2026-04-27 17:16:13.236449",
+    "updated_at": "2026-04-27 17:16:13.236449",
+    "difficulty": "中等",
+    "proof_sketch": "可由递推分解、生成函数方程或格路径计数推导。",
+    "application_scenarios": [
+      "括号匹配计数",
+      "树结构计数",
+      "路径计数"
+    ],
+    "source": "组合数学, Stanley, 第2章",
+    "review_status": "approved"
+  },
+  {
+    "title": "Catalan 数递推关系",
+    "latex": "C_{n+1} = \\sum_{i=0}^{n} C_i C_{n-i}",
+    "category": "Catalan 数",
+    "tags": [
+      "递推",
+      "卷积",
+      "生成函数"
+    ],
+    "description": "Catalan 数的卷积型递推关系",
+    "conditions": "n \\geq 0",
+    "references": [
+      "组合数学, Stanley, 第2章"
+    ],
+    "id": "7",
+    "normalized_expression": "C_{n+1} = sum_{i=0}^{n} C_i C_{n-i}",
+    "created_at": "2026-04-27 17:16:13.236449",
+    "updated_at": "2026-04-27 17:16:13.236449",
+    "difficulty": "中等",
+    "proof_sketch": "可由递推分解、生成函数方程或格路径计数推导。",
+    "application_scenarios": [
+      "括号匹配计数",
+      "树结构计数",
+      "路径计数",
+      "序列计数",
+      "递推求解"
+    ],
+    "source": "组合数学, Stanley, 第2章",
+    "review_status": "approved"
+  },
+  {
+    "title": "Catalan 数生成函数",
+    "latex": "\\sum_{n=0}^{\\infty} C_n x^n = \\frac{1 - \\sqrt{1-4x}}{2x}",
+    "category": "Catalan 数",
+    "tags": [
+      "生成函数",
+      "解析形式"
+    ],
+    "description": "Catalan 数的普通生成函数",
+    "conditions": "|x| < 1/4",
+    "references": [
+      "组合数学, Stanley, 第2章"
+    ],
+    "id": "8",
+    "normalized_expression": "sum_{n=0}^{infty} C_n x^n = frac{1 - sqrt{1-4x}}{2x}",
+    "created_at": "2026-04-27 17:16:13.236449",
+    "updated_at": "2026-04-27 17:16:13.236449",
+    "difficulty": "较难",
+    "proof_sketch": "可由递推分解、生成函数方程或格路径计数推导。",
+    "application_scenarios": [
+      "括号匹配计数",
+      "树结构计数",
+      "路径计数",
+      "序列计数",
+      "递推求解"
+    ],
+    "source": "组合数学, Stanley, 第2章",
+    "review_status": "approved"
+  },
+  {
+    "title": "Stirling 数第二类显式公式",
+    "latex": "S(n,k) = \\frac{1}{k!}\\sum_{j=0}^{k}(-1)^{k-j}\\binom{k}{j}j^n",
+    "category": "Stirling 数",
+    "tags": [
+      "显式公式",
+      "容斥原理",
+      "集合划分"
+    ],
+    "description": "第二类 Stirling 数计算 n 元集合划分为 k 个非空子集的方式数",
+    "conditions": "n \\geq k \\geq 0",
+    "references": [
+      "组合数学, Stanley, 第1章"
+    ],
+    "id": "9",
+    "normalized_expression": "S(n,k) = frac{1}{k!} sum_{j=0}^{k} (-1)^{k-j} binom{k}{j} j^n",
+    "created_at": "2026-04-27 17:16:13.236449",
+    "updated_at": "2026-04-27 17:16:13.236449",
+    "difficulty": "中等",
+    "proof_sketch": "可按集合划分或排列结构分类，并结合递推、容斥或指数生成函数得到。",
+    "application_scenarios": [
+      "集合划分",
+      "离散结构分类"
+    ],
+    "source": "组合数学, Stanley, 第1章",
+    "review_status": "approved"
+  },
+  {
+    "title": "Stirling 数与 Bell 数",
+    "latex": "\\sum_{k=0}^{n} S(n,k) = B_n",
+    "category": "Stirling 数",
+    "tags": [
+      "Bell 数",
+      "求和",
+      "集合划分"
+    ],
+    "description": "Bell 数是所有第二类 Stirling 数之和，表示集合划分的总数",
+    "conditions": "n \\geq 0",
+    "references": [
+      "OEIS A000110"
+    ],
+    "id": "10",
+    "normalized_expression": "sum_{k=0}^{n} S(n,k) = B_n",
+    "created_at": "2026-04-27 17:16:13.236449",
+    "updated_at": "2026-04-27 17:16:13.236449",
+    "difficulty": "中等",
+    "proof_sketch": "可按集合划分或排列结构分类，并结合递推、容斥或指数生成函数得到。",
+    "application_scenarios": [
+      "集合划分",
+      "离散结构分类"
+    ],
+    "source": "OEIS A000110",
+    "review_status": "approved"
+  },
+  {
+    "title": "Stirling 数递推关系",
+    "latex": "S(n+1,k) = kS(n,k) + S(n,k-1)",
+    "category": "Stirling 数",
+    "tags": [
+      "递推",
+      "递推关系"
+    ],
+    "description": "第二类 Stirling 数的基本递推公式",
+    "conditions": "n \\geq 0, k \\geq 1",
+    "references": [
+      "组合数学, Stanley, 第1章"
+    ],
+    "id": "11",
+    "normalized_expression": "S(n+1,k) = k S(n,k) + S(n,k-1)",
+    "created_at": "2026-04-27 17:16:13.236449",
+    "updated_at": "2026-04-27 17:16:13.236449",
+    "difficulty": "中等",
+    "proof_sketch": "可按集合划分或排列结构分类，并结合递推、容斥或指数生成函数得到。",
+    "application_scenarios": [
+      "集合划分",
+      "离散结构分类"
+    ],
+    "source": "组合数学, Stanley, 第1章",
+    "review_status": "approved"
+  },
+  {
+    "title": "中心二项式生成函数",
+    "latex": "\\sum_{n=0}^{\\infty} \\binom{2n}{n} x^n = \\frac{1}{\\sqrt{1-4x}}",
+    "category": "生成函数",
+    "tags": [
+      "二项式",
+      "解析形式"
+    ],
+    "description": "中心二项式系数的普通生成函数",
+    "conditions": "|x| < 1/4",
+    "references": [
+      "生成函数, Wilf, 第2章"
+    ],
+    "id": "12",
+    "normalized_expression": "sum_{n=0}^{infty} binom{2n}{n} x^n = frac{1}{sqrt{1-4x}}",
+    "created_at": "2026-04-27 17:16:13.236449",
+    "updated_at": "2026-04-27 17:16:13.236449",
+    "difficulty": "较难",
+    "proof_sketch": "可由二项式定理展开或从集合子集计数的两种方式得到。",
+    "application_scenarios": [
+      "子集计数",
+      "组合恒等式化简",
+      "序列计数",
+      "递推求解"
+    ],
+    "source": "生成函数, Wilf, 第2章",
+    "review_status": "approved"
+  },
+  {
+    "title": "指数生成函数",
+    "latex": "\\sum_{n=0}^{\\infty} \\frac{x^n}{n!} = e^x",
+    "category": "生成函数",
+    "tags": [
+      "指数",
+      "解析形式",
+      "基本"
+    ],
+    "description": "指数函数的幂级数展开",
+    "conditions": "所有 x",
+    "references": [
+      "数学分析, Rudin"
+    ],
+    "id": "13",
+    "normalized_expression": "sum_{n=0}^{infty} frac{x^n}{n!} = e^x",
+    "created_at": "2026-04-27 17:16:13.236449",
+    "updated_at": "2026-04-27 17:16:13.236449",
+    "difficulty": "较难",
+    "proof_sketch": "可将组合对象按规模编码为幂级数，再通过代数运算或系数提取得到。",
+    "application_scenarios": [
+      "序列计数",
+      "递推求解"
+    ],
+    "source": "数学分析, Rudin",
+    "review_status": "approved"
+  },
+  {
+    "title": "Fibonacci 数二项式表示",
+    "latex": "F_n = \\sum_{k=0}^{\\lfloor n/2 \\rfloor} \\binom{n-k-1}{k}",
+    "category": "Fibonacci 数",
+    "tags": [
+      "二项式表示",
+      "求和"
+    ],
+    "description": "Fibonacci 数可用对角线二项式系数之和表示",
+    "conditions": "n \\geq 1",
+    "references": [
+      "OEIS A000045"
+    ],
+    "id": "14",
+    "normalized_expression": "F_n = sum_{k=0}^{floor n/2} binom{n-k-1}{k}",
+    "created_at": "2026-04-27 17:16:13.236449",
+    "updated_at": "2026-04-27 17:16:13.236449",
+    "difficulty": "中等",
+    "proof_sketch": "可由二项式定理展开或从集合子集计数的两种方式得到。",
+    "application_scenarios": [
+      "子集计数",
+      "组合恒等式化简"
+    ],
+    "source": "OEIS A000045",
+    "review_status": "approved"
+  },
+  {
+    "title": "调和数与二项式",
+    "latex": "\\sum_{k=1}^{n} \\binom{n}{k} H_k = 2^n (H_n - \\sum_{k=1}^{n} \\frac{1}{k 2^k})",
+    "category": "二项式恒等式",
+    "tags": [
+      "调和数",
+      "求和",
+      "高级"
+    ],
+    "description": "涉及调和数和二项式系数的恒等式",
+    "conditions": "n \\geq 1",
+    "references": [
+      "Concrete Mathematics, Graham et al., 第6章"
+    ],
+    "id": "15",
+    "normalized_expression": "sum_{k=1}^{n} binom{n}{k} H_k = 2^n (H_n - sum_{k=1}^{n} frac{1}{k 2^k})",
+    "created_at": "2026-04-27 17:16:13.236449",
+    "updated_at": "2026-04-27 17:16:13.236449",
+    "difficulty": "中等",
+    "proof_sketch": "可由二项式定理展开或从集合子集计数的两种方式得到。",
+    "application_scenarios": [
+      "子集计数",
+      "组合恒等式化简"
+    ],
+    "source": "Concrete Mathematics, Graham et al., 第6章",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right) k^{r} x^{k}=(1+x)^{n} \\sum_{j=0}^{r}(-1)^{j}\\left(\\begin{array}{l}n \\\\ j\\end{array}\\right) \\frac{x^{j}}{(1+x)^{j}} \\sum_{k=0}^{j}(-1)^{k}\\left(\\begin{array}{l}j \\\\ k\\end{array}\\right) k^{r}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "j \\geq 0, m \\geq 0",
+    "references": [],
+    "id": "16",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right) k^{r} x^{k}=(1+x)^{n} \\sum_{j=0}^{r}(-1)^{j}\\left(\\begin{array}{l}n \\\\ j\\end{array}\\right) \\frac{x^{j}}{(1+x)^{j}} \\sum_{k=0}^{j}(-1)^{k}\\left(\\begin{array}{l}j \\\\ k\\end{array}\\right) k^{r}",
+    "created_at": "2026-04-27 17:40:45.253184",
+    "updated_at": "2026-04-27 17:40:45.253184",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "x^{n}=\\sum_{k=0}^{n}\\left(\\begin{array}{c} x+k-1 \\\\ n\\end{array}\\right) A_{n k}, A_{n k}=\\sum_{j=0}^{k}(-1)^{j}\\left(\\begin{array}{c}n+1 \\\\ j\\end{array}\\right)(k-j)^{n}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "A \\geq 0, j \\geq 0, m \\geq 0",
+    "references": [],
+    "id": "17",
+    "normalized_expression": "x^{n}=\\sum_{k=0}^{n}\\left(\\begin{array}{c} x+k-1 \\\\ n\\end{array}\\right) a_{n k}, a_{n k}=\\sum_{j=0}^{k}(-1)^{j}\\left(\\begin{array}{c}n+1 \\\\ j\\end{array}\\right)(k-j)^{n}",
+    "created_at": "2026-04-27 17:40:45.349514",
+    "updated_at": "2026-04-27 17:40:45.349514",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "B_{r, q}^{n}=\\sum_{k=0}^{r}(-1)^{k}\\left(\\begin{array}{l}q \\\\ k\\end{array}\\right)(r-k)^{n}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "B \\geq 0, m \\geq 0",
+    "references": [],
+    "id": "18",
+    "normalized_expression": "b_{r, q}^{n}=\\sum_{k=0}^{r}(-1)^{k}\\left(\\begin{array}{l}q \\\\ k\\end{array}\\right)(r-k)^{n}",
+    "created_at": "2026-04-27 17:40:45.366843",
+    "updated_at": "2026-04-27 17:40:45.366843",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 k+1 \\\\ j\\end{array}\\right)=\\frac{(-1)^{j-1}}{2^{j+2}}\\left\\{\\sum_{k=0}^{j+1}(-1)^{k}\\left(\\begin{array}{c}2 n+3 \\\\ k\\end{array}\\right) 2^{k}+1\\right\\}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "19",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 k+1 \\\\ j\\end{array}\\right)=\\frac{(-1)^{j-1}}{2^{j+2}}\\left{\\sum_{k=0}^{j+1}(-1)^{k}\\left(\\begin{array}{c}2 n+3 \\\\ k\\end{array}\\right) 2^{k}+1\\right}",
+    "created_at": "2026-04-27 17:40:45.385586",
+    "updated_at": "2026-04-27 17:40:45.385586",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}j+k \\\\ j\\end{array}\\right)=\\frac{(-1)^{j}}{2^{j+1}}\\left\\{(-1)^{n} \\sum_{k=0}^{j}(-1)^{k}\\left(\\begin{array}{c}n+j+1 \\\\ k\\end{array}\\right) 2^{k}+(-1)^{j}\\right\\}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "20",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}j+k \\\\ j\\end{array}\\right)=\\frac{(-1)^{j}}{2^{j+1}}\\left{(-1)^{n} \\sum_{k=0}^{j}(-1)^{k}\\left(\\begin{array}{c}n+j+1 \\\\ k\\end{array}\\right) 2^{k}+(-1)^{j}\\right}",
+    "created_at": "2026-04-27 17:40:45.399237",
+    "updated_at": "2026-04-27 17:40:45.399237",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{j=k}^{n}\\left(\\begin{array}{c}j-a+1 \\\\ j-a+1\\end{array}\\right)(1-x)^{n-j} x^{j}=\\sum_{j=k}^{n}\\left(\\begin{array}{c}j-a \\\\ k-a \\end{array}\\right)(1-x)^{j-k} x^{k}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "j \\geq 0, m \\geq 0",
+    "references": [],
+    "id": "21",
+    "normalized_expression": "\\sum_{j=k}^{n}\\left(\\begin{array}{c}j-a+1 \\\\ j-a+1\\end{array}\\right)(1-x)^{n-j} x^{j}=\\sum_{j=k}^{n}\\left(\\begin{array}{c}j-a \\\\ k-a \\end{array}\\right)(1-x)^{j-k} x^{k}",
+    "created_at": "2026-04-27 17:40:45.415252",
+    "updated_at": "2026-04-27 17:40:45.415252",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=m}^{n-1}\\left(\\begin{array}{c}k-1 \\\\ m-1\\end{array}\\right) \\frac{1}{n-k}=\\left(\\begin{array}{c}n-1 \\\\ m-1\\end{array}\\right) \\sum_{k=m}^{n-1} \\frac{1}{k}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "22",
+    "normalized_expression": "\\sum_{k=m}^{n-1}\\left(\\begin{array}{c}k-1 \\\\ m-1\\end{array}\\right) \\frac{1}{n-k}=\\left(\\begin{array}{c}n-1 \\\\ m-1\\end{array}\\right) \\sum_{k=m}^{n-1} \\frac{1}{k}",
+    "created_at": "2026-04-27 17:40:45.423912",
+    "updated_at": "2026-04-27 17:40:45.423912",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}x-k \\\\ n-k\\end{array}\\right)=\\left(\\begin{array}{c}x+1 \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "23",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}x-k \\\\ n-k\\end{array}\\right)=\\left(\\begin{array}{c}x+1 \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:45.439789",
+    "updated_at": "2026-04-27 17:40:45.439789",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=a}^{n}(-1)^{k-a}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right) \\frac{1}{k}=\\sum_{k=a}^{n}\\left(\\begin{array}{c}k-1 \\\\ a-1\\end{array}\\right) \\frac{1}{k}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "24",
+    "normalized_expression": "\\sum_{k=a}^{n}(-1)^{k-a}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right) \\frac{1}{k}=\\sum_{k=a}^{n}\\left(\\begin{array}{c}k-1 \\\\ a-1\\end{array}\\right) \\frac{1}{k}",
+    "created_at": "2026-04-27 17:40:45.455863",
+    "updated_at": "2026-04-27 17:40:45.455863",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\left\\{\\sum_{k=0}^{n}\\left(\\begin{array}{c}-1 / 2 \\\\ k\\end{array}\\right)\\right\\}^{2}=\\left(\\begin{array}{c}-1 / 2 \\\\ n\\end{array}\\right) \\sum_{k=0}^{n}\\left(\\begin{array}{c}-1 / 2 \\\\ n-k\\end{array}\\right) \\frac{2 n+1}{2 k+1}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "25",
+    "normalized_expression": "\\left{\\sum_{k=0}^{n}\\left(\\begin{array}{c}-1 / 2 \\\\ k\\end{array}\\right)\\right}^{2}=\\left(\\begin{array}{c}-1 / 2 \\\\ n\\end{array}\\right) \\sum_{k=0}^{n}\\left(\\begin{array}{c}-1 / 2 \\\\ n-k\\end{array}\\right) \\frac{2 n+1}{2 k+1}",
+    "created_at": "2026-04-27 17:40:45.464372",
+    "updated_at": "2026-04-27 17:40:45.464372",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n} \\frac{x^{k}}{\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)}=(n+1)\\left(\\frac{x}{1+x}\\right)^{n+1} \\sum_{k=1}^{n+1} \\frac{1}{k} \\frac{1+x^{k}}{1+x}\\left(\\frac{1+x}{x}\\right)^{k}=s_{n}(x)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0, s \\geq 0",
+    "references": [],
+    "id": "26",
+    "normalized_expression": "\\sum_{k=0}^{n} \\frac{x^{k}}{\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)}=(n+1)\\left(\\frac{x}{1+x}\\right)^{n+1} \\sum_{k=1}^{n+1} \\frac{1}{k} \\frac{1+x^{k}}{1+x}\\left(\\frac{1+x}{x}\\right)^{k}=s_{n}(x)",
+    "created_at": "2026-04-27 17:40:45.481055",
+    "updated_at": "2026-04-27 17:40:45.481055",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n} \\frac{1}{\\left(\\begin{array}{c}x+k \\\\ k\\end{array}\\right)}=\\frac{x}{x-1}\\left\\{1-\\frac{1}{\\left(\\begin{array}{c}x+n \\\\ n+1\\end{array}\\right)}\\right\\}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "27",
+    "normalized_expression": "\\sum_{k=0}^{n} \\frac{1}{\\left(\\begin{array}{c}x+k \\\\ k\\end{array}\\right)}=\\frac{x}{x-1}\\left{1-\\frac{1}{\\left(\\begin{array}{c}x+n \\\\ n+1\\end{array}\\right)}\\right}",
+    "created_at": "2026-04-27 17:40:45.495404",
+    "updated_at": "2026-04-27 17:40:45.495404",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=1}^{n} \\frac{1}{\\left(\\begin{array}{l}k \\\\ j\\end{array}\\right)}=\\begin{cases}\\sum_{k=1}^{n} \\frac{1}{k}, & j=1 \\\\ \\frac{j}{j-1}\\left\\{1-\\frac{1}{\\left(\\begin{array}{c}n \\\\ j-1\\end{array}\\right)}\\right\\}, & j \\neq 1\\end{cases}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "j \\geq 0, m \\geq 0",
+    "references": [],
+    "id": "28",
+    "normalized_expression": "\\sum_{k=1}^{n} \\frac{1}{\\left(\\begin{array}{l}k \\\\ j\\end{array}\\right)}=\\begin{cases}\\sum_{k=1}^{n} \\frac{1}{k}, & j=1 \\\\ \\frac{j}{j-1}\\left{1-\\frac{1}{\\left(\\begin{array}{c}n \\\\ j-1\\end{array}\\right)}\\right}, & j \\neq 1\\end{cases}",
+    "created_at": "2026-04-27 17:40:45.512266",
+    "updated_at": "2026-04-27 17:40:45.512266",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n} \\frac{(-1)^{k}}{\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)}=\\frac{x+1}{x+2}\\left\\{1+\\frac{(-1)^{n}}{\\left(\\begin{array}{l}x+1 \\\\ n+1\\end{array}\\right)}\\right\\}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "29",
+    "normalized_expression": "\\sum_{k=0}^{n} \\frac{(-1)^{k}}{\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)}=\\frac{x+1}{x+2}\\left{1+\\frac{(-1)^{n}}{\\left(\\begin{array}{l}x+1 \\\\ n+1\\end{array}\\right)}\\right}",
+    "created_at": "2026-04-27 17:40:45.529549",
+    "updated_at": "2026-04-27 17:40:45.529549",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=1}^{r} \\frac{n-2 k}{\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)}=1-\\frac{n+1}{\\left(\\begin{array}{l}n+1 \\\\ r+1\\end{array}\\right)}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "30",
+    "normalized_expression": "\\sum_{k=1}^{r} \\frac{n-2 k}{\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)}=1-\\frac{n+1}{\\left(\\begin{array}{l}n+1 \\\\ r+1\\end{array}\\right)}",
+    "created_at": "2026-04-27 17:40:45.541014",
+    "updated_at": "2026-04-27 17:40:45.541014",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=1}^{n} \\frac{(-1)^{k-1}}{\\left(\\begin{array}{c}2 n \\\\ k\\end{array}\\right)}=\\frac{1}{2(n+1)}+\\frac{(-1)^{n-1}}{2\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "31",
+    "normalized_expression": "\\sum_{k=1}^{n} \\frac{(-1)^{k-1}}{\\left(\\begin{array}{c}2 n \\\\ k\\end{array}\\right)}=\\frac{1}{2(n+1)}+\\frac{(-1)^{n-1}}{2\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)}",
+    "created_at": "2026-04-27 17:40:45.552293",
+    "updated_at": "2026-04-27 17:40:45.552293",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=1}^{2 n-1}(-1)^{k-1} \\frac{k}{\\left(\\begin{array}{c}2 n \\\\ k\\end{array}\\right)}=\\frac{n}{n+1}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "32",
+    "normalized_expression": "\\sum_{k=1}^{2 n-1}(-1)^{k-1} \\frac{k}{\\left(\\begin{array}{c}2 n \\\\ k\\end{array}\\right)}=\\frac{n}{n+1}",
+    "created_at": "2026-04-27 17:40:45.568489",
+    "updated_at": "2026-04-27 17:40:45.568489",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=1}^{n} \\frac{2^{2 k-1}}{k\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)}=\\frac{2^{2 n}}{\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)}-1",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "33",
+    "normalized_expression": "\\sum_{k=1}^{n} \\frac{2^{2 k-1}}{k\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)}=\\frac{2^{2 n}}{\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)}-1",
+    "created_at": "2026-04-27 17:40:45.589926",
+    "updated_at": "2026-04-27 17:40:45.589926",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=n}^{\\infty} \\frac{1}{\\left(\\begin{array}{l}k \\\\ r\\end{array}\\right)}=\\frac{n}{r-1} \\frac{1}{\\left(\\begin{array}{l}n \\\\ r\\end{array}\\right)}, \\quad(r>1)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0, r \\geq 0",
+    "references": [],
+    "id": "34",
+    "normalized_expression": "\\sum_{k=n}^{\\infty} \\frac{1}{\\left(\\begin{array}{l}k \\\\ r\\end{array}\\right)}=\\frac{n}{r-1} \\frac{1}{\\left(\\begin{array}{l}n \\\\ r\\end{array}\\right)}, \\quad(r>1)",
+    "created_at": "2026-04-27 17:40:45.603124",
+    "updated_at": "2026-04-27 17:40:45.603124",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=1}^{\\infty} \\frac{1}{k\\left(\\begin{array}{c}k+n \\\\ k\\end{array}\\right)}=\\frac{1}{n},(n \\geq 1)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "35",
+    "normalized_expression": "\\sum_{k=1}^{\\infty} \\frac{1}{k\\left(\\begin{array}{c}k+n \\\\ k\\end{array}\\right)}=\\frac{1}{n},(n \\geq 1)",
+    "created_at": "2026-04-27 17:40:45.627991",
+    "updated_at": "2026-04-27 17:40:45.627991",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=1}^{\\infty} \\frac{1}{k^{2}\\left(\\begin{array}{c}k+n \\\\ k\\end{array}\\right)}=\\frac{\\pi^{2}}{6}-\\sum_{k=1}^{n} \\frac{1}{k^{2}},(n \\geq 1)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "36",
+    "normalized_expression": "\\sum_{k=1}^{\\infty} \\frac{1}{k^{2}\\left(\\begin{array}{c}k+n \\\\ k\\end{array}\\right)}=\\frac{\\pi^{2}}{6}-\\sum_{k=1}^{n} \\frac{1}{k^{2}},(n \\geq 1)",
+    "created_at": "2026-04-27 17:40:45.633839",
+    "updated_at": "2026-04-27 17:40:45.633839",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\infty} \\frac{x^{k+1}}{\\left(\\begin{array}{l}z \\\\ k\\end{array}\\right)}=\\sum_{k=0}^{\\infty} \\frac{z+1}{z+1-k}\\left(\\frac{x}{x+1}\\right)^{k+1}, R(x)<\\frac{1}{2}, z \\neq-1,0,1,2, \\dots",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "37",
+    "normalized_expression": "\\sum_{k=0}^{\\infty} \\frac{x^{k+1}}{\\left(\\begin{array}{l}z \\\\ k\\end{array}\\right)}=\\sum_{k=0}^{\\infty} \\frac{z+1}{z+1-k}\\left(\\frac{x}{x+1}\\right)^{k+1}, r(x)<\\frac{1}{2}, z \\neq-1,0,1,2, \\dots",
+    "created_at": "2026-04-27 17:40:45.652218",
+    "updated_at": "2026-04-27 17:40:45.652218",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\infty} \\frac{x^{k+1}}{\\left(\\begin{array}{c}z+k \\\\ k\\end{array}\\right)}=\\sum_{k=0}^{\\infty}(-1)^{k} \\frac{z}{z+k}\\left(\\frac{x}{1-x}\\right)^{k+1}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "38",
+    "normalized_expression": "\\sum_{k=0}^{\\infty} \\frac{x^{k+1}}{\\left(\\begin{array}{c}z+k \\\\ k\\end{array}\\right)}=\\sum_{k=0}^{\\infty}(-1)^{k} \\frac{z}{z+k}\\left(\\frac{x}{1-x}\\right)^{k+1}",
+    "created_at": "2026-04-27 17:40:45.664232",
+    "updated_at": "2026-04-27 17:40:45.664232",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\infty} \\frac{x^{k}}{\\left(\\begin{array}{c} x+k \\\\ k \\end{array}\\right) k !}=x \\sum_{k=0}^{\\infty} \\frac{k^{k}}{k !} \\frac{e^{-k}}{x+k}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "39",
+    "normalized_expression": "\\sum_{k=0}^{\\infty} \\frac{x^{k}}{\\left(\\begin{array}{c} x+k \\\\ k \\end{array}\\right) k !}=x \\sum_{k=0}^{\\infty} \\frac{k^{k}}{k !} \\frac{e^{-k}}{x+k}",
+    "created_at": "2026-04-27 17:40:45.680490",
+    "updated_at": "2026-04-27 17:40:45.680490",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\infty} \\frac{1}{\\left(\\begin{array}{c} x+k \\\\ k \\end{array}\\right) k !}=x \\sum_{k=0}^{\\infty}(-1)^{k} \\frac{1}{k !} \\frac{1}{x+k}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "40",
+    "normalized_expression": "\\sum_{k=0}^{\\infty} \\frac{1}{\\left(\\begin{array}{c} x+k \\\\ k \\end{array}\\right) k !}=x \\sum_{k=0}^{\\infty}(-1)^{k} \\frac{1}{k !} \\frac{1}{x+k}",
+    "created_at": "2026-04-27 17:40:45.701312",
+    "updated_at": "2026-04-27 17:40:45.701312",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=1}^{n} \\frac{1}{k^{2}}\\left\\{1-\\frac{1}{\\left(\\begin{array}{c}k+r \\\\ k\\end{array}\\right)}\\right\\}=\\sum_{k=1}^{n} \\frac{1}{k^{2}}\\left\\{1-\\frac{1}{\\left(\\begin{array}{c}k+n \\\\ k\\end{array}\\right)}\\right\\}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "41",
+    "normalized_expression": "\\sum_{k=1}^{n} \\frac{1}{k^{2}}\\left{1-\\frac{1}{\\left(\\begin{array}{c}k+r \\\\ k\\end{array}\\right)}\\right}=\\sum_{k=1}^{n} \\frac{1}{k^{2}}\\left{1-\\frac{1}{\\left(\\begin{array}{c}k+n \\\\ k\\end{array}\\right)}\\right}",
+    "created_at": "2026-04-27 17:40:45.713814",
+    "updated_at": "2026-04-27 17:40:45.713814",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=1}^{2n-1} \\frac{(-1)^{k-1}}{2n \\choose k} \\sum_{j=1}^k \\frac{1}{j} = \\frac{n}{2(n+1)^2} + \\frac{1}{2n+2} \\sum_{k=1}^{2n} \\frac{1}{k}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "j \\geq 0, m \\geq 0",
+    "references": [],
+    "id": "42",
+    "normalized_expression": "\\sum_{k=1}^{2n-1} \\frac{(-1)^{k-1}}{2n \\choose k} \\sum_{j=1}^k \\frac{1}{j} = \\frac{n}{2(n+1)^2} + \\frac{1}{2n+2} \\sum_{k=1}^{2n} \\frac{1}{k}",
+    "created_at": "2026-04-27 17:40:45.736151",
+    "updated_at": "2026-04-27 17:40:45.736151",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "二项式求和公式",
+    "latex": "\\sum_{k=0}^{2n} \\frac{(-1)^k}{(k+1)\\binom{2n}{k}} = (2n+1) - \\sum_{k=1}^{n} \\frac{1}{(k+n)^2}",
+    "category": "二项式恒等式",
+    "tags": [
+      "求和",
+      "二项式系数"
+    ],
+    "description": "关于二项式系数的重要恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "43",
+    "normalized_expression": "\\sum_{k=0}^{2n} \\frac{(-1)^k}{(k+1)\\binom{2n}{k}} = (2n+1) - \\sum_{k=1}^{n} \\frac{1}{(k+n)^2}",
+    "created_at": "2026-04-27 17:40:45.745262",
+    "updated_at": "2026-04-27 17:40:45.745262",
+    "difficulty": "中等",
+    "proof_sketch": "可由二项式定理展开或从集合子集计数的两种方式得到。",
+    "application_scenarios": [
+      "子集计数",
+      "组合恒等式化简"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=1}^{\\infty} \\frac{1}{k^{2}\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)}=\\frac{\\pi^{2}}{18}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "44",
+    "normalized_expression": "\\sum_{k=1}^{\\infty} \\frac{1}{k^{2}\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)}=\\frac{\\pi^{2}}{18}",
+    "created_at": "2026-04-27 17:40:45.753766",
+    "updated_at": "2026-04-27 17:40:45.753766",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=1}^{\\infty} \\frac{2^{2 k-1}}{k(2 k+1)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)} x^{2 k+1}=x-\\sqrt{1-x^{2}} \\cdot Arcsin x",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "45",
+    "normalized_expression": "\\sum_{k=1}^{\\infty} \\frac{2^{2 k-1}}{k(2 k+1)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)} x^{2 k+1}=x-\\sqrt{1-x^{2}} \\cdot arcsin x",
+    "created_at": "2026-04-27 17:40:45.770558",
+    "updated_at": "2026-04-27 17:40:45.770558",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=1}^{\\infty}(-1)^{k} \\frac{2^{2 k-1}}{k(2 k+1)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)} x^{2 k+1}=x-\\sqrt{1+x^{2}} log \\left(x+\\sqrt{1+x^{2}}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "46",
+    "normalized_expression": "\\sum_{k=1}^{\\infty}(-1)^{k} \\frac{2^{2 k-1}}{k(2 k+1)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)} x^{2 k+1}=x-\\sqrt{1+x^{2}} log \\left(x+\\sqrt{1+x^{2}}\\right)",
+    "created_at": "2026-04-27 17:40:45.785273",
+    "updated_at": "2026-04-27 17:40:45.785273",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\infty} \\frac{(-1)^{k}}{(2 k+1)^{2}\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)}=4 \\sum_{k=0}^{\\infty} \\frac{(\\sqrt{5}-2)^{2 k+1}}{(2 k+1)^{2}} =\\frac{\\pi^{2}}{6}-3 log ^{2}\\left(\\frac{\\sqrt{5}-1}{2}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "47",
+    "normalized_expression": "\\sum_{k=0}^{\\infty} \\frac{(-1)^{k}}{(2 k+1)^{2}\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)}=4 \\sum_{k=0}^{\\infty} \\frac{(\\sqrt{5}-2)^{2 k+1}}{(2 k+1)^{2}} =\\frac{\\pi^{2}}{6}-3 log ^{2}\\left(\\frac{\\sqrt{5}-1}{2}\\right)",
+    "created_at": "2026-04-27 17:40:45.792371",
+    "updated_at": "2026-04-27 17:40:45.792371",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=1}^{\\infty} \\frac{1}{\\left(\\begin{array}{l}k n \\\\ k\\end{array}\\right)}=n \\int_{0}^{1} \\frac{(1-x)^{n-1}}{1-x^{n}} d x=n ! \\sum_{k=0}^{\\infty} \\frac{1}{(k n+1)(k n+2) \\cdots(k n+n)}=\\sum_{k=1}^{n-1}\\left(-\\omega_{k}\\right)\\left(1-\\omega_{k}\\right)^{n-1} log \\left(\\frac{1-\\omega_{k}}{-\\omega_{k}}\\right), \\omega_{k}=e^{\\frac{2 k \\pi i}{n}}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "a \\geq 0, m \\geq 0, t \\geq 0, x \\geq 0",
+    "references": [],
+    "id": "48",
+    "normalized_expression": "\\sum_{k=1}^{\\infty} \\frac{1}{\\left(\\begin{array}{l}k n \\\\ k\\end{array}\\right)}=n \\int_{0}^{1} \\frac{(1-x)^{n-1}}{1-x^{n}} d x=n ! \\sum_{k=0}^{\\infty} \\frac{1}{(k n+1)(k n+2) \\cdots(k n+n)}=\\sum_{k=1}^{n-1}\\left(-\\omega_{k}\\right)\\left(1-\\omega_{k}\\right)^{n-1} log \\left(\\frac{1-\\omega_{k}}{-\\omega_{k}}\\right), \\omega_{k}=e^{\\frac{2 k \\pi i}{n}}",
+    "created_at": "2026-04-27 17:40:45.803092",
+    "updated_at": "2026-04-27 17:40:45.803092",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n} \\frac{1}{\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)}=\\frac{n+1}{2^{n+1}} \\sum_{k=1}^{n+1} \\frac{2^{k}}{k}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "49",
+    "normalized_expression": "\\sum_{k=0}^{n} \\frac{1}{\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)}=\\frac{n+1}{2^{n+1}} \\sum_{k=1}^{n+1} \\frac{2^{k}}{k}",
+    "created_at": "2026-04-27 17:40:45.819813",
+    "updated_at": "2026-04-27 17:40:45.819813",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n} \\frac{1}{\\left(\\begin{array}{c}x+k \\\\ r\\end{array}\\right)}=\\frac{r}{r-1}\\left\\{\\frac{1}{\\left(\\begin{array}{c}x-1 \\\\ r-1\\end{array}\\right)}-\\frac{1}{\\left(\\begin{array}{c}n+x \\\\ r-1\\end{array}\\right)}\\right\\}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "50",
+    "normalized_expression": "\\sum_{k=0}^{n} \\frac{1}{\\left(\\begin{array}{c}x+k \\\\ r\\end{array}\\right)}=\\frac{r}{r-1}\\left{\\frac{1}{\\left(\\begin{array}{c}x-1 \\\\ r-1\\end{array}\\right)}-\\frac{1}{\\left(\\begin{array}{c}n+x \\\\ r-1\\end{array}\\right)}\\right}",
+    "created_at": "2026-04-27 17:40:45.832469",
+    "updated_at": "2026-04-27 17:40:45.832469",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}y \\\\ n-k\\end{array}\\right)=\\left(\\begin{array}{c}x+y \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "51",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}y \\\\ n-k\\end{array}\\right)=\\left(\\begin{array}{c}x+y \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:45.847558",
+    "updated_at": "2026-04-27 17:40:45.847558",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}x+k \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}y+n-k \\\\ n-k\\end{array}\\right)=\\left(\\begin{array}{c}x+y+n+1 \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "52",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}x+k \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}y+n-k \\\\ n-k\\end{array}\\right)=\\left(\\begin{array}{c}x+y+n+1 \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:45.863598",
+    "updated_at": "2026-04-27 17:40:45.863598",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=r}^{n}\\left(\\begin{array}{l}k \\\\ r\\end{array}\\right)\\left(\\begin{array}{c}n-k \\\\ 0\\end{array}\\right)=\\left(\\begin{array}{c}n+1 \\\\ r+s+1\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "53",
+    "normalized_expression": "\\sum_{k=r}^{n}\\left(\\begin{array}{l}k \\\\ r\\end{array}\\right)\\left(\\begin{array}{c}n-k \\\\ 0\\end{array}\\right)=\\left(\\begin{array}{c}n+1 \\\\ r+s+1\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:45.872296",
+    "updated_at": "2026-04-27 17:40:45.872296",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x+y-n \\\\ x-k\\end{array}\\right)=\\left(\\begin{array}{c}x+y \\\\ x\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "54",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x+y-n \\\\ x-k\\end{array}\\right)=\\left(\\begin{array}{c}x+y \\\\ x\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:45.888051",
+    "updated_at": "2026-04-27 17:40:45.888051",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}y \\\\ k\\end{array}\\right)=\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}n-x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}y+n-k \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "55",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}y \\\\ k\\end{array}\\right)=\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}n-x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}y+n-k \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:45.904376",
+    "updated_at": "2026-04-27 17:40:45.904376",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ 2 n-k\\end{array}\\right)=\\sum_{k=0}^{n}\\left(\\begin{array}{c}x \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ n+k\\end{array}\\right)=\\frac{1}{2}\\left\\{\\left(\\begin{array}{l}2 x \\\\ 2 n\\end{array}\\right)+\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)^{2}\\right\\}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "56",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ 2 n-k\\end{array}\\right)=\\sum_{k=0}^{n}\\left(\\begin{array}{c}x \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ n+k\\end{array}\\right)=\\frac{1}{2}\\left{\\left(\\begin{array}{l}2 x \\\\ 2 n\\end{array}\\right)+\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)^{2}\\right}",
+    "created_at": "2026-04-27 17:40:45.923272",
+    "updated_at": "2026-04-27 17:40:45.923272",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n-1}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ 2 n-1-k\\end{array}\\right)=\\sum_{k=0}^{n-1}\\left(\\begin{array}{c}x \\\\ n-1-k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ n+k\\end{array}\\right)=\\frac{1}{2}\\left(\\begin{array}{c}2 x \\\\ 2 n-1\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "57",
+    "normalized_expression": "\\sum_{k=0}^{n-1}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ 2 n-1-k\\end{array}\\right)=\\sum_{k=0}^{n-1}\\left(\\begin{array}{c}x \\\\ n-1-k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ n+k\\end{array}\\right)=\\frac{1}{2}\\left(\\begin{array}{c}2 x \\\\ 2 n-1\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:45.932989",
+    "updated_at": "2026-04-27 17:40:45.932989",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}\\left(\\begin{array}{c}x \\\\ 2 k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ n-2 k\\end{array}\\right)=\\frac{1}{2}\\left(\\begin{array}{c}2 x \\\\ n\\end{array}\\right)+\\frac{(-1)^{\\frac{n}{2}}}{2}\\left(\\begin{array}{c}x \\\\ n / 2\\end{array}\\right) \\frac{1+(-1)^{n}}{2}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "58",
+    "normalized_expression": "\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}\\left(\\begin{array}{c}x \\\\ 2 k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ n-2 k\\end{array}\\right)=\\frac{1}{2}\\left(\\begin{array}{c}2 x \\\\ n\\end{array}\\right)+\\frac{(-1)^{\\frac{n}{2}}}{2}\\left(\\begin{array}{c}x \\\\ n / 2\\end{array}\\right) \\frac{1+(-1)^{n}}{2}",
+    "created_at": "2026-04-27 17:40:45.949588",
+    "updated_at": "2026-04-27 17:40:45.949588",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}x \\\\ 2 k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ 2 n-2 k\\end{array}\\right)=\\frac{1}{2}\\left(\\begin{array}{c}2 x \\\\ 2 n\\end{array}\\right)+\\frac{(-1)^{n}}{2}\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "59",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}x \\\\ 2 k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ 2 n-2 k\\end{array}\\right)=\\frac{1}{2}\\left(\\begin{array}{c}2 x \\\\ 2 n\\end{array}\\right)+\\frac{(-1)^{n}}{2}\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:45.965152",
+    "updated_at": "2026-04-27 17:40:45.965152",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\left[\\frac{n-1}{2}\\right]}\\left(\\begin{array}{c}x \\\\ 2 k+1\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ n-2 k-1\\end{array}\\right)=\\frac{1}{2}\\left(\\begin{array}{c}2 x \\\\ n\\end{array}\\right)-\\frac{(-1)^{n / 2}}{2}\\left(\\begin{array}{c}x \\\\ n / 2\\end{array}\\right) \\frac{1+(-1)^{n}}{2}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "60",
+    "normalized_expression": "\\sum_{k=0}^{\\left[\\frac{n-1}{2}\\right]}\\left(\\begin{array}{c}x \\\\ 2 k+1\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ n-2 k-1\\end{array}\\right)=\\frac{1}{2}\\left(\\begin{array}{c}2 x \\\\ n\\end{array}\\right)-\\frac{(-1)^{n / 2}}{2}\\left(\\begin{array}{c}x \\\\ n / 2\\end{array}\\right) \\frac{1+(-1)^{n}}{2}",
+    "created_at": "2026-04-27 17:40:45.982311",
+    "updated_at": "2026-04-27 17:40:45.982311",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n-1}\\left(\\begin{array}{c}x \\\\ 2 k+1\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ 2 n-2 k-1\\end{array}\\right)=\\frac{1}{2}\\left(\\begin{array}{l}2 x \\\\ 2 n\\end{array}\\right)-\\frac{(-1)^{n}}{2}\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "61",
+    "normalized_expression": "\\sum_{k=0}^{n-1}\\left(\\begin{array}{c}x \\\\ 2 k+1\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ 2 n-2 k-1\\end{array}\\right)=\\frac{1}{2}\\left(\\begin{array}{l}2 x \\\\ 2 n\\end{array}\\right)-\\frac{(-1)^{n}}{2}\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:45.994292",
+    "updated_at": "2026-04-27 17:40:45.994292",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}\\left(\\begin{array}{c}x \\\\ 2 k\\end{array}\\right)\\left(\\begin{array}{c}2 n-x \\\\ n-2 k\\end{array}\\right)=\\frac{1}{2}\\left\\{\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)+(-1)^{n} 2^{2 n}\\left(\\begin{array}{c}\\frac{x-1}{2} \\\\ n\\end{array}\\right)\\right\\}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "62",
+    "normalized_expression": "\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}\\left(\\begin{array}{c}x \\\\ 2 k\\end{array}\\right)\\left(\\begin{array}{c}2 n-x \\\\ n-2 k\\end{array}\\right)=\\frac{1}{2}\\left{\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)+(-1)^{n} 2^{2 n}\\left(\\begin{array}{c}\\frac{x-1}{2} \\\\ n\\end{array}\\right)\\right}",
+    "created_at": "2026-04-27 17:40:46.006088",
+    "updated_at": "2026-04-27 17:40:46.006088",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\left[\\frac{n-1}{2}\\right]}\\left(\\begin{array}{c}x \\\\ 2 k+1\\end{array}\\right)\\left(\\begin{array}{c}2 n-x \\\\ n-2 k-1\\end{array}\\right)=\\frac{1}{2}\\left\\{\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)-(-1)^{n} 2^{2 n}\\left(\\begin{array}{c}\\frac{x-1}{2} \\\\ n\\end{array}\\right)\\right\\}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "63",
+    "normalized_expression": "\\sum_{k=0}^{\\left[\\frac{n-1}{2}\\right]}\\left(\\begin{array}{c}x \\\\ 2 k+1\\end{array}\\right)\\left(\\begin{array}{c}2 n-x \\\\ n-2 k-1\\end{array}\\right)=\\frac{1}{2}\\left{\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)-(-1)^{n} 2^{2 n}\\left(\\begin{array}{c}\\frac{x-1}{2} \\\\ n\\end{array}\\right)\\right}",
+    "created_at": "2026-04-27 17:40:46.022590",
+    "updated_at": "2026-04-27 17:40:46.022590",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{r}\\left(\\begin{array}{l} x \\\\ k \\end{array}\\right)\\left(\\begin{array}{c} -x \\\\ n-k \\end{array}\\right)=-\\frac{x-r}{n}\\left(\\begin{array}{l} x \\\\ r \\end{array}\\right)\\left(\\begin{array}{c} -x-1 \\\\ n-r-1 \\end{array}\\right)=\\frac{n-r}{n}\\left(\\begin{array}{c}x-1 \\\\ n-r \\end{array}\\right)\\left(\\begin{array}{c} -x \\\\ n-r \\end{array}\\right)=-\\sum_{k=r+1}^{n}\\left(\\begin{array}{l} x \\\\ k \\end{array}\\right)\\left(\\begin{array}{c} -x \\\\ n-k \\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "64",
+    "normalized_expression": "\\sum_{k=0}^{r}\\left(\\begin{array}{l} x \\\\ k \\end{array}\\right)\\left(\\begin{array}{c} -x \\\\ n-k \\end{array}\\right)=-\\frac{x-r}{n}\\left(\\begin{array}{l} x \\\\ r \\end{array}\\right)\\left(\\begin{array}{c} -x-1 \\\\ n-r-1 \\end{array}\\right)=\\frac{n-r}{n}\\left(\\begin{array}{c}x-1 \\\\ n-r \\end{array}\\right)\\left(\\begin{array}{c} -x \\\\ n-r \\end{array}\\right)=-\\sum_{k=r+1}^{n}\\left(\\begin{array}{l} x \\\\ k \\end{array}\\right)\\left(\\begin{array}{c} -x \\\\ n-k \\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.030788",
+    "updated_at": "2026-04-27 17:40:46.030788",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{r}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}1-x \\\\ n-k\\end{array}\\right)=\\frac{(n-1)(1-x)-r}{n(n-1)}\\left(\\begin{array}{c}x-1 \\\\ r\\end{array}\\right)\\left(\\begin{array}{c}-x \\\\ n-r-1\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "65",
+    "normalized_expression": "\\sum_{k=0}^{r}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}1-x \\\\ n-k\\end{array}\\right)=\\frac{(n-1)(1-x)-r}{n(n-1)}\\left(\\begin{array}{c}x-1 \\\\ r\\end{array}\\right)\\left(\\begin{array}{c}-x \\\\ n-r-1\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.047389",
+    "updated_at": "2026-04-27 17:40:46.047389",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{r}-\\frac{1}{2} \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}\\frac{1}{2} \\\\ k\\end{array}\\right)=\\left(\\begin{array}{r}-\\frac{1}{2} \\\\ n\\end{array}\\right)\\left(\\begin{array}{r}-\\frac{3}{2} \\\\ n\\end{array}\\right)=(2 n+1)\\left(\\begin{array}{r}-\\frac{1}{2} \\\\ n\\end{array}\\right)^{2}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "66",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{r}-\\frac{1}{2} \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}\\frac{1}{2} \\\\ k\\end{array}\\right)=\\left(\\begin{array}{r}-\\frac{1}{2} \\\\ n\\end{array}\\right)\\left(\\begin{array}{r}-\\frac{3}{2} \\\\ n\\end{array}\\right)=(2 n+1)\\left(\\begin{array}{r}-\\frac{1}{2} \\\\ n\\end{array}\\right)^{2}",
+    "created_at": "2026-04-27 17:40:46.055895",
+    "updated_at": "2026-04-27 17:40:46.055895",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right) z^{k}=\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x+n-k \\\\ n\\end{array}\\right)(z-1)^{k}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "67",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right) z^{k}=\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x+n-k \\\\ n\\end{array}\\right)(z-1)^{k}",
+    "created_at": "2026-04-27 17:40:46.072282",
+    "updated_at": "2026-04-27 17:40:46.072282",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}z+k \\\\ k\\end{array}\\right)(x-y)^{n-k} y^{k}=\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}z \\\\ k\\end{array}\\right) x^{n-k} y^{k}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "68",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}z+k \\\\ k\\end{array}\\right)(x-y)^{n-k} y^{k}=\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}z \\\\ k\\end{array}\\right) x^{n-k} y^{k}",
+    "created_at": "2026-04-27 17:40:46.083362",
+    "updated_at": "2026-04-27 17:40:46.083362",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right) 2^{k}=\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x+k \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "69",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right) 2^{k}=\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x+k \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.098973",
+    "updated_at": "2026-04-27 17:40:46.098973",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ k+r\\end{array}\\right)=\\left(\\begin{array}{l}n+x \\\\ n+r\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "70",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ k+r\\end{array}\\right)=\\left(\\begin{array}{l}n+x \\\\ n+r\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.107553",
+    "updated_at": "2026-04-27 17:40:46.107553",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{l} y+k \\\\ n-k \\end{array}\\right) 4^{k}=\\sum_{k=0}^{n}\\left(\\begin{array}{c} 2 x \\\\ k \\end{array}\\right)\\left(\\begin{array}{c} y \\\\ n-k \\end{array}\\right) 2^{k}=\\sum_{k=0}^{n}\\left(\\begin{array}{c} 2 x \\\\ k \\end{array}\\right)\\left(\\begin{array}{c} y+2 x-k \\\\ n-k \\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "71",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{l} y+k \\\\ n-k \\end{array}\\right) 4^{k}=\\sum_{k=0}^{n}\\left(\\begin{array}{c} 2 x \\\\ k \\end{array}\\right)\\left(\\begin{array}{c} y \\\\ n-k \\end{array}\\right) 2^{k}=\\sum_{k=0}^{n}\\left(\\begin{array}{c} 2 x \\\\ k \\end{array}\\right)\\left(\\begin{array}{c} y+2 x-k \\\\ n-k \\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.124029",
+    "updated_at": "2026-04-27 17:40:46.124029",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}x-k \\\\ n-2 k\\end{array}\\right) 2^{2 n-2 k}=\\sum_{k=\\left[\\frac{n}{2}\\right]}^{n}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}k \\\\ n-k\\end{array}\\right) 2^{2 k}=2^{n}\\left(\\begin{array}{c} 2 x \\\\ n \\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "72",
+    "normalized_expression": "\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}x-k \\\\ n-2 k\\end{array}\\right) 2^{2 n-2 k}=\\sum_{k=\\left[\\frac{n}{2}\\right]}^{n}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}k \\\\ n-k\\end{array}\\right) 2^{2 k}=2^{n}\\left(\\begin{array}{c} 2 x \\\\ n \\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.132033",
+    "updated_at": "2026-04-27 17:40:46.132033",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}n+x \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}k+x+1 \\\\ k\\end{array}\\right)=\\begin{cases}1, & n=0 \\\\ -1, & n=1 \\\\ 0, & n \\geq 2\\end{cases}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "73",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}n+x \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}k+x+1 \\\\ k\\end{array}\\right)=\\begin{cases}1, & n=0 \\\\ -1, & n=1 \\\\ 0, & n \\geq 2\\end{cases}",
+    "created_at": "2026-04-27 17:40:46.147785",
+    "updated_at": "2026-04-27 17:40:46.147785",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}x \\\\ 2 k\\end{array}\\right)\\left(\\begin{array}{c}x+n-k-1 \\\\ n-k\\end{array}\\right)=\\left(\\begin{array}{c}x+2 n-1 \\\\ 2 n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "74",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}x \\\\ 2 k\\end{array}\\right)\\left(\\begin{array}{c}x+n-k-1 \\\\ n-k\\end{array}\\right)=\\left(\\begin{array}{c}x+2 n-1 \\\\ 2 n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.152482",
+    "updated_at": "2026-04-27 17:40:46.152482",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}x \\\\ 2 k+1\\end{array}\\right)\\left(\\begin{array}{c}x+n-k-1 \\\\ n-k\\end{array}\\right)=\\left(\\begin{array}{c}x+2 n \\\\ 2 n+1\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "75",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}x \\\\ 2 k+1\\end{array}\\right)\\left(\\begin{array}{c}x+n-k-1 \\\\ n-k\\end{array}\\right)=\\left(\\begin{array}{c}x+2 n \\\\ 2 n+1\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.171999",
+    "updated_at": "2026-04-27 17:40:46.171999",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 x \\\\ 2 k\\end{array}\\right)\\left(\\begin{array}{c}x-k \\\\ n-k\\end{array}\\right)=\\frac{x}{x+n}\\left(\\begin{array}{c}x+n \\\\ 2 n\\end{array}\\right) 2^{2 n}=\\frac{2^{2 n}}{(2 n) !} \\prod_{k=0}^{n-1}\\left(x^{2}-k^{2}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "d \\geq 0, m \\geq 0",
+    "references": [],
+    "id": "76",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 x \\\\ 2 k\\end{array}\\right)\\left(\\begin{array}{c}x-k \\\\ n-k\\end{array}\\right)=\\frac{x}{x+n}\\left(\\begin{array}{c}x+n \\\\ 2 n\\end{array}\\right) 2^{2 n}=\\frac{2^{2 n}}{(2 n) !} \\prod_{k=0}^{n-1}\\left(x^{2}-k^{2}\\right)",
+    "created_at": "2026-04-27 17:40:46.181012",
+    "updated_at": "2026-04-27 17:40:46.181012",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 x+1 \\\\ 2 k+1\\end{array}\\right)\\left(\\begin{array}{c}x-k \\\\ n-k\\end{array}\\right)=\\frac{2 x+1}{2 n+1}\\left(\\begin{array}{c}x+n \\\\ 2 n\\end{array}\\right) 2^{2 n}=\\frac{2 x+1}{(2 n+1)!} \\prod_{k=0}^{n-1}\\left\\{(2 x+1)^{2}-(2 k+1)^{2}\\right\\}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "d \\geq 0, m \\geq 0",
+    "references": [],
+    "id": "77",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 x+1 \\\\ 2 k+1\\end{array}\\right)\\left(\\begin{array}{c}x-k \\\\ n-k\\end{array}\\right)=\\frac{2 x+1}{2 n+1}\\left(\\begin{array}{c}x+n \\\\ 2 n\\end{array}\\right) 2^{2 n}=\\frac{2 x+1}{(2 n+1)!} \\prod_{k=0}^{n-1}\\left{(2 x+1)^{2}-(2 k+1)^{2}\\right}",
+    "created_at": "2026-04-27 17:40:46.194373",
+    "updated_at": "2026-04-27 17:40:46.194373",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}n+2 x \\\\ k+x\\end{array}\\right)=\\left(\\begin{array}{c}2 x+2 n \\\\ x+n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "78",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}n+2 x \\\\ k+x\\end{array}\\right)=\\left(\\begin{array}{c}2 x+2 n \\\\ x+n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.206319",
+    "updated_at": "2026-04-27 17:40:46.206319",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}x \\\\ k-r\\end{array}\\right)=\\left(\\begin{array}{c}n+x \\\\ n-r\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "79",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}x \\\\ k-r\\end{array}\\right)=\\left(\\begin{array}{c}n+x \\\\ n-r\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.222685",
+    "updated_at": "2026-04-27 17:40:46.222685",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right) k=n\\left(\\begin{array}{c}x+n-1 \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "80",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right) k=n\\left(\\begin{array}{c}x+n-1 \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.232468",
+    "updated_at": "2026-04-27 17:40:46.232468",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}y \\\\ n-k\\end{array}\\right)=\\sum_{k=0}^{[\\frac{n}{2}]}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}y-x \\\\ n-2 k\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "81",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}y \\\\ n-k\\end{array}\\right)=\\sum_{k=0}^{[\\frac{n}{2}]}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}y-x \\\\ n-2 k\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.247059",
+    "updated_at": "2026-04-27 17:40:46.247059",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "二项式求和公式",
+    "latex": "\\sum_{k=0}^{n} (-1)^k \\binom{x}{k} \\binom{x}{n-k} = (-1)^{\\frac{n}{2}} \\binom{x}{n/2} \\frac{1+(-1)^n}{2} = \\binom{x}{n} \\frac{2^n (x-n)! \\sqrt{\\pi}}{\\left(x-\\frac{n}{2}\\right)! \\left(-\\frac{n}{2}-\\frac{1}{2}\\right)!}",
+    "category": "二项式恒等式",
+    "tags": [
+      "求和",
+      "二项式系数"
+    ],
+    "description": "关于二项式系数的重要恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "82",
+    "normalized_expression": "\\sum_{k=0}^{n} (-1)^k \\binom{x}{k} \\binom{x}{n-k} = (-1)^{\\frac{n}{2}} \\binom{x}{n/2} \\frac{1+(-1)^n}{2} = \\binom{x}{n} \\frac{2^n (x-n)! \\sqrt{\\pi}}{\\left(x-\\frac{n}{2}\\right)! \\left(-\\frac{n}{2}-\\frac{1}{2}\\right)!}",
+    "created_at": "2026-04-27 17:40:46.258571",
+    "updated_at": "2026-04-27 17:40:46.258571",
+    "difficulty": "中等",
+    "proof_sketch": "可由二项式定理展开或从集合子集计数的两种方式得到。",
+    "application_scenarios": [
+      "子集计数",
+      "组合恒等式化简"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=r}^{n-r}(-1)^{k}\\left(\\begin{array}{l}k \\\\ r\\end{array}\\right)\\left(\\begin{array}{c}n-k \\\\ r\\end{array}\\right)=(-1)^{r}\\left(\\begin{array}{c}n / 2 \\\\ r\\end{array}\\right) \\frac{1+(-1)^{n}}{2}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "83",
+    "normalized_expression": "\\sum_{k=r}^{n-r}(-1)^{k}\\left(\\begin{array}{l}k \\\\ r\\end{array}\\right)\\left(\\begin{array}{c}n-k \\\\ r\\end{array}\\right)=(-1)^{r}\\left(\\begin{array}{c}n / 2 \\\\ r\\end{array}\\right) \\frac{1+(-1)^{n}}{2}",
+    "created_at": "2026-04-27 17:40:46.272605",
+    "updated_at": "2026-04-27 17:40:46.272605",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{2 n}(-1)^{k}\\left(\\begin{array}{l} x \\\\ k \\end{array}\\right)\\left(\\begin{array}{c}x \\\\ 2 n-k \\end{array}\\right)=(-1)^{n}\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "84",
+    "normalized_expression": "\\sum_{k=0}^{2 n}(-1)^{k}\\left(\\begin{array}{l} x \\\\ k \\end{array}\\right)\\left(\\begin{array}{c}x \\\\ 2 n-k \\end{array}\\right)=(-1)^{n}\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.292875",
+    "updated_at": "2026-04-27 17:40:46.292875",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ 2 n-k\\end{array}\\right)=\\frac{(-1)^{n}}{2}\\left\\{\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)+\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)^{2}\\right\\}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "85",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ 2 n-k\\end{array}\\right)=\\frac{(-1)^{n}}{2}\\left{\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)+\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)^{2}\\right}",
+    "created_at": "2026-04-27 17:40:46.300919",
+    "updated_at": "2026-04-27 17:40:46.300919",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}x+k \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x+n-k \\\\ n-k\\end{array}\\right)=\\left(\\begin{array}{c}x+n / 2 \\\\ n / 2\\end{array}\\right) \\frac{1+(-1)^{n}}{2}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "86",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}x+k \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x+n-k \\\\ n-k\\end{array}\\right)=\\left(\\begin{array}{c}x+n / 2 \\\\ n / 2\\end{array}\\right) \\frac{1+(-1)^{n}}{2}",
+    "created_at": "2026-04-27 17:40:46.314207",
+    "updated_at": "2026-04-27 17:40:46.314207",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}x \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ n+k\\end{array}\\right)=\\frac{1}{2}\\left\\{\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)+\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)^{2}\\right\\}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "87",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}x \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ n+k\\end{array}\\right)=\\frac{1}{2}\\left{\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)+\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)^{2}\\right}",
+    "created_at": "2026-04-27 17:40:46.333311",
+    "updated_at": "2026-04-27 17:40:46.333311",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "二项式求和公式",
+    "latex": "\\sum_{k=-n}^{n} (-1)^k \\binom{2n}{n-k} \\binom{2r}{r-k} = \\frac{\\binom{2n}{n}\\binom{2r}{r}}{\\binom{n+r}{n}} = \\frac{(2n)!\\,(2r)!}{(n+r)!\\,n!\\,r!}",
+    "category": "二项式恒等式",
+    "tags": [
+      "求和",
+      "二项式系数"
+    ],
+    "description": "关于二项式系数的重要恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "88",
+    "normalized_expression": "\\sum_{k=-n}^{n} (-1)^k \\binom{2n}{n-k} \\binom{2r}{r-k} = \\frac{\\binom{2n}{n}\\binom{2r}{r}}{\\binom{n+r}{n}} = \\frac{(2n)!\\,(2r)!}{(n+r)!\\,n!\\,r!}",
+    "created_at": "2026-04-27 17:40:46.348497",
+    "updated_at": "2026-04-27 17:40:46.348497",
+    "difficulty": "中等",
+    "proof_sketch": "可由二项式定理展开或从集合子集计数的两种方式得到。",
+    "application_scenarios": [
+      "子集计数",
+      "组合恒等式化简"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\infty}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}-x \\\\ k\\end{array}\\right)=\\frac{sin \\pi x}{\\pi} \\int_{0}^{1} u^{x-1}\\left(\\frac{1+u}{1-u}\\right)^{x} d u",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0, t \\geq 0",
+    "references": [],
+    "id": "89",
+    "normalized_expression": "\\sum_{k=0}^{\\infty}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}-x \\\\ k\\end{array}\\right)=\\frac{sin \\pi x}{\\pi} \\int_{0}^{1} u^{x-1}\\left(\\frac{1+u}{1-u}\\right)^{x} d u",
+    "created_at": "2026-04-27 17:40:46.365377",
+    "updated_at": "2026-04-27 17:40:46.365377",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}-x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ n-k\\end{array}\\right)=\\sum_{k=0}^{n-1}\\left(\\begin{array}{c}x \\\\ k+1\\end{array}\\right)\\left(\\begin{array}{c}n-1 \\\\ k\\end{array}\\right) 2^{k+1}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "90",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}-x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x \\\\ n-k\\end{array}\\right)=\\sum_{k=0}^{n-1}\\left(\\begin{array}{c}x \\\\ k+1\\end{array}\\right)\\left(\\begin{array}{c}n-1 \\\\ k\\end{array}\\right) 2^{k+1}",
+    "created_at": "2026-04-27 17:40:46.381237",
+    "updated_at": "2026-04-27 17:40:46.381237",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{[\\frac{n}2]}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}-x \\\\ n-2 k\\end{array}\\right)=(-1)^{n}\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "91",
+    "normalized_expression": "\\sum_{k=0}^{[\\frac{n}2]}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}-x \\\\ n-2 k\\end{array}\\right)=(-1)^{n}\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.391935",
+    "updated_at": "2026-04-27 17:40:46.391935",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n-x \\\\ n-k \\end{array}\\right)=\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}(-1)^{k}\\left(\\begin{array}{l} x \\\\ k \\end{array}\\right)\\left(\\begin{array}{c} 2 n-2 x \\\\ n-2 k \\end{array}\\right)=(-1)^{n} \\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c} 2 n-k \\\\ n-k \\end{array}\\right)\\left(\\begin{array}{c} 2 n-x \\\\ k \\end{array}\\right) 2^{k}=\\frac{2^{n}}{n !} \\prod_{k=0}^{n-1}(2 k+1-x)=(-1)^{n} 2^{2 n}\\left(\\begin{array}{c} \\frac{x-1}{2} \\\\ n \\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "d \\geq 0, m \\geq 0",
+    "references": [],
+    "id": "92",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n-x \\\\ n-k \\end{array}\\right)=\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}(-1)^{k}\\left(\\begin{array}{l} x \\\\ k \\end{array}\\right)\\left(\\begin{array}{c} 2 n-2 x \\\\ n-2 k \\end{array}\\right)=(-1)^{n} \\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c} 2 n-k \\\\ n-k \\end{array}\\right)\\left(\\begin{array}{c} 2 n-x \\\\ k \\end{array}\\right) 2^{k}=\\frac{2^{n}}{n !} \\prod_{k=0}^{n-1}(2 k+1-x)=(-1)^{n} 2^{2 n}\\left(\\begin{array}{c} \\frac{x-1}{2} \\\\ n \\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.407412",
+    "updated_at": "2026-04-27 17:40:46.407412",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}y-2 k \\\\ n-k\\end{array}\\right) 2^{k}=\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}y-2 x \\\\ n-2 k\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "93",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}y-2 k \\\\ n-k\\end{array}\\right) 2^{k}=\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}y-2 x \\\\ n-2 k\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.418426",
+    "updated_at": "2026-04-27 17:40:46.418426",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 x-2 k \\\\ n-k\\end{array}\\right) 2^{2 k}=(-1)^{n}\\left(\\begin{array}{c}2 x \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "94",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 x-2 k \\\\ n-k\\end{array}\\right) 2^{2 k}=(-1)^{n}\\left(\\begin{array}{c}2 x \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.432009",
+    "updated_at": "2026-04-27 17:40:46.432009",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}4 x-2 k \\\\ n-k\\end{array}\\right) 2^{2 k}=(-1)^{\\frac{n}{2}}\\left(\\begin{array}{c}2 x \\\\ n / 2\\end{array}\\right) \\frac{1+(-1)^{n}}{2}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "95",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}4 x-2 k \\\\ n-k\\end{array}\\right) 2^{2 k}=(-1)^{\\frac{n}{2}}\\left(\\begin{array}{c}2 x \\\\ n / 2\\end{array}\\right) \\frac{1+(-1)^{n}}{2}",
+    "created_at": "2026-04-27 17:40:46.443404",
+    "updated_at": "2026-04-27 17:40:46.443404",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}2 x+1 \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n-2 x-1 \\\\ n-k\\end{array}\\right)=(-1)^{n} 2^{2 n}\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "96",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}2 x+1 \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n-2 x-1 \\\\ n-k\\end{array}\\right)=(-1)^{n} 2^{2 n}\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.457617",
+    "updated_at": "2026-04-27 17:40:46.457617",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x+k \\\\ r\\end{array}\\right)=(-1)^{n}\\left(\\begin{array}{c}x \\\\ r-n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "97",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x+k \\\\ r\\end{array}\\right)=(-1)^{n}\\left(\\begin{array}{c}x \\\\ r-n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.466733",
+    "updated_at": "2026-04-27 17:40:46.466733",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x+k \\\\ x+k\\end{array}\\right)=(-1)^{n}\\left(\\begin{array}{c}x \\\\ n+r\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "98",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x+k \\\\ x+k\\end{array}\\right)=(-1)^{n}\\left(\\begin{array}{c}x \\\\ n+r\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.483010",
+    "updated_at": "2026-04-27 17:40:46.483010",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x-k \\\\ r\\end{array}\\right)=\\left(\\begin{array}{c}x-n \\\\ r-n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "99",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}x-k \\\\ r\\end{array}\\right)=\\left(\\begin{array}{c}x-n \\\\ r-n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.492187",
+    "updated_at": "2026-04-27 17:40:46.492187",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n-k \\\\ n\\end{array}\\right)=\\left(\\begin{array}{c}2 n-x \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "100",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n-k \\\\ n\\end{array}\\right)=\\left(\\begin{array}{c}2 n-x \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.507386",
+    "updated_at": "2026-04-27 17:40:46.507386",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}y-2 k \\\\ n-k\\end{array}\\right) 3^{k}=\\sum_{k=0}^{[\\frac{n}{3}]}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}y-3 x \\\\ n-5 k\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "101",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}y-2 k \\\\ n-k\\end{array}\\right) 3^{k}=\\sum_{k=0}^{[\\frac{n}{3}]}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{l}y-3 x \\\\ n-5 k\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.517032",
+    "updated_at": "2026-04-27 17:40:46.517032",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "二项式求和公式",
+    "latex": "\\sum_{k=0}^{n} (-1)^k \\binom{x}{k} \\binom{3x-2k}{n-k} 3^k = (-1)^n \\binom{x}{n/3} \\frac{(-1)^{\\left\\lfloor \\frac{n}{3} \\right\\rfloor} - (-1)^{\\left\\lfloor \\frac{n-1}{3} \\right\\rfloor}}{2} = \\begin{cases} 0, & 3 \\nmid n, \\\\[6pt] \\dbinom{x}{n/3}, & 3 \\mid n, \\end{cases}",
+    "category": "二项式恒等式",
+    "tags": [
+      "求和",
+      "二项式系数"
+    ],
+    "description": "关于二项式系数的重要恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "102",
+    "normalized_expression": "\\sum_{k=0}^{n} (-1)^k \\binom{x}{k} \\binom{3x-2k}{n-k} 3^k = (-1)^n \\binom{x}{n/3} \\frac{(-1)^{\\left\\lfloor \\frac{n}{3} \\right\\rfloor} - (-1)^{\\left\\lfloor \\frac{n-1}{3} \\right\\rfloor}}{2} = \\begin{cases} 0, & 3 \\nmid n, \\\\[6pt] \\dbinom{x}{n/3}, & 3 \\mid n, \\end{cases}",
+    "created_at": "2026-04-27 17:40:46.532947",
+    "updated_at": "2026-04-27 17:40:46.532947",
+    "difficulty": "中等",
+    "proof_sketch": "可由二项式定理展开或从集合子集计数的两种方式得到。",
+    "application_scenarios": [
+      "子集计数",
+      "组合恒等式化简"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n-k \\\\ n\\end{array}\\right) 2^{k} \\frac{k}{2 n-k}=2^{2 n}\\left(\\begin{array}{c}-\\frac{x}{2}+n-1 \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "103",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n-k \\\\ n\\end{array}\\right) 2^{k} \\frac{k}{2 n-k}=2^{2 n}\\left(\\begin{array}{c}-\\frac{x}{2}+n-1 \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.542060",
+    "updated_at": "2026-04-27 17:40:46.542060",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}x \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}n+k \\\\ k\\end{array}\\right) \\frac{n-k}{n+k} \\cdot \\frac{1}{2^{n+k}}=\\left(\\begin{array}{c}\\frac{x}{2} \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "104",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}x \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}n+k \\\\ k\\end{array}\\right) \\frac{n-k}{n+k} \\cdot \\frac{1}{2^{n+k}}=\\left(\\begin{array}{c}\\frac{x}{2} \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.555527",
+    "updated_at": "2026-04-27 17:40:46.555527",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}n+1 \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n-2 k+x \\\\ n\\end{array}\\right)=\\left(\\begin{array}{c}n-x+1 \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "105",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}n+1 \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n-2 k+x \\\\ n\\end{array}\\right)=\\left(\\begin{array}{c}n-x+1 \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.567543",
+    "updated_at": "2026-04-27 17:40:46.567543",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}(-1)^{k}\\left(\\begin{array}{c}n+1 \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n-2 k \\\\ n\\end{array}\\right)=n+1",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "106",
+    "normalized_expression": "\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}(-1)^{k}\\left(\\begin{array}{c}n+1 \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n-2 k \\\\ n\\end{array}\\right)=n+1",
+    "created_at": "2026-04-27 17:40:46.583251",
+    "updated_at": "2026-04-27 17:40:46.583251",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{2 n}(-1)^{k}\\left(\\begin{array}{c}2 n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n+2 x \\\\ k+x\\end{array}\\right)=(-1)^{n}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right) \\frac{\\left(\\begin{array}{c}2 n+2 x \\\\ x\\end{array}\\right)}{\\left(\\begin{array}{c}n+x \\\\ n\\end{array}\\right)}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "107",
+    "normalized_expression": "\\sum_{k=0}^{2 n}(-1)^{k}\\left(\\begin{array}{c}2 n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n+2 x \\\\ k+x\\end{array}\\right)=(-1)^{n}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right) \\frac{\\left(\\begin{array}{c}2 n+2 x \\\\ x\\end{array}\\right)}{\\left(\\begin{array}{c}n+x \\\\ n\\end{array}\\right)}",
+    "created_at": "2026-04-27 17:40:46.601984",
+    "updated_at": "2026-04-27 17:40:46.601984",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 x-n \\\\ x-k\\end{array}\\right)=(-1)^{n / 2} \\frac{1+(-1)^{n}}{2} \\cdot\\left(\\begin{array}{c}x \\\\ n / 2\\end{array}\\right) \\frac{\\left(\\begin{array}{c}2 x \\\\ x\\end{array}\\right)}{\\left(\\begin{array}{c}2 x \\\\ n\\end{array}\\right)}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "108",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 x-n \\\\ x-k\\end{array}\\right)=(-1)^{n / 2} \\frac{1+(-1)^{n}}{2} \\cdot\\left(\\begin{array}{c}x \\\\ n / 2\\end{array}\\right) \\frac{\\left(\\begin{array}{c}2 x \\\\ x\\end{array}\\right)}{\\left(\\begin{array}{c}2 x \\\\ n\\end{array}\\right)}",
+    "created_at": "2026-04-27 17:40:46.611943",
+    "updated_at": "2026-04-27 17:40:46.611943",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{2 n}(-1)^{k}\\left(\\begin{array}{c}2 n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 x-2 n \\\\ x-k\\end{array}\\right)=(-1)^{n} \\frac{\\left(\\begin{array}{c}x \\\\ n\\end{array}\\right)\\left(\\begin{array}{c}2 x \\\\ x\\end{array}\\right)}{\\left(\\begin{array}{c}2 x \\\\ 2 n\\end{array}\\right)}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "109",
+    "normalized_expression": "\\sum_{k=0}^{2 n}(-1)^{k}\\left(\\begin{array}{c}2 n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 x-2 n \\\\ x-k\\end{array}\\right)=(-1)^{n} \\frac{\\left(\\begin{array}{c}x \\\\ n\\end{array}\\right)\\left(\\begin{array}{c}2 x \\\\ x\\end{array}\\right)}{\\left(\\begin{array}{c}2 x \\\\ 2 n\\end{array}\\right)}",
+    "created_at": "2026-04-27 17:40:46.628459",
+    "updated_at": "2026-04-27 17:40:46.628459",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 x-2 n \\\\ x-k\\end{array}\\right)=\\frac{(-1)^{n}}{2}\\left\\{\\left(\\begin{array}{c}x \\\\ n\\end{array}\\right)+\\left(\\begin{array}{c}x \\\\ n\\end{array}\\right)^{2}\\right\\} \\frac{\\left(\\begin{array}{c}2 x \\\\ x \\end{array}\\right)}{\\left(\\begin{array}{c}2 x \\\\ 2 n\\end{array}\\right)}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "110",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 x-2 n \\\\ x-k\\end{array}\\right)=\\frac{(-1)^{n}}{2}\\left{\\left(\\begin{array}{c}x \\\\ n\\end{array}\\right)+\\left(\\begin{array}{c}x \\\\ n\\end{array}\\right)^{2}\\right} \\frac{\\left(\\begin{array}{c}2 x \\\\ x \\end{array}\\right)}{\\left(\\begin{array}{c}2 x \\\\ 2 n\\end{array}\\right)}",
+    "created_at": "2026-04-27 17:40:46.651086",
+    "updated_at": "2026-04-27 17:40:46.651086",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 x-k \\\\ n-k\\end{array}\\right) 2^{k}=(-1)^{n / 2}\\left(\\begin{array}{c}x \\\\ n / 2\\end{array}\\right) \\frac{1+(-1)^{n}}{2}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "111",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 x-k \\\\ n-k\\end{array}\\right) 2^{k}=(-1)^{n / 2}\\left(\\begin{array}{c}x \\\\ n / 2\\end{array}\\right) \\frac{1+(-1)^{n}}{2}",
+    "created_at": "2026-04-27 17:40:46.660351",
+    "updated_at": "2026-04-27 17:40:46.660351",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 x-2 k \\\\ n-k\\end{array}\\right) 2^{k}=\\frac{1+(-1)^{n}}{2}\\left(\\begin{array}{c}x \\\\ n / 2\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "112",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 x-2 k \\\\ n-k\\end{array}\\right) 2^{k}=\\frac{1+(-1)^{n}}{2}\\left(\\begin{array}{c}x \\\\ n / 2\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.675418",
+    "updated_at": "2026-04-27 17:40:46.675418",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 x-2 k \\\\ n-2 k\\end{array}\\right)=\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right) 2^{n}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "113",
+    "normalized_expression": "\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}(-1)^{k}\\left(\\begin{array}{l}x \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 x-2 k \\\\ n-2 k\\end{array}\\right)=\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right) 2^{n}",
+    "created_at": "2026-04-27 17:40:46.686600",
+    "updated_at": "2026-04-27 17:40:46.686600",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ j\\end{array}\\right)=(-1)^{n}\\left(\\begin{array}{c}n \\\\ j-n\\end{array}\\right) 2^{2 n-j}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "114",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ j\\end{array}\\right)=(-1)^{n}\\left(\\begin{array}{c}n \\\\ j-n\\end{array}\\right) 2^{2 n-j}",
+    "created_at": "2026-04-27 17:40:46.705881",
+    "updated_at": "2026-04-27 17:40:46.705881",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)^{2} x^{k}=\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n-k \\\\ n\\end{array}\\right)(x-1)^{k}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "115",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)^{2} x^{k}=\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n-k \\\\ n\\end{array}\\right)(x-1)^{k}",
+    "created_at": "2026-04-27 17:40:46.712071",
+    "updated_at": "2026-04-27 17:40:46.712071",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)^{2}=\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "116",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)^{2}=\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.732390",
+    "updated_at": "2026-04-27 17:40:46.732390",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\left[\\frac{n-1}{2}\\right]}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)^{2}=\\frac{1}{2}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)-\\frac{1+(-1)^{n}}{4}\\left(\\begin{array}{c}n \\\\ n / 2\\end{array}\\right)^{2}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "117",
+    "normalized_expression": "\\sum_{k=0}^{\\left[\\frac{n-1}{2}\\right]}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)^{2}=\\frac{1}{2}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)-\\frac{1+(-1)^{n}}{4}\\left(\\begin{array}{c}n \\\\ n / 2\\end{array}\\right)^{2}",
+    "created_at": "2026-04-27 17:40:46.742870",
+    "updated_at": "2026-04-27 17:40:46.742870",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 n \\\\ k\\end{array}\\right)^{2}=\\frac{1}{2}\\left(\\begin{array}{c}4 n \\\\ 2 n\\end{array}\\right)+\\frac{1}{2}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)^{2}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "118",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 n \\\\ k\\end{array}\\right)^{2}=\\frac{1}{2}\\left(\\begin{array}{c}4 n \\\\ 2 n\\end{array}\\right)+\\frac{1}{2}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)^{2}",
+    "created_at": "2026-04-27 17:40:46.755269",
+    "updated_at": "2026-04-27 17:40:46.755269",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 n+1 \\\\ k\\end{array}\\right)^{2}=\\frac{1}{2}\\left(\\begin{array}{c}4 n+2 \\\\ 2 n+1\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "119",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 n+1 \\\\ k\\end{array}\\right)^{2}=\\frac{1}{2}\\left(\\begin{array}{c}4 n+2 \\\\ 2 n+1\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.770301",
+    "updated_at": "2026-04-27 17:40:46.770301",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}\\left(\\begin{array}{c}n \\\\ 2 k\\end{array}\\right)^{2}=\\frac{1}{2}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)+\\frac{(-1)^{n / 2}}{2}\\left(\\begin{array}{c}n \\\\ n / 2\\end{array}\\right) \\frac{1+(-1)^{n}}{2}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "120",
+    "normalized_expression": "\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}\\left(\\begin{array}{c}n \\\\ 2 k\\end{array}\\right)^{2}=\\frac{1}{2}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)+\\frac{(-1)^{n / 2}}{2}\\left(\\begin{array}{c}n \\\\ n / 2\\end{array}\\right) \\frac{1+(-1)^{n}}{2}",
+    "created_at": "2026-04-27 17:40:46.786021",
+    "updated_at": "2026-04-27 17:40:46.786021",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 n \\\\ 2 k\\end{array}\\right)^{2}=\\frac{1}{2}\\left(\\begin{array}{c}4 n \\\\ 2 n\\end{array}\\right)+\\frac{(-1)^{n}}{2}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "121",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 n \\\\ 2 k\\end{array}\\right)^{2}=\\frac{1}{2}\\left(\\begin{array}{c}4 n \\\\ 2 n\\end{array}\\right)+\\frac{(-1)^{n}}{2}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.794839",
+    "updated_at": "2026-04-27 17:40:46.794839",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}\\left(\\begin{array}{c}2 n \\\\ 2 k\\end{array}\\right)^{2}=\\frac{1}{4}\\left(\\begin{array}{c}4 n \\\\ 2 n\\end{array}\\right)+\\frac{(-1)^{n}}{4}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)+\\frac{1+(-1)^{n}}{4}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)^{2}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "122",
+    "normalized_expression": "\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}\\left(\\begin{array}{c}2 n \\\\ 2 k\\end{array}\\right)^{2}=\\frac{1}{4}\\left(\\begin{array}{c}4 n \\\\ 2 n\\end{array}\\right)+\\frac{(-1)^{n}}{4}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)+\\frac{1+(-1)^{n}}{4}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)^{2}",
+    "created_at": "2026-04-27 17:40:46.812436",
+    "updated_at": "2026-04-27 17:40:46.812436",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\left[\\frac{n-1}{2}\\right]}\\left(\\begin{array}{c}n \\\\ 2 k+1\\end{array}\\right)^{2}=\\frac{1}{2}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)-\\frac{(-1)^{n / 2}}{2}\\left(\\begin{array}{c}n \\\\ n / 2\\end{array}\\right) \\frac{1+(-1)^{n}}{2}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "123",
+    "normalized_expression": "\\sum_{k=0}^{\\left[\\frac{n-1}{2}\\right]}\\left(\\begin{array}{c}n \\\\ 2 k+1\\end{array}\\right)^{2}=\\frac{1}{2}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)-\\frac{(-1)^{n / 2}}{2}\\left(\\begin{array}{c}n \\\\ n / 2\\end{array}\\right) \\frac{1+(-1)^{n}}{2}",
+    "created_at": "2026-04-27 17:40:46.822992",
+    "updated_at": "2026-04-27 17:40:46.822992",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n-1}\\left(\\begin{array}{c}2 n \\\\ 2 k+1\\end{array}\\right)^{2}=\\frac{1}{2}\\left(\\begin{array}{c}4 n \\\\ 2 n\\end{array}\\right)-\\frac{(-1)^{n}}{2}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "124",
+    "normalized_expression": "\\sum_{k=0}^{n-1}\\left(\\begin{array}{c}2 n \\\\ 2 k+1\\end{array}\\right)^{2}=\\frac{1}{2}\\left(\\begin{array}{c}4 n \\\\ 2 n\\end{array}\\right)-\\frac{(-1)^{n}}{2}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.838500",
+    "updated_at": "2026-04-27 17:40:46.838500",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\left[\\frac{n-1}{2}\\right]}\\left(\\begin{array}{c}2 n \\\\ 2 k+1\\end{array}\\right)^{2}=\\frac{1}{4}\\left(\\begin{array}{c}4 n \\\\ 2 n\\end{array}\\right)-\\frac{(-1)^{n}}{4}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)+\\frac{1-(-1)^{n}}{4}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)^{2}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "125",
+    "normalized_expression": "\\sum_{k=0}^{\\left[\\frac{n-1}{2}\\right]}\\left(\\begin{array}{c}2 n \\\\ 2 k+1\\end{array}\\right)^{2}=\\frac{1}{4}\\left(\\begin{array}{c}4 n \\\\ 2 n\\end{array}\\right)-\\frac{(-1)^{n}}{4}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)+\\frac{1-(-1)^{n}}{4}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)^{2}",
+    "created_at": "2026-04-27 17:40:46.847795",
+    "updated_at": "2026-04-27 17:40:46.847795",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{\\left[\\frac{n-1}{2}\\right]}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)^{2}(n-2 k)^{2}=n\\left(\\begin{array}{c}2 n-2 \\\\ n-1\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "126",
+    "normalized_expression": "\\sum_{k=0}^{\\left[\\frac{n-1}{2}\\right]}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)^{2}(n-2 k)^{2}=n\\left(\\begin{array}{c}2 n-2 \\\\ n-1\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.863356",
+    "updated_at": "2026-04-27 17:40:46.863356",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)^{2} k^{r}=\\sum_{k=0}^{r}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n-k \\\\ n\\end{array}\\right) B_{k}^{r}=s_{r}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "B \\geq 0, m \\geq 0, r \\geq 0, s \\geq 0",
+    "references": [],
+    "id": "127",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)^{2} k^{r}=\\sum_{k=0}^{r}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 n-k \\\\ n\\end{array}\\right) b_{k}^{r}=s_{r}",
+    "created_at": "2026-04-27 17:40:46.881139",
+    "updated_at": "2026-04-27 17:40:46.881139",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "二项式求和公式",
+    "latex": "\\sum_{k=0}^{n} (-1)^k \\binom{n}{k}^2 = (-1)^{n/2} \\binom{n}{n/2} \\frac{1+(-1)^n}{2} = \\sum_{k=0}^{n} (-1)^k \\binom{n}{k} \\binom{2n-k}{n} 2^k",
+    "category": "二项式恒等式",
+    "tags": [
+      "求和",
+      "二项式系数"
+    ],
+    "description": "关于二项式系数的重要恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "128",
+    "normalized_expression": "\\sum_{k=0}^{n} (-1)^k \\binom{n}{k}^2 = (-1)^{n/2} \\binom{n}{n/2} \\frac{1+(-1)^n}{2} = \\sum_{k=0}^{n} (-1)^k \\binom{n}{k} \\binom{2n-k}{n} 2^k",
+    "created_at": "2026-04-27 17:40:46.890660",
+    "updated_at": "2026-04-27 17:40:46.890660",
+    "difficulty": "中等",
+    "proof_sketch": "可由二项式定理展开或从集合子集计数的两种方式得到。",
+    "application_scenarios": [
+      "子集计数",
+      "组合恒等式化简"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{2 n}(-1)^{k}\\left(\\begin{array}{c}2 n \\\\ k\\end{array}\\right)^{2}=(-1)^{n}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "129",
+    "normalized_expression": "\\sum_{k=0}^{2 n}(-1)^{k}\\left(\\begin{array}{c}2 n \\\\ k\\end{array}\\right)^{2}=(-1)^{n}\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.907343",
+    "updated_at": "2026-04-27 17:40:46.907343",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}2 n \\\\ k\\end{array}\\right)^{2}=\\frac{(-1)^{n}}{2}\\left\\{\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)+\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)^{2}\\right\\}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "130",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}2 n \\\\ k\\end{array}\\right)^{2}=\\frac{(-1)^{n}}{2}\\left{\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)+\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right)^{2}\\right}",
+    "created_at": "2026-04-27 17:40:46.912285",
+    "updated_at": "2026-04-27 17:40:46.912285",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)^{2} 2^{k}=\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}3 n-2 k \\\\ 2 n\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "131",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)^{2} 2^{k}=\\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}3 n-2 k \\\\ 2 n\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.933218",
+    "updated_at": "2026-04-27 17:40:46.933218",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)\\left(\\frac{z}{4}\\right)^{k}=\\sum_{k=0}^{n}\\left(\\begin{array}{l} n \\\\ k \\end{array}\\right)\\left(\\begin{array}{c} -\\frac{1}{2} \\\\ k \\end{array}\\right) z^{k}=\\frac{1}{2^{2 n}} \\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c} 2 n-2 k \\\\ n-k \\end{array}\\right)\\left(\\begin{array}{c} 2 k \\\\ k \\end{array}\\right)(z-1)^{k}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "132",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)\\left(\\frac{z}{4}\\right)^{k}=\\sum_{k=0}^{n}\\left(\\begin{array}{l} n \\\\ k \\end{array}\\right)\\left(\\begin{array}{c} -\\frac{1}{2} \\\\ k \\end{array}\\right) z^{k}=\\frac{1}{2^{2 n}} \\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c} 2 n-2 k \\\\ n-k \\end{array}\\right)\\left(\\begin{array}{c} 2 k \\\\ k \\end{array}\\right)(z-1)^{k}",
+    "created_at": "2026-04-27 17:40:46.950264",
+    "updated_at": "2026-04-27 17:40:46.950264",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right) \\frac{1}{2^{2 k}}=\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right) \\frac{1}{2^{2 n}}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "133",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right) \\frac{1}{2^{2 k}}=\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right) \\frac{1}{2^{2 n}}",
+    "created_at": "2026-04-27 17:40:46.962746",
+    "updated_at": "2026-04-27 17:40:46.962746",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)=(-1)^{n} \\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}\\left(\\begin{array}{c}n \\\\ 2 k\\end{array}\\right)",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "134",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)=(-1)^{n} \\sum_{k=0}^{\\left[\\frac{n}{2}\\right]}\\left(\\begin{array}{c}n \\\\ 2 k\\end{array}\\right)",
+    "created_at": "2026-04-27 17:40:46.978769",
+    "updated_at": "2026-04-27 17:40:46.978769",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "2^{2 n} \\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)=\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}2 n-2 k \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right) 3^{k}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "135",
+    "normalized_expression": "2^{2 n} \\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)=\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}2 n-2 k \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right) 3^{k}",
+    "created_at": "2026-04-27 17:40:46.988486",
+    "updated_at": "2026-04-27 17:40:46.988486",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "2^{2 n} \\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)=\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 n-2 k \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right) 5^{k}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "136",
+    "normalized_expression": "2^{2 n} \\sum_{k=0}^{n}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)=\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 n-2 k \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right) 5^{k}",
+    "created_at": "2026-04-27 17:40:47.004455",
+    "updated_at": "2026-04-27 17:40:47.004455",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k+1}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right) \\frac{2 k+1}{2^{2 k}}=\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right) \\frac{1}{(2 n-1) 2^{2 n}}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "137",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k+1}\\left(\\begin{array}{l}n \\\\ k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right) \\frac{2 k+1}{2^{2 k}}=\\left(\\begin{array}{c}2 n \\\\ n\\end{array}\\right) \\frac{1}{(2 n-1) 2^{2 n}}",
+    "created_at": "2026-04-27 17:40:47.022495",
+    "updated_at": "2026-04-27 17:40:47.022495",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 n-2 k \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)=2^{2 n}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "138",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 n-2 k \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)=2^{2 n}",
+    "created_at": "2026-04-27 17:40:47.042316",
+    "updated_at": "2026-04-27 17:40:47.042316",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}2 n-2 k \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)=\\frac{1+(-1)^{n}}{2}\\left(\\begin{array}{c}n \\\\ n / 2\\end{array}\\right) 2^{n}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "139",
+    "normalized_expression": "\\sum_{k=0}^{n}(-1)^{k}\\left(\\begin{array}{c}2 n-2 k \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right)=\\frac{1+(-1)^{n}}{2}\\left(\\begin{array}{c}n \\\\ n / 2\\end{array}\\right) 2^{n}",
+    "created_at": "2026-04-27 17:40:47.062307",
+    "updated_at": "2026-04-27 17:40:47.062307",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 n-2 k \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right) \\frac{1}{2 k-1}= \\begin{cases}0, & n \\geq 1 \\\\ -1, & n=0\\end{cases}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "140",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 n-2 k \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right) \\frac{1}{2 k-1}= \\begin{cases}0, & n \\geq 1 \\\\ -1, & n=0\\end{cases}",
+    "created_at": "2026-04-27 17:40:47.073339",
+    "updated_at": "2026-04-27 17:40:47.073339",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-组合恒等式",
+    "latex": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 n-2 k \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right) \\frac{1}{(2 k-1)(2 n-2 k-1)}= \\begin{cases}1, & n=0 \\\\ -4, & n=1 \\\\ 0, & n \\geq 2\\end{cases}",
+    "category": "q-组合",
+    "tags": [
+      "q-模拟",
+      "组合"
+    ],
+    "description": "q-模拟组合恒等式",
+    "conditions": "m \\geq 0",
+    "references": [],
+    "id": "141",
+    "normalized_expression": "\\sum_{k=0}^{n}\\left(\\begin{array}{c}2 n-2 k \\\\ n-k\\end{array}\\right)\\left(\\begin{array}{c}2 k \\\\ k\\end{array}\\right) \\frac{1}{(2 k-1)(2 n-2 k-1)}= \\begin{cases}1, & n=0 \\\\ -4, & n=1 \\\\ 0, & n \\geq 2\\end{cases}",
+    "created_at": "2026-04-27 17:40:47.089562",
+    "updated_at": "2026-04-27 17:40:47.089562",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "待补充",
+    "review_status": "approved"
+  },
+  {
+    "title": "多项式定理",
+    "latex": "(x_1+x_2+\\cdots+x_m)^n = \\sum_{k_1+\\cdots+k_m=n} \\binom{n}{k_1,k_2,\\ldots,k_m} x_1^{k_1}\\cdots x_m^{k_m}",
+    "category": "多项式恒等式",
+    "tags": [
+      "多项式定理",
+      "多重二项式系数",
+      "展开公式"
+    ],
+    "description": "多项式和的 n 次幂展开为所有多重指标项之和。",
+    "conditions": "n >= 0, k_i >= 0",
+    "references": [
+      "Concrete Mathematics, Graham et al.",
+      "Enumerative Combinatorics, Stanley"
+    ],
+    "id": "142",
+    "normalized_expression": "(x_1+x_2+*s+x_m)^n=sum_{k_1+*s+k_m=n}binom{n}{k_1,k_2,,k_m}x_1^{k_1}*sx_m^{k_m}",
+    "created_at": "2026-06-22 20:23:40.734991",
+    "updated_at": "2026-06-22 20:23:40.734991",
+    "difficulty": "中等",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "组合数学检索",
+      "教学推导辅助"
+    ],
+    "source": "Concrete Mathematics, Graham et al.",
+    "review_status": "approved"
+  },
+  {
+    "title": "Bell 数指数生成函数",
+    "latex": "\\sum_{n=0}^{\\infty} B_n \\frac{x^n}{n!} = e^{e^x-1}",
+    "category": "Bell 数",
+    "tags": [
+      "Bell数",
+      "指数生成函数",
+      "集合划分"
+    ],
+    "description": "Bell 数的指数生成函数，用于刻画集合划分总数。",
+    "conditions": "n >= 0",
+    "references": [
+      "OEIS A000110",
+      "Enumerative Combinatorics, Stanley"
+    ],
+    "id": "143",
+    "normalized_expression": "sum_{n=0}^{infty}b_nfrac{x^n}{n!}=e^{e^x-1}",
+    "created_at": "2026-06-22 20:23:40.734991",
+    "updated_at": "2026-06-22 20:23:40.734991",
+    "difficulty": "较难",
+    "proof_sketch": "可按集合划分或排列结构分类，并结合递推、容斥或指数生成函数得到。",
+    "application_scenarios": [
+      "集合划分",
+      "离散结构分类"
+    ],
+    "source": "OEIS A000110",
+    "review_status": "approved"
+  },
+  {
+    "title": "第一类 Stirling 数递推公式",
+    "latex": "s(n+1,k) = s(n,k-1) - n s(n,k)",
+    "category": "Stirling 数",
+    "tags": [
+      "第一类Stirling数",
+      "递推",
+      "排列轮换"
+    ],
+    "description": "带符号第一类 Stirling 数的基本递推关系。",
+    "conditions": "n >= k >= 0",
+    "references": [
+      "Enumerative Combinatorics, Stanley",
+      "Concrete Mathematics, Graham et al."
+    ],
+    "id": "144",
+    "normalized_expression": "s(n+1,k)=s(n,k-1)-ns(n,k)",
+    "created_at": "2026-06-22 20:23:40.734991",
+    "updated_at": "2026-06-22 20:23:40.734991",
+    "difficulty": "中等",
+    "proof_sketch": "可按集合划分或排列结构分类，并结合递推、容斥或指数生成函数得到。",
+    "application_scenarios": [
+      "集合划分",
+      "离散结构分类"
+    ],
+    "source": "Enumerative Combinatorics, Stanley",
+    "review_status": "approved"
+  },
+  {
+    "title": "整数拆分生成函数",
+    "latex": "\\sum_{n=0}^{\\infty} p(n)x^n = \\prod_{k=1}^{\\infty}\\frac{1}{1-x^k}",
+    "category": "整数拆分",
+    "tags": [
+      "整数拆分",
+      "生成函数",
+      "无限乘积"
+    ],
+    "description": "整数拆分数 p(n) 的普通生成函数。",
+    "conditions": "|x| < 1",
+    "references": [
+      "The Theory of Partitions, Andrews",
+      "OEIS A000041"
+    ],
+    "id": "145",
+    "normalized_expression": "sum_{n=0}^{infty}p(n)x^n=prod_{k=1}^{infty}frac{1}{1-x^k}",
+    "created_at": "2026-06-22 20:23:40.734991",
+    "updated_at": "2026-06-22 20:23:40.734991",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "组合数学检索",
+      "教学推导辅助"
+    ],
+    "source": "The Theory of Partitions, Andrews",
+    "review_status": "approved"
+  },
+  {
+    "title": "q-二项式定理",
+    "latex": "\\prod_{i=0}^{n-1}(1+q^i x)=\\sum_{k=0}^{n} q^{\\binom{k}{2}} {n \\brack k}_q x^k",
+    "category": "q-组合恒等式",
+    "tags": [
+      "q-二项式",
+      "q-组合",
+      "生成函数"
+    ],
+    "description": "有限 q-二项式定理，连接 q-二项式系数与乘积展开。",
+    "conditions": "n >= 0",
+    "references": [
+      "Basic Hypergeometric Series, Gasper and Rahman",
+      "Enumerative Combinatorics, Stanley"
+    ],
+    "id": "146",
+    "normalized_expression": "prod_{i=0}^{n-1}(1+q^ix)=sum_{k=0}^{n}q^{binom{k}{2}}{nk}_qx^k",
+    "created_at": "2026-06-22 20:23:40.734991",
+    "updated_at": "2026-06-22 20:23:40.734991",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "q-模拟恒等式",
+      "组合恒等式推广"
+    ],
+    "source": "Basic Hypergeometric Series, Gasper and Rahman",
+    "review_status": "approved"
+  },
+  {
+    "title": "Burnside 引理",
+    "latex": "|X/G| = \\frac{1}{|G|}\\sum_{g\\in G}|X^g|",
+    "category": "群作用计数",
+    "tags": [
+      "Burnside引理",
+      "群作用",
+      "轨道计数"
+    ],
+    "description": "群作用下轨道数等于各群元素不动点数的平均值。",
+    "conditions": "G ????",
+    "references": [
+      "A Course in Enumeration, Aigner",
+      "Enumerative Combinatorics, Stanley"
+    ],
+    "id": "147",
+    "normalized_expression": "|x/g|=frac{1}{|g|}sum_{gg}|x^g|",
+    "created_at": "2026-06-22 20:23:40.734991",
+    "updated_at": "2026-06-22 20:23:40.734991",
+    "difficulty": "较难",
+    "proof_sketch": "可由群作用轨道与稳定子思想，对每个群元素的不动点数取平均得到。",
+    "application_scenarios": [
+      "对称对象计数",
+      "轨道计数"
+    ],
+    "source": "A Course in Enumeration, Aigner",
+    "review_status": "approved"
+  },
+  {
+    "title": "Eulerian 多项式指数生成函数",
+    "latex": "\\sum_{n=0}^{\\infty} A_n(t)\\frac{x^n}{n!}=\\frac{1-t}{e^{x(t-1)}-t}",
+    "category": "Eulerian 数",
+    "tags": [
+      "Eulerian多项式",
+      "指数生成函数",
+      "排列统计"
+    ],
+    "description": "Eulerian 多项式的指数生成函数，刻画排列下降数分布。",
+    "conditions": "n >= 0",
+    "references": [
+      "Enumerative Combinatorics, Stanley",
+      "Concrete Mathematics, Graham et al."
+    ],
+    "id": "148",
+    "normalized_expression": "sum_{n=0}^{infty}a_n(t)frac{x^n}{n!}=frac{1-t}{e^{x(t-1)}-t}",
+    "created_at": "2026-06-22 20:23:40.734991",
+    "updated_at": "2026-06-22 20:23:40.734991",
+    "difficulty": "较难",
+    "proof_sketch": "可通过组合计数解释、生成函数展开或代数恒等变形证明。",
+    "application_scenarios": [
+      "组合数学检索",
+      "教学推导辅助"
+    ],
+    "source": "Enumerative Combinatorics, Stanley",
+    "review_status": "approved"
+  },
+  {
+    "title": "排列数公式",
+    "latex": "A(n,k)=\\frac{n!}{(n-k)!}",
+    "category": "排列组合基础",
+    "tags": [
+      "排列",
+      "阶乘",
+      "计数基础"
+    ],
+    "description": "从 n 个不同元素中取出 k 个并排列的方案数。",
+    "conditions": "0 \\leq k \\leq n",
+    "difficulty": "基础",
+    "proof_sketch": "依次选择第 1 到第 k 个位置，乘法原理给出 n(n-1)...(n-k+1)。",
+    "application_scenarios": [
+      "排列计数",
+      "抽样排序"
+    ],
+    "id": "149",
+    "normalized_expression": "a(n,k)=frac{n!}{(n-k)!}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "圆排列公式",
+    "latex": "P_{circle}(n)=(n-1)!",
+    "category": "排列组合基础",
+    "tags": [
+      "圆排列",
+      "阶乘",
+      "对称计数"
+    ],
+    "description": "n 个不同元素围成一圈的排列数，旋转等价视为同一种。",
+    "conditions": "n \\geq 1",
+    "difficulty": "基础",
+    "proof_sketch": "固定一个元素打破旋转对称，其余 n-1 个元素线性排列。",
+    "application_scenarios": [
+      "环形座位安排",
+      "对称对象计数"
+    ],
+    "id": "150",
+    "normalized_expression": "p_{circle}(n)=(n-1)!",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "组合数阶乘公式",
+    "latex": "\\binom{n}{k}=\\frac{n!}{k!(n-k)!}",
+    "category": "排列组合基础",
+    "tags": [
+      "组合数",
+      "阶乘",
+      "二项式系数"
+    ],
+    "description": "从 n 个不同元素中选出 k 个元素的方案数。",
+    "conditions": "0 \\leq k \\leq n",
+    "difficulty": "基础",
+    "proof_sketch": "先排列选出的 k 个元素得到 A(n,k)，再除以内部 k! 个排列。",
+    "application_scenarios": [
+      "子集计数",
+      "二项式系数计算"
+    ],
+    "id": "151",
+    "normalized_expression": "binom{n}{k}=frac{n!}{k!(n-k)!}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "可重组合公式",
+    "latex": "\\binom{n+k-1}{k}",
+    "category": "排列组合基础",
+    "tags": [
+      "可重组合",
+      "隔板法",
+      "组合数"
+    ],
+    "description": "从 n 类元素中可重复选取 k 个的方案数。",
+    "conditions": "n \\geq 1, k \\geq 0",
+    "difficulty": "基础",
+    "proof_sketch": "使用隔板法，将 k 个相同对象分配到 n 个盒子。",
+    "application_scenarios": [
+      "多重集合计数",
+      "整数解计数"
+    ],
+    "id": "152",
+    "normalized_expression": "binom{n+k-1}{k}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "错位排列递推公式",
+    "latex": "D_n=(n-1)(D_{n-1}+D_{n-2})",
+    "category": "错位排列",
+    "tags": [
+      "错位排列",
+      "递推",
+      "容斥"
+    ],
+    "description": "n 个元素错位排列数量的经典递推式。",
+    "conditions": "n \\geq 2, D_0=1, D_1=0",
+    "difficulty": "中等",
+    "proof_sketch": "观察元素 1 被放到某位置后，按被占位置元素是否回到 1 分类。",
+    "application_scenarios": [
+      "错排问题",
+      "容斥计数"
+    ],
+    "id": "153",
+    "normalized_expression": "d_n=(n-1)(d_{n-1}+d_{n-2})",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "错位排列通项公式",
+    "latex": "D_n=n!\\sum_{k=0}^{n}\\frac{(-1)^k}{k!}",
+    "category": "错位排列",
+    "tags": [
+      "错位排列",
+      "容斥",
+      "阶乘"
+    ],
+    "description": "错位排列数量的容斥求和公式。",
+    "conditions": "n \\geq 0",
+    "difficulty": "中等",
+    "proof_sketch": "对至少一个元素固定的位置集合使用容斥原理。",
+    "application_scenarios": [
+      "错排问题",
+      "概率计数"
+    ],
+    "id": "154",
+    "normalized_expression": "d_n=n!sum_{k=0}^{n}frac{(-1)^k}{k!}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "下降幂定义",
+    "latex": "x^{\\underline{n}}=x(x-1)\\cdots(x-n+1)",
+    "category": "升降幂",
+    "tags": [
+      "下降幂",
+      "阶乘幂",
+      "组合数"
+    ],
+    "description": "下降幂表示连续递减因子的乘积。",
+    "conditions": "n \\geq 0",
+    "difficulty": "基础",
+    "proof_sketch": "按定义展开为 n 个连续递减因子。",
+    "application_scenarios": [
+      "多项式展开",
+      "组合恒等式化简"
+    ],
+    "id": "155",
+    "normalized_expression": "x^{{n}}=x(x-1)*s(x-n+1)",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "上升幂定义",
+    "latex": "x^{\\overline{n}}=x(x+1)\\cdots(x+n-1)",
+    "category": "升降幂",
+    "tags": [
+      "上升幂",
+      "阶乘幂"
+    ],
+    "description": "上升幂表示连续递增因子的乘积。",
+    "conditions": "n \\geq 0",
+    "difficulty": "基础",
+    "proof_sketch": "按定义展开为 n 个连续递增因子。",
+    "application_scenarios": [
+      "生成函数",
+      "特殊数列"
+    ],
+    "id": "156",
+    "normalized_expression": "x^{{n}}=x(x+1)*s(x+n-1)",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "组合数与下降幂",
+    "latex": "\\binom{x}{n}=\\frac{x^{\\underline{n}}}{n!}",
+    "category": "升降幂",
+    "tags": [
+      "组合数",
+      "下降幂",
+      "广义二项式"
+    ],
+    "description": "广义组合数可表示为下降幂除以 n!。",
+    "conditions": "n \\geq 0",
+    "difficulty": "中等",
+    "proof_sketch": "将组合数阶乘公式推广到符号变量 x。",
+    "application_scenarios": [
+      "广义二项式",
+      "多项式基变换"
+    ],
+    "id": "157",
+    "normalized_expression": "binom{x}{n}=frac{x^{{n}}}{n!}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "上指标反转公式",
+    "latex": "\\binom{-x}{n}=(-1)^n\\binom{x+n-1}{n}",
+    "category": "升降幂",
+    "tags": [
+      "上指标反转",
+      "广义二项式",
+      "组合恒等式"
+    ],
+    "description": "负上指标组合数与正上指标组合数之间的转换公式。",
+    "conditions": "n \\geq 0",
+    "difficulty": "中等",
+    "proof_sketch": "将负上指标展开为下降幂，再提出 (-1)^n 转为上升幂。",
+    "application_scenarios": [
+      "广义二项式化简",
+      "生成函数展开"
+    ],
+    "id": "158",
+    "normalized_expression": "binom{-x}{n}=(-1)^nbinom{x+n-1}{n}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "广义牛顿二项式定理",
+    "latex": "(1+x)^\\alpha=\\sum_{n=0}^{\\infty}\\binom{\\alpha}{n}x^n",
+    "category": "广义二项式",
+    "tags": [
+      "广义二项式",
+      "生成函数",
+      "幂级数"
+    ],
+    "description": "任意指数的二项式展开形式。",
+    "conditions": "|x|<1 或作为形式幂级数使用",
+    "difficulty": "中等",
+    "proof_sketch": "利用广义组合数定义，并将幂函数展开为形式幂级数。",
+    "application_scenarios": [
+      "生成函数展开",
+      "近似计算"
+    ],
+    "id": "159",
+    "normalized_expression": "(1+x)^=sum_{n=0}^{infty}binom{}{n}x^n",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "二项式反演公式",
+    "latex": "b_n=\\sum_{k=0}^{n}\\binom{n}{k}a_k \\Longleftrightarrow a_n=\\sum_{k=0}^{n}(-1)^{n-k}\\binom{n}{k}b_k",
+    "category": "二项式反演",
+    "tags": [
+      "二项式反演",
+      "容斥",
+      "变换"
+    ],
+    "description": "二项式变换与其逆变换的等价关系。",
+    "conditions": "n \\geq 0",
+    "difficulty": "较难",
+    "proof_sketch": "由二项式卷积矩阵的逆矩阵或容斥原理得到。",
+    "application_scenarios": [
+      "反演求解",
+      "序列变换"
+    ],
+    "id": "160",
+    "normalized_expression": "b_n=sum_{k=0}^{n}binom{n}{k}a_ka_n=sum_{k=0}^{n}(-1)^{n-k}binom{n}{k}b_k",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "斐波那契递推定义",
+    "latex": "F_n=F_{n-1}+F_{n-2}",
+    "category": "Fibonacci 数",
+    "tags": [
+      "Fibonacci",
+      "递推"
+    ],
+    "description": "斐波那契数列的基本递推定义。",
+    "conditions": "n \\geq 2, F_0=0, F_1=1",
+    "difficulty": "基础",
+    "proof_sketch": "按数列定义，每项等于前两项之和。",
+    "application_scenarios": [
+      "递推数列",
+      "动态规划"
+    ],
+    "id": "161",
+    "normalized_expression": "f_n=f_{n-1}+f_{n-2}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "斐波那契 Binet 公式",
+    "latex": "F_n=\\frac{\\varphi^n-\\psi^n}{\\sqrt{5}}",
+    "category": "Fibonacci 数",
+    "tags": [
+      "Fibonacci",
+      "闭式",
+      "Binet公式"
+    ],
+    "description": "斐波那契数列的闭式表达，其中 phi 与 psi 为特征方程根。",
+    "conditions": "n \\geq 0",
+    "difficulty": "中等",
+    "proof_sketch": "求解线性递推的特征方程 r^2=r+1。",
+    "application_scenarios": [
+      "递推闭式",
+      "数列估计"
+    ],
+    "id": "162",
+    "normalized_expression": "f_n=frac{^n-^n}{sqrt{5}}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "Lucas 数递推定义",
+    "latex": "L_n=L_{n-1}+L_{n-2}",
+    "category": "Lucas 数",
+    "tags": [
+      "Lucas",
+      "递推"
+    ],
+    "description": "Lucas 数列的基本递推定义。",
+    "conditions": "n \\geq 2, L_0=2, L_1=1",
+    "difficulty": "基础",
+    "proof_sketch": "按 Lucas 数列定义递推。",
+    "application_scenarios": [
+      "递推数列",
+      "Fibonacci相关恒等式"
+    ],
+    "id": "163",
+    "normalized_expression": "l_n=l_{n-1}+l_{n-2}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "Fibonacci 普通生成函数",
+    "latex": "\\sum_{n=0}^{\\infty}F_n x^n=\\frac{x}{1-x-x^2}",
+    "category": "生成函数",
+    "tags": [
+      "Fibonacci",
+      "普通生成函数",
+      "递推"
+    ],
+    "description": "斐波那契数列的普通生成函数。",
+    "conditions": "|x| 足够小或作为形式幂级数",
+    "difficulty": "中等",
+    "proof_sketch": "将递推式乘以 x^n 后对 n 求和并解代数方程。",
+    "application_scenarios": [
+      "递推求解",
+      "生成函数"
+    ],
+    "id": "164",
+    "normalized_expression": "sum_{n=0}^{infty}f_nx^n=frac{x}{1-x-x^2}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "Catalan 另一闭式",
+    "latex": "C_n=\\frac{1}{2n+1}\\binom{2n+1}{n}",
+    "category": "Catalan 数",
+    "tags": [
+      "Catalan数",
+      "闭式",
+      "组合数"
+    ],
+    "description": "Catalan 数的等价闭式表达。",
+    "conditions": "n \\geq 0",
+    "difficulty": "中等",
+    "proof_sketch": "由 C_n=1/(n+1)binom(2n,n) 代数变形得到。",
+    "application_scenarios": [
+      "路径计数",
+      "括号匹配计数"
+    ],
+    "id": "165",
+    "normalized_expression": "c_n=frac{1}{2n+1}binom{2n+1}{n}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "第二类 Stirling 数递推",
+    "latex": "S(n,k)=S(n-1,k-1)+kS(n-1,k)",
+    "category": "Stirling 数",
+    "tags": [
+      "第二类Stirling数",
+      "递推",
+      "集合划分"
+    ],
+    "description": "第二类 Stirling 数的基本递推式。",
+    "conditions": "n \\geq 1, k \\geq 1",
+    "difficulty": "中等",
+    "proof_sketch": "按第 n 个元素单独成块或加入已有 k 个块分类。",
+    "application_scenarios": [
+      "集合划分",
+      "递推计算"
+    ],
+    "id": "166",
+    "normalized_expression": "s(n,k)=s(n-1,k-1)+ks(n-1,k)",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "Bell 数递推公式",
+    "latex": "B_{n+1}=\\sum_{k=0}^{n}\\binom{n}{k}B_k",
+    "category": "Bell 数",
+    "tags": [
+      "Bell数",
+      "递推",
+      "集合划分"
+    ],
+    "description": "Bell 数的经典递推公式。",
+    "conditions": "n \\geq 0",
+    "difficulty": "中等",
+    "proof_sketch": "按与新增元素同块的其他元素集合大小分类。",
+    "application_scenarios": [
+      "集合划分",
+      "递推计算"
+    ],
+    "id": "167",
+    "normalized_expression": "b_{n+1}=sum_{k=0}^{n}binom{n}{k}b_k",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "部分拆分数递推",
+    "latex": "p(n,k)=p(n-1,k-1)+p(n-k,k)",
+    "category": "整数拆分",
+    "tags": [
+      "整数拆分",
+      "部分拆分数",
+      "递推"
+    ],
+    "description": "将 n 拆成恰有 k 个正整数部分的拆分数递推。",
+    "conditions": "n \\geq k \\geq 1",
+    "difficulty": "中等",
+    "proof_sketch": "按是否存在大小为 1 的部分分类。",
+    "application_scenarios": [
+      "整数拆分",
+      "动态规划"
+    ],
+    "id": "168",
+    "normalized_expression": "p(n,k)=p(n-1,k-1)+p(n-k,k)",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "互异拆分生成函数",
+    "latex": "\\sum_{n=0}^{\\infty}q(n)x^n=\\prod_{k=1}^{\\infty}(1+x^k)",
+    "category": "整数拆分",
+    "tags": [
+      "互异拆分",
+      "生成函数",
+      "无限乘积"
+    ],
+    "description": "各部分互不相同的整数拆分数的普通生成函数。",
+    "conditions": "作为形式幂级数使用",
+    "difficulty": "中等",
+    "proof_sketch": "每个正整数部分只能选 0 次或 1 次，因此贡献因子 1+x^k。",
+    "application_scenarios": [
+      "整数拆分",
+      "生成函数"
+    ],
+    "id": "169",
+    "normalized_expression": "sum_{n=0}^{infty}q(n)x^n=prod_{k=1}^{infty}(1+x^k)",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "几何级数生成函数",
+    "latex": "\\sum_{n=0}^{\\infty}x^n=\\frac{1}{1-x}",
+    "category": "生成函数",
+    "tags": [
+      "普通生成函数",
+      "几何级数"
+    ],
+    "description": "常数序列 1 的普通生成函数。",
+    "conditions": "|x|<1 或作为形式幂级数",
+    "difficulty": "基础",
+    "proof_sketch": "由有限等比求和取极限或形式幂级数恒等式得到。",
+    "application_scenarios": [
+      "生成函数基础",
+      "序列求和"
+    ],
+    "id": "170",
+    "normalized_expression": "sum_{n=0}^{infty}x^n=frac{1}{1-x}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "自然数序列生成函数",
+    "latex": "\\sum_{n=0}^{\\infty}n x^n=\\frac{x}{(1-x)^2}",
+    "category": "生成函数",
+    "tags": [
+      "普通生成函数",
+      "自然数序列"
+    ],
+    "description": "自然数序列的普通生成函数。",
+    "conditions": "|x|<1 或作为形式幂级数",
+    "difficulty": "基础",
+    "proof_sketch": "对几何级数逐项求导后乘以 x。",
+    "application_scenarios": [
+      "序列求和",
+      "生成函数基础"
+    ],
+    "id": "171",
+    "normalized_expression": "sum_{n=0}^{infty}nx^n=frac{x}{(1-x)^2}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "平方数序列生成函数",
+    "latex": "\\sum_{n=0}^{\\infty}n^2x^n=\\frac{x(1+x)}{(1-x)^3}",
+    "category": "生成函数",
+    "tags": [
+      "普通生成函数",
+      "平方数序列"
+    ],
+    "description": "平方数序列的普通生成函数。",
+    "conditions": "|x|<1 或作为形式幂级数",
+    "difficulty": "中等",
+    "proof_sketch": "在自然数序列生成函数基础上再次使用 x d/dx 运算。",
+    "application_scenarios": [
+      "序列求和",
+      "生成函数"
+    ],
+    "id": "172",
+    "normalized_expression": "sum_{n=0}^{infty}n^2x^n=frac{x(1+x)}{(1-x)^3}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "树拓扑序计数公式",
+    "latex": "T=\\frac{n!}{\\prod_{v}size(v)}",
+    "category": "图论计数",
+    "tags": [
+      "树",
+      "拓扑序",
+      "子树大小"
+    ],
+    "description": "外向树拓扑序数量可由所有节点子树大小的乘积给出。",
+    "conditions": "树含 n 个节点，size(v) 为 v 的子树大小",
+    "difficulty": "较难",
+    "proof_sketch": "递归合并各子树的线性扩展数，并整理得到 hook-length 型公式。",
+    "application_scenarios": [
+      "树形偏序计数",
+      "拓扑排序"
+    ],
+    "id": "173",
+    "normalized_expression": "t=frac{n!}{prod_{v}size(v)}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "欧拉示性公式",
+    "latex": "V-E+F=2",
+    "category": "图论计数",
+    "tags": [
+      "平面图",
+      "欧拉公式",
+      "图论"
+    ],
+    "description": "连通平面图的顶点数、边数和面数满足欧拉示性公式。",
+    "conditions": "连通平面图",
+    "difficulty": "基础",
+    "proof_sketch": "从树开始逐步加边，每增加一条非树边同时增加一个面。",
+    "application_scenarios": [
+      "平面图计数",
+      "图论基础"
+    ],
+    "id": "174",
+    "normalized_expression": "v-e+f=2",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "Cayley 树计数公式",
+    "latex": "n^{n-2}",
+    "category": "图论计数",
+    "tags": [
+      "Cayley公式",
+      "标号树",
+      "图论计数"
+    ],
+    "description": "n 个标号点上的无根树数量。",
+    "conditions": "n \\geq 2",
+    "difficulty": "较难",
+    "proof_sketch": "可由 Prüfer 序列与标号树之间的一一对应证明。",
+    "application_scenarios": [
+      "标号树计数",
+      "图论计数"
+    ],
+    "id": "175",
+    "normalized_expression": "n^{n-2}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:01:17.861443",
+    "updated_at": "2026-06-23 14:01:17.861443",
+    "review_status": "approved"
+  },
+  {
+    "title": "多重二项式系数阶乘公式",
+    "latex": "\\binom{n}{k_1,k_2,\\ldots,k_m}=\\frac{n!}{k_1!k_2!\\cdots k_m!}",
+    "category": "多项式恒等式",
+    "tags": [
+      "多重二项式系数",
+      "阶乘",
+      "多项式定理"
+    ],
+    "description": "多项式定理中多重二项式系数的阶乘表达。",
+    "conditions": "k_1+\\cdots+k_m=n",
+    "difficulty": "基础",
+    "proof_sketch": "先排列 n 个位置，再除去每类元素内部排列。",
+    "application_scenarios": [
+      "多项式展开",
+      "多重分类计数"
+    ],
+    "id": "176",
+    "normalized_expression": "binom{n}{k_1,k_2,,k_m}=frac{n!}{k_1!k_2!*sk_m!}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "非负整数解计数公式",
+    "latex": "\\#\\{(x_1,\\ldots,x_n):x_1+\\cdots+x_n=k,x_i\\ge 0\\}=\\binom{n+k-1}{n-1}",
+    "category": "排列组合基础",
+    "tags": [
+      "隔板法",
+      "可重组合",
+      "整数解"
+    ],
+    "description": "n 个非负整数变量和为 k 的解数。",
+    "conditions": "n\\geq1,k\\geq0",
+    "difficulty": "基础",
+    "proof_sketch": "将 k 个相同对象放入 n 个盒子，用 n-1 块隔板分隔。",
+    "application_scenarios": [
+      "整数解计数",
+      "可重组合"
+    ],
+    "id": "177",
+    "normalized_expression": "\\#{(x_1,,x_n):x_1+*s+x_n=k,x_i0}=binom{n+k-1}{n-1}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "错位排列相邻递推",
+    "latex": "D_n=nD_{n-1}+(-1)^n",
+    "category": "错位排列",
+    "tags": [
+      "错位排列",
+      "递推",
+      "容斥"
+    ],
+    "description": "错位排列数的另一种常用递推形式。",
+    "conditions": "n\\geq1",
+    "difficulty": "中等",
+    "proof_sketch": "由容斥通项式比较 D_n 与 nD_{n-1} 得到。",
+    "application_scenarios": [
+      "错排问题",
+      "递推计算"
+    ],
+    "id": "178",
+    "normalized_expression": "d_n=nd_{n-1}+(-1)^n",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "错位排列近似取整公式",
+    "latex": "D_n=\\left\\lfloor\\frac{n!}{e}+\\frac{1}{2}\\right\\rfloor",
+    "category": "错位排列",
+    "tags": [
+      "错位排列",
+      "近似",
+      "阶乘"
+    ],
+    "description": "错位排列数与 n!/e 的取整关系。",
+    "conditions": "n\\geq1",
+    "difficulty": "中等",
+    "proof_sketch": "由错位排列容斥级数与 e^{-1} 的截断误差估计得到。",
+    "application_scenarios": [
+      "错排估计",
+      "概率计数"
+    ],
+    "id": "179",
+    "normalized_expression": "d_n=floor(frac{n!}{e}+frac{1}{2})",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "二项式反演逆向写法",
+    "latex": "a_n=\\sum_{k=0}^{n}(-1)^k\\binom{n}{k}b_{n-k}\\Longleftrightarrow b_n=\\sum_{k=0}^{n}\\binom{n}{k}a_{n-k}",
+    "category": "二项式反演",
+    "tags": [
+      "二项式反演",
+      "变换",
+      "容斥"
+    ],
+    "description": "二项式反演按 n-k 下标重写的等价形式。",
+    "conditions": "n\\geq0",
+    "difficulty": "较难",
+    "proof_sketch": "将标准二项式反演中的求和指标替换为 n-k。",
+    "application_scenarios": [
+      "反演求解",
+      "序列变换"
+    ],
+    "id": "180",
+    "normalized_expression": "a_n=sum_{k=0}^{n}(-1)^kbinom{n}{k}b_{n-k}b_n=sum_{k=0}^{n}binom{n}{k}a_{n-k}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "Fibonacci Cassini 恒等式",
+    "latex": "F_{n+1}F_{n-1}-F_n^2=(-1)^n",
+    "category": "Fibonacci 数",
+    "tags": [
+      "Fibonacci",
+      "Cassini恒等式",
+      "递推"
+    ],
+    "description": "Fibonacci 数列的经典二次恒等式。",
+    "conditions": "n\\geq1",
+    "difficulty": "中等",
+    "proof_sketch": "可由 Binet 公式或 Fibonacci 矩阵行列式证明。",
+    "application_scenarios": [
+      "递推恒等式",
+      "数列性质"
+    ],
+    "id": "181",
+    "normalized_expression": "f_{n+1}f_{n-1}-f_n^2=(-1)^n",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "Fibonacci 加法公式",
+    "latex": "F_{m+n}=F_{m-1}F_n+F_mF_{n+1}",
+    "category": "Fibonacci 数",
+    "tags": [
+      "Fibonacci",
+      "加法公式",
+      "递推"
+    ],
+    "description": "Fibonacci 数列下标相加的展开公式。",
+    "conditions": "m,n\\geq1",
+    "difficulty": "中等",
+    "proof_sketch": "由 Fibonacci 矩阵乘法或递推归纳得到。",
+    "application_scenarios": [
+      "递推化简",
+      "数列恒等式"
+    ],
+    "id": "182",
+    "normalized_expression": "f_{m+n}=f_{m-1}f_n+f_mf_{n+1}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "Lucas 数闭式公式",
+    "latex": "L_n=\\varphi^n+\\psi^n",
+    "category": "Lucas 数",
+    "tags": [
+      "Lucas",
+      "闭式",
+      "Fibonacci相关"
+    ],
+    "description": "Lucas 数列的 Binet 型闭式表达。",
+    "conditions": "n\\geq0",
+    "difficulty": "中等",
+    "proof_sketch": "由递推特征方程根的线性组合和初值确定系数。",
+    "application_scenarios": [
+      "递推闭式",
+      "Lucas数列"
+    ],
+    "id": "183",
+    "normalized_expression": "l_n=^n+^n",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "Lucas 与 Fibonacci 关系",
+    "latex": "L_n=F_{n-1}+F_{n+1}",
+    "category": "Lucas 数",
+    "tags": [
+      "Lucas",
+      "Fibonacci",
+      "恒等式"
+    ],
+    "description": "Lucas 数与 Fibonacci 数的常用关系式。",
+    "conditions": "n\\geq1",
+    "difficulty": "基础",
+    "proof_sketch": "由两个数列的递推和初值验证，或由闭式公式相加得到。",
+    "application_scenarios": [
+      "数列转换",
+      "递推恒等式"
+    ],
+    "id": "184",
+    "normalized_expression": "l_n=f_{n-1}+f_{n+1}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "Catalan 差分闭式",
+    "latex": "C_n=\\binom{2n}{n}-\\binom{2n}{n+1}",
+    "category": "Catalan 数",
+    "tags": [
+      "Catalan数",
+      "闭式",
+      "差分"
+    ],
+    "description": "Catalan 数的二项式差分闭式。",
+    "conditions": "n\\geq0",
+    "difficulty": "中等",
+    "proof_sketch": "由反射原理或闭式公式代数变形得到。",
+    "application_scenarios": [
+      "路径计数",
+      "括号匹配计数"
+    ],
+    "id": "185",
+    "normalized_expression": "c_n=binom{2n}{n}-binom{2n}{n+1}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "Catalan 一阶递推",
+    "latex": "C_{n+1}=\\frac{2(2n+1)}{n+2}C_n",
+    "category": "Catalan 数",
+    "tags": [
+      "Catalan数",
+      "递推",
+      "闭式"
+    ],
+    "description": "Catalan 数由相邻项比值得到的一阶递推。",
+    "conditions": "n\\geq0",
+    "difficulty": "中等",
+    "proof_sketch": "将 Catalan 闭式中 C_{n+1}/C_n 化简得到。",
+    "application_scenarios": [
+      "递推计算",
+      "序列生成"
+    ],
+    "id": "186",
+    "normalized_expression": "c_{n+1}=frac{2(2n+1)}{n+2}c_n",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "第二类 Stirling 数幂展开",
+    "latex": "x^n=\\sum_{k=0}^{n}S(n,k)x^{\\underline{k}}",
+    "category": "Stirling 数",
+    "tags": [
+      "第二类Stirling数",
+      "下降幂",
+      "基变换"
+    ],
+    "description": "普通幂用下降幂基展开时的系数是第二类 Stirling 数。",
+    "conditions": "n\\geq0",
+    "difficulty": "较难",
+    "proof_sketch": "按函数到集合划分的计数解释或多项式基变换得到。",
+    "application_scenarios": [
+      "多项式基变换",
+      "集合划分"
+    ],
+    "id": "187",
+    "normalized_expression": "x^n=sum_{k=0}^{n}s(n,k)x^{{k}}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "第一类 Stirling 数幂展开",
+    "latex": "x^{\\underline{n}}=\\sum_{k=0}^{n}s(n,k)x^k",
+    "category": "Stirling 数",
+    "tags": [
+      "第一类Stirling数",
+      "下降幂",
+      "基变换"
+    ],
+    "description": "下降幂用普通幂展开时的系数是带符号第一类 Stirling 数。",
+    "conditions": "n\\geq0",
+    "difficulty": "较难",
+    "proof_sketch": "由下降幂多项式展开和轮换数解释得到。",
+    "application_scenarios": [
+      "多项式展开",
+      "排列轮换"
+    ],
+    "id": "188",
+    "normalized_expression": "x^{{n}}=sum_{k=0}^{n}s(n,k)x^k",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "无符号第一类 Stirling 数上升幂展开",
+    "latex": "x^{\\overline{n}}=\\sum_{k=0}^{n}{n\\brack k}x^k",
+    "category": "Stirling 数",
+    "tags": [
+      "第一类Stirling数",
+      "上升幂",
+      "排列轮换"
+    ],
+    "description": "上升幂展开时的系数是无符号第一类 Stirling 数。",
+    "conditions": "n\\geq0",
+    "difficulty": "较难",
+    "proof_sketch": "将上升幂作为连续线性因子乘积展开，系数对应轮换计数。",
+    "application_scenarios": [
+      "排列轮换",
+      "多项式展开"
+    ],
+    "id": "189",
+    "normalized_expression": "x^{{n}}=sum_{k=0}^{n}{nk}x^k",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "Bell 数 Dobinski 公式",
+    "latex": "B_n=\\frac{1}{e}\\sum_{k=0}^{\\infty}\\frac{k^n}{k!}",
+    "category": "Bell 数",
+    "tags": [
+      "Bell数",
+      "Dobinski公式",
+      "通项"
+    ],
+    "description": "Bell 数的 Dobinski 级数表达。",
+    "conditions": "n\\geq0",
+    "difficulty": "较难",
+    "proof_sketch": "可由 Bell 数指数生成函数与指数函数展开比较系数得到。",
+    "application_scenarios": [
+      "集合划分",
+      "概率计数"
+    ],
+    "id": "190",
+    "normalized_expression": "b_n=frac{1}{e}sum_{k=0}^{infty}frac{k^n}{k!}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "Bell 数与 Stirling 数求和",
+    "latex": "B_n=\\sum_{k=0}^{n}S(n,k)",
+    "category": "Bell 数",
+    "tags": [
+      "Bell数",
+      "Stirling数",
+      "集合划分"
+    ],
+    "description": "Bell 数等于同一行第二类 Stirling 数之和的写法。",
+    "conditions": "n\\geq0",
+    "difficulty": "基础",
+    "proof_sketch": "按集合划分的块数 k 分类求和。",
+    "application_scenarios": [
+      "集合划分",
+      "分类计数"
+    ],
+    "id": "191",
+    "normalized_expression": "b_n=sum_{k=0}^{n}s(n,k)",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "欧拉拆分定理生成函数",
+    "latex": "\\prod_{k=1}^{\\infty}(1+x^k)=\\prod_{k=1}^{\\infty}\\frac{1}{1-x^{2k-1}}",
+    "category": "整数拆分",
+    "tags": [
+      "互异拆分",
+      "奇数拆分",
+      "生成函数"
+    ],
+    "description": "互异拆分与奇数部分拆分等数的生成函数恒等式。",
+    "conditions": "作为形式幂级数使用",
+    "difficulty": "较难",
+    "proof_sketch": "利用 1+x^k=(1-x^{2k})/(1-x^k) 后在无限乘积中约去偶数因子。",
+    "application_scenarios": [
+      "整数拆分",
+      "生成函数"
+    ],
+    "id": "192",
+    "normalized_expression": "prod_{k=1}^{infty}(1+x^k)=prod_{k=1}^{infty}frac{1}{1-x^{2k-1}}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "限制最大部分拆分与部分数对偶",
+    "latex": "p_{\\leq k}(n)=\\sum_{j=0}^{k}p(n,j)",
+    "category": "整数拆分",
+    "tags": [
+      "整数拆分",
+      "Ferrers图",
+      "共轭"
+    ],
+    "description": "最大部分不超过 k 的拆分数可按部分个数不超过 k 求和。",
+    "conditions": "n\\geq0,k\\geq0",
+    "difficulty": "中等",
+    "proof_sketch": "由 Ferrers 图共轭将最大部分限制转为部分个数限制。",
+    "application_scenarios": [
+      "整数拆分",
+      "Ferrers图"
+    ],
+    "id": "193",
+    "normalized_expression": "p_{<=k}(n)=sum_{j=0}^{k}p(n,j)",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "等比序列普通生成函数",
+    "latex": "\\sum_{n=0}^{\\infty}a^n x^n=\\frac{1}{1-ax}",
+    "category": "生成函数",
+    "tags": [
+      "普通生成函数",
+      "等比序列"
+    ],
+    "description": "等比序列 a^n 的普通生成函数。",
+    "conditions": "|ax|<1 或作为形式幂级数",
+    "difficulty": "基础",
+    "proof_sketch": "直接套用几何级数求和公式。",
+    "application_scenarios": [
+      "序列求和",
+      "生成函数基础"
+    ],
+    "id": "194",
+    "normalized_expression": "sum_{n=0}^{infty}a^nx^n=frac{1}{1-ax}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "组合数列普通生成函数",
+    "latex": "\\sum_{n=0}^{\\infty}\\binom{n+r}{r}x^n=\\frac{1}{(1-x)^{r+1}}",
+    "category": "生成函数",
+    "tags": [
+      "普通生成函数",
+      "组合数",
+      "广义二项式"
+    ],
+    "description": "固定 r 时组合数列 binom(n+r,r) 的普通生成函数。",
+    "conditions": "r\\geq0",
+    "difficulty": "中等",
+    "proof_sketch": "由广义二项式定理展开 (1-x)^{-(r+1)} 得到。",
+    "application_scenarios": [
+      "组合数求和",
+      "生成函数"
+    ],
+    "id": "195",
+    "normalized_expression": "sum_{n=0}^{infty}binom{n+r}{r}x^n=frac{1}{(1-x)^{r+1}}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "指数生成函数平移公式",
+    "latex": "\\sum_{n=0}^{\\infty}a^n\\frac{x^n}{n!}=e^{ax}",
+    "category": "指数生成函数",
+    "tags": [
+      "指数生成函数",
+      "指数函数",
+      "等比序列"
+    ],
+    "description": "等比序列 a^n 的指数生成函数。",
+    "conditions": "x 为形式变量或实/复变量",
+    "difficulty": "基础",
+    "proof_sketch": "由 e^{ax} 的泰勒展开直接得到。",
+    "application_scenarios": [
+      "指数生成函数",
+      "标号结构计数"
+    ],
+    "id": "196",
+    "normalized_expression": "sum_{n=0}^{infty}a^nfrac{x^n}{n!}=e^{ax}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "有根标号树计数公式",
+    "latex": "n^{n-1}",
+    "category": "图论计数",
+    "tags": [
+      "Cayley公式",
+      "有根树",
+      "标号树"
+    ],
+    "description": "n 个标号点上的有根树数量。",
+    "conditions": "n\\geq1",
+    "difficulty": "较难",
+    "proof_sketch": "无根标号树有 n^{n-2} 棵，每棵可选择 n 个根。",
+    "application_scenarios": [
+      "标号树计数",
+      "图论计数"
+    ],
+    "id": "197",
+    "normalized_expression": "n^{n-1}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "树边数公式",
+    "latex": "E=V-1",
+    "category": "图论计数",
+    "tags": [
+      "树",
+      "边数",
+      "图论"
+    ],
+    "description": "含 V 个顶点的树有 V-1 条边。",
+    "conditions": "V\\geq1",
+    "difficulty": "基础",
+    "proof_sketch": "可由连通无环图定义归纳证明。",
+    "application_scenarios": [
+      "树结构",
+      "图论基础"
+    ],
+    "id": "198",
+    "normalized_expression": "e=v-1",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "平面图三角剖分边界",
+    "latex": "E\\leq 3V-6",
+    "category": "图论计数",
+    "tags": [
+      "平面图",
+      "欧拉公式",
+      "边数上界"
+    ],
+    "description": "简单连通平面图在 V>=3 时的边数上界。",
+    "conditions": "V\\geq3",
+    "difficulty": "中等",
+    "proof_sketch": "由每个面至少三条边以及欧拉公式推出。",
+    "application_scenarios": [
+      "平面图计数",
+      "图论估计"
+    ],
+    "id": "199",
+    "normalized_expression": "e<=3v-6",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:22:19.923091",
+    "updated_at": "2026-06-23 14:22:19.923091",
+    "review_status": "approved"
+  },
+  {
+    "title": "排列数上标下标记法",
+    "latex": "A^{n}_{m}=\\frac{m!}{(m-n)!}",
+    "category": "排列组合基础",
+    "tags": [
+      "排列数",
+      "排列",
+      "PDF基础记号"
+    ],
+    "description": "从 m 个不同元素中取 n 个并按顺序排列的数量，采用上标 n、下标 m 的记法。",
+    "conditions": "m\\geq n\\geq0",
+    "difficulty": "基础",
+    "proof_sketch": "依次选择第 1 到第 n 个位置，可选数为 m,m-1,...,m-n+1，连乘后化为阶乘商。",
+    "application_scenarios": [
+      "有序抽取",
+      "排列计数",
+      "PDF公式检索"
+    ],
+    "id": "200",
+    "normalized_expression": "a^{n}_{m}=frac{m!}{(m-n)!}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:44:06.429506",
+    "updated_at": "2026-06-23 14:44:06.429506",
+    "review_status": "approved"
+  },
+  {
+    "title": "排列数全排列特例",
+    "latex": "A_n^n=n!",
+    "category": "排列组合基础",
+    "tags": [
+      "排列数",
+      "全排列",
+      "特例"
+    ],
+    "description": "n 个不同元素全部取出并排列时，排列数等于 n 的阶乘。",
+    "conditions": "n\\geq0",
+    "difficulty": "基础",
+    "proof_sketch": "在 A_n^m 的阶乘公式中令 m=n 即得。",
+    "application_scenarios": [
+      "全排列",
+      "排列计数"
+    ],
+    "id": "203",
+    "normalized_expression": "a_n^n=n!",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:44:06.429506",
+    "updated_at": "2026-06-23 14:44:06.429506",
+    "review_status": "approved"
+  },
+  {
+    "title": "排列数取一个特例",
+    "latex": "A_n^1=n",
+    "category": "排列组合基础",
+    "tags": [
+      "排列数",
+      "特例",
+      "基础计数"
+    ],
+    "description": "从 n 个不同元素中取 1 个排列，只有 n 种选择。",
+    "conditions": "n\\geq1",
+    "difficulty": "基础",
+    "proof_sketch": "在 A_n^m 的阶乘公式中令 m=1 即得。",
+    "application_scenarios": [
+      "基础计数",
+      "排列特例"
+    ],
+    "id": "204",
+    "normalized_expression": "a_n^1=n",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:44:06.429506",
+    "updated_at": "2026-06-23 14:44:06.429506",
+    "review_status": "approved"
+  },
+  {
+    "title": "排列数取零特例",
+    "latex": "A_n^0=1",
+    "category": "排列组合基础",
+    "tags": [
+      "排列数",
+      "空排列",
+      "特例"
+    ],
+    "description": "从 n 个元素中取 0 个并排列，空排列只有一种。",
+    "conditions": "n\\geq0",
+    "difficulty": "基础",
+    "proof_sketch": "在阶乘公式中令 m=0 得 n!/n!=1。",
+    "application_scenarios": [
+      "边界条件",
+      "递推初值"
+    ],
+    "id": "205",
+    "normalized_expression": "a_n^0=1",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:44:06.429506",
+    "updated_at": "2026-06-23 14:44:06.429506",
+    "review_status": "approved"
+  },
+  {
+    "title": "组合数上标下标记法",
+    "latex": "C^{n}_{m}=\\frac{m!}{n!(m-n)!}",
+    "category": "排列组合基础",
+    "tags": [
+      "组合数",
+      "二项式系数",
+      "PDF基础记号"
+    ],
+    "description": "从 m 个不同元素中取 n 个且不考虑顺序的数量，采用上标 n、下标 m 的记法。",
+    "conditions": "m\\geq n\\geq0",
+    "difficulty": "基础",
+    "proof_sketch": "先按顺序选出 n 个元素得到 A_m^n，再除以 n! 去掉内部排列顺序。",
+    "application_scenarios": [
+      "无序抽取",
+      "组合计数",
+      "PDF公式检索"
+    ],
+    "id": "206",
+    "normalized_expression": "c^{n}_{m}=frac{m!}{n!(m-n)!}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:44:06.429506",
+    "updated_at": "2026-06-23 14:44:06.429506",
+    "review_status": "approved"
+  },
+  {
+    "title": "组合数与排列数关系",
+    "latex": "A_n^m=m!C_n^m",
+    "category": "排列组合基础",
+    "tags": [
+      "排列数",
+      "组合数",
+      "关系式"
+    ],
+    "description": "先选择 m 个元素再排列，与直接做有序选取等价。",
+    "conditions": "n\\geq m\\geq0",
+    "difficulty": "基础",
+    "proof_sketch": "每一个 m 元子集有 m! 种内部顺序，因此排列数等于组合数乘以 m!。",
+    "application_scenarios": [
+      "排列组合转换",
+      "公式推导"
+    ],
+    "id": "209",
+    "normalized_expression": "a_n^m=m!c_n^m",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:44:06.429506",
+    "updated_at": "2026-06-23 14:44:06.429506",
+    "review_status": "approved"
+  },
+  {
+    "title": "组合数由排列数表示",
+    "latex": "C_n^m=\\frac{A_n^m}{m!}",
+    "category": "排列组合基础",
+    "tags": [
+      "排列数",
+      "组合数",
+      "关系式"
+    ],
+    "description": "组合数可由排列数除去 m 个元素的内部排列顺序得到。",
+    "conditions": "n\\geq m\\geq0",
+    "difficulty": "基础",
+    "proof_sketch": "A_n^m 中每个无序组合被重复计算 m! 次。",
+    "application_scenarios": [
+      "排列组合转换",
+      "公式化简"
+    ],
+    "id": "210",
+    "normalized_expression": "c_n^m=frac{a_n^m}{m!}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:44:06.429506",
+    "updated_at": "2026-06-23 14:44:06.429506",
+    "review_status": "approved"
+  },
+  {
+    "title": "组合数对称记号",
+    "latex": "C_n^m=C_n^{n-m}",
+    "category": "排列组合基础",
+    "tags": [
+      "组合数",
+      "对称性",
+      "变式"
+    ],
+    "description": "从 n 个元素中选 m 个等价于选出不被选择的 n-m 个元素。",
+    "conditions": "n\\geq m\\geq0",
+    "difficulty": "基础",
+    "proof_sketch": "每个 m 元子集与其补集一一对应。",
+    "application_scenarios": [
+      "组合恒等式",
+      "公式化简"
+    ],
+    "id": "211",
+    "normalized_expression": "c_n^m=c_n^{n-m}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:44:06.429506",
+    "updated_at": "2026-06-23 14:44:06.429506",
+    "review_status": "approved"
+  },
+  {
+    "title": "组合数边界特例",
+    "latex": "C_n^0=C_n^n=1",
+    "category": "排列组合基础",
+    "tags": [
+      "组合数",
+      "边界条件",
+      "特例"
+    ],
+    "description": "从 n 个元素中选 0 个或全部 n 个，都只有一种选择。",
+    "conditions": "n\\geq0",
+    "difficulty": "基础",
+    "proof_sketch": "空集和全集都唯一，也可由阶乘公式直接得到。",
+    "application_scenarios": [
+      "递推初值",
+      "边界条件"
+    ],
+    "id": "212",
+    "normalized_expression": "c_n^0=c_n^n=1",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:44:06.429506",
+    "updated_at": "2026-06-23 14:44:06.429506",
+    "review_status": "approved"
+  },
+  {
+    "title": "组合数取一个特例",
+    "latex": "C_n^1=n",
+    "category": "排列组合基础",
+    "tags": [
+      "组合数",
+      "特例",
+      "基础计数"
+    ],
+    "description": "从 n 个元素中选 1 个，共有 n 种选择。",
+    "conditions": "n\\geq1",
+    "difficulty": "基础",
+    "proof_sketch": "在组合数阶乘公式中令 m=1 即得。",
+    "application_scenarios": [
+      "基础计数",
+      "组合特例"
+    ],
+    "id": "213",
+    "normalized_expression": "c_n^1=n",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:44:06.429506",
+    "updated_at": "2026-06-23 14:44:06.429506",
+    "review_status": "approved"
+  },
+  {
+    "title": "可重组合记号公式",
+    "latex": "H_n^m=C_{n+m-1}^{m}",
+    "category": "排列组合基础",
+    "tags": [
+      "可重组合",
+      "组合数",
+      "隔板法"
+    ],
+    "description": "从 n 类元素中可重复地选 m 个的组合数，可转化为普通组合数。",
+    "conditions": "n\\geq1,m\\geq0",
+    "difficulty": "基础",
+    "proof_sketch": "隔板法将 m 个相同球放入 n 个盒子，等价于在 n+m-1 个位置中选 m 个球的位置。",
+    "application_scenarios": [
+      "可重组合",
+      "隔板法",
+      "非负整数解"
+    ],
+    "id": "214",
+    "normalized_expression": "h_n^m=c_{n+m-1}^{m}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "created_at": "2026-06-23 14:44:06.429506",
+    "updated_at": "2026-06-23 14:44:06.429506",
+    "review_status": "approved"
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "176",
+    "title": "多重二项式系数阶乘公式",
+    "latex": "\\binom{n}{k_1,k_2,\\ldots,k_m}=\\frac{n!}{k_1!k_2!\\cdots k_m!}"
+  },
+  {
+    "id": "177",
+    "title": "非负整数解计数公式",
+    "latex": "\\#\\{(x_1,\\ldots,x_n):x_1+\\cdots+x_n=k,x_i\\ge 0\\}=\\binom{n+k-1}{n-1}"
+  },
+  {
+    "id": "178",
+    "title": "错位排列相邻递推",
+    "latex": "D_n=nD_{n-1}+(-1)^n"
+  },
+  {
+    "id": "179",
+    "title": "错位排列近似取整公式",
+    "latex": "D_n=\\left\\lfloor\\frac{n!}{e}+\\frac{1}{2}\\right\\rfloor"
+  },
+  {
+    "id": "180",
+    "title": "二项式反演逆向写法",
+    "latex": "a_n=\\sum_{k=0}^{n}(-1)^k\\binom{n}{k}b_{n-k}\\Longleftrightarrow b_n=\\sum_{k=0}^{n}\\binom{n}{k}a_{n-k}"
+  },
+  {
+    "id": "181",
+    "title": "Fibonacci Cassini 恒等式",
+    "latex": "F_{n+1}F_{n-1}-F_n^2=(-1)^n"
+  },
+  {
+    "id": "182",
+    "title": "Fibonacci 加法公式",
+    "latex": "F_{m+n}=F_{m-1}F_n+F_mF_{n+1}"
+  },
+  {
+    "id": "183",
+    "title": "Lucas 数闭式公式",
+    "latex": "L_n=\\varphi^n+\\psi^n"
+  },
+  {
+    "id": "184",
+    "title": "Lucas 与 Fibonacci 关系",
+    "latex": "L_n=F_{n-1}+F_{n+1}"
+  },
+  {
+    "id": "185",
+    "title": "Catalan 差分闭式",
+    "latex": "C_n=\\binom{2n}{n}-\\binom{2n}{n+1}"
+  },
+  {
+    "id": "186",
+    "title": "Catalan 一阶递推",
+    "latex": "C_{n+1}=\\frac{2(2n+1)}{n+2}C_n"
+  },
+  {
+    "id": "187",
+    "title": "第二类 Stirling 数幂展开",
+    "latex": "x^n=\\sum_{k=0}^{n}S(n,k)x^{\\underline{k}}"
+  },
+  {
+    "id": "188",
+    "title": "第一类 Stirling 数幂展开",
+    "latex": "x^{\\underline{n}}=\\sum_{k=0}^{n}s(n,k)x^k"
+  },
+  {
+    "id": "189",
+    "title": "无符号第一类 Stirling 数上升幂展开",
+    "latex": "x^{\\overline{n}}=\\sum_{k=0}^{n}{n\\brack k}x^k"
+  },
+  {
+    "id": "190",
+    "title": "Bell 数 Dobinski 公式",
+    "latex": "B_n=\\frac{1}{e}\\sum_{k=0}^{\\infty}\\frac{k^n}{k!}"
+  },
+  {
+    "id": "191",
+    "title": "Bell 数与 Stirling 数求和",
+    "latex": "B_n=\\sum_{k=0}^{n}S(n,k)"
+  },
+  {
+    "id": "192",
+    "title": "欧拉拆分定理生成函数",
+    "latex": "\\prod_{k=1}^{\\infty}(1+x^k)=\\prod_{k=1}^{\\infty}\\frac{1}{1-x^{2k-1}}"
+  },
+  {
+    "id": "193",
+    "title": "限制最大部分拆分与部分数对偶",
+    "latex": "p_{\\leq k}(n)=\\sum_{j=0}^{k}p(n,j)"
+  },
+  {
+    "id": "194",
+    "title": "等比序列普通生成函数",
+    "latex": "\\sum_{n=0}^{\\infty}a^n x^n=\\frac{1}{1-ax}"
+  },
+  {
+    "id": "195",
+    "title": "组合数列普通生成函数",
+    "latex": "\\sum_{n=0}^{\\infty}\\binom{n+r}{r}x^n=\\frac{1}{(1-x)^{r+1}}"
+  },
+  {
+    "id": "196",
+    "title": "指数生成函数平移公式",
+    "latex": "\\sum_{n=0}^{\\infty}a^n\\frac{x^n}{n!}=e^{ax}"
+  },
+  {
+    "id": "197",
+    "title": "有根标号树计数公式",
+    "latex": "n^{n-1}"
+  },
+  {
+    "id": "198",
+    "title": "树边数公式",
+    "latex": "E=V-1"
+  },
+  {
+    "id": "199",
+    "title": "平面图三角剖分边界",
+    "latex": "E\\leq 3V-6"
+  }
+]

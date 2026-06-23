@@ -1,0 +1,43 @@
+{
+  "removed_count": 5,
+  "removed": [
+    {
+      "id": "201",
+      "title": "排列数下标上标记法",
+      "latex": "A_m^n=\\frac{m!}{(m-n)!}",
+      "kept": "200",
+      "reason": "排列数下标上标记法与 A^{n}_{m} 语义重复"
+    },
+    {
+      "id": "202",
+      "title": "排列数 n 元取 m 记法",
+      "latex": "A_n^m=\\frac{n!}{(n-m)!}",
+      "kept": "200",
+      "reason": "排列数 n 元取 m 记法与 A^{n}_{m} 仅变量角色互换"
+    },
+    {
+      "id": "207",
+      "title": "组合数下标上标记法",
+      "latex": "C_m^n=\\frac{m!}{n!(m-n)!}",
+      "kept": "206",
+      "reason": "组合数下标上标记法与 C^{n}_{m} 语义重复"
+    },
+    {
+      "id": "208",
+      "title": "组合数 n 元取 m 记法",
+      "latex": "C_n^m=\\frac{n!}{m!(n-m)!}",
+      "kept": "206",
+      "reason": "组合数 n 元取 m 记法与 C^{n}_{m} 仅变量角色互换"
+    },
+    {
+      "id": "215",
+      "title": "可重组合对称记号",
+      "latex": "H_m^n=C_{m+n-1}^{n}",
+      "kept": "214",
+      "reason": "可重组合对称记号与 H_n^m 仅变量角色互换"
+    }
+  ],
+  "formula_count_after": 210,
+  "evaluation_count_after": 39,
+  "removed_evaluations": []
+}

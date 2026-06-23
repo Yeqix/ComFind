@@ -1,0 +1,137 @@
+[
+  {
+    "id": "149",
+    "title": "排列数公式",
+    "latex": "A(n,k)=\\frac{n!}{(n-k)!}"
+  },
+  {
+    "id": "150",
+    "title": "圆排列公式",
+    "latex": "P_{circle}(n)=(n-1)!"
+  },
+  {
+    "id": "151",
+    "title": "组合数阶乘公式",
+    "latex": "\\binom{n}{k}=\\frac{n!}{k!(n-k)!}"
+  },
+  {
+    "id": "152",
+    "title": "可重组合公式",
+    "latex": "\\binom{n+k-1}{k}"
+  },
+  {
+    "id": "153",
+    "title": "错位排列递推公式",
+    "latex": "D_n=(n-1)(D_{n-1}+D_{n-2})"
+  },
+  {
+    "id": "154",
+    "title": "错位排列通项公式",
+    "latex": "D_n=n!\\sum_{k=0}^{n}\\frac{(-1)^k}{k!}"
+  },
+  {
+    "id": "155",
+    "title": "下降幂定义",
+    "latex": "x^{\\underline{n}}=x(x-1)\\cdots(x-n+1)"
+  },
+  {
+    "id": "156",
+    "title": "上升幂定义",
+    "latex": "x^{\\overline{n}}=x(x+1)\\cdots(x+n-1)"
+  },
+  {
+    "id": "157",
+    "title": "组合数与下降幂",
+    "latex": "\\binom{x}{n}=\\frac{x^{\\underline{n}}}{n!}"
+  },
+  {
+    "id": "158",
+    "title": "上指标反转公式",
+    "latex": "\\binom{-x}{n}=(-1)^n\\binom{x+n-1}{n}"
+  },
+  {
+    "id": "159",
+    "title": "广义牛顿二项式定理",
+    "latex": "(1+x)^\\alpha=\\sum_{n=0}^{\\infty}\\binom{\\alpha}{n}x^n"
+  },
+  {
+    "id": "160",
+    "title": "二项式反演公式",
+    "latex": "b_n=\\sum_{k=0}^{n}\\binom{n}{k}a_k \\Longleftrightarrow a_n=\\sum_{k=0}^{n}(-1)^{n-k}\\binom{n}{k}b_k"
+  },
+  {
+    "id": "161",
+    "title": "斐波那契递推定义",
+    "latex": "F_n=F_{n-1}+F_{n-2}"
+  },
+  {
+    "id": "162",
+    "title": "斐波那契 Binet 公式",
+    "latex": "F_n=\\frac{\\varphi^n-\\psi^n}{\\sqrt{5}}"
+  },
+  {
+    "id": "163",
+    "title": "Lucas 数递推定义",
+    "latex": "L_n=L_{n-1}+L_{n-2}"
+  },
+  {
+    "id": "164",
+    "title": "Fibonacci 普通生成函数",
+    "latex": "\\sum_{n=0}^{\\infty}F_n x^n=\\frac{x}{1-x-x^2}"
+  },
+  {
+    "id": "165",
+    "title": "Catalan 另一闭式",
+    "latex": "C_n=\\frac{1}{2n+1}\\binom{2n+1}{n}"
+  },
+  {
+    "id": "166",
+    "title": "第二类 Stirling 数递推",
+    "latex": "S(n,k)=S(n-1,k-1)+kS(n-1,k)"
+  },
+  {
+    "id": "167",
+    "title": "Bell 数递推公式",
+    "latex": "B_{n+1}=\\sum_{k=0}^{n}\\binom{n}{k}B_k"
+  },
+  {
+    "id": "168",
+    "title": "部分拆分数递推",
+    "latex": "p(n,k)=p(n-1,k-1)+p(n-k,k)"
+  },
+  {
+    "id": "169",
+    "title": "互异拆分生成函数",
+    "latex": "\\sum_{n=0}^{\\infty}q(n)x^n=\\prod_{k=1}^{\\infty}(1+x^k)"
+  },
+  {
+    "id": "170",
+    "title": "几何级数生成函数",
+    "latex": "\\sum_{n=0}^{\\infty}x^n=\\frac{1}{1-x}"
+  },
+  {
+    "id": "171",
+    "title": "自然数序列生成函数",
+    "latex": "\\sum_{n=0}^{\\infty}n x^n=\\frac{x}{(1-x)^2}"
+  },
+  {
+    "id": "172",
+    "title": "平方数序列生成函数",
+    "latex": "\\sum_{n=0}^{\\infty}n^2x^n=\\frac{x(1+x)}{(1-x)^3}"
+  },
+  {
+    "id": "173",
+    "title": "树拓扑序计数公式",
+    "latex": "T=\\frac{n!}{\\prod_{v}size(v)}"
+  },
+  {
+    "id": "174",
+    "title": "欧拉示性公式",
+    "latex": "V-E+F=2"
+  },
+  {
+    "id": "175",
+    "title": "Cayley 树计数公式",
+    "latex": "n^{n-2}"
+  }
+]

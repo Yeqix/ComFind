@@ -1,0 +1,131 @@
+{
+  "source": "4_组合数学(1).pdf",
+  "added_formula_count": 16,
+  "added_eval_count": 6,
+  "formulas": [
+    {
+      "id": "200",
+      "title": "排列数上标下标记法",
+      "latex": "A^{n}_{m}=\\frac{m!}{(m-n)!}"
+    },
+    {
+      "id": "201",
+      "title": "排列数下标上标记法",
+      "latex": "A_m^n=\\frac{m!}{(m-n)!}"
+    },
+    {
+      "id": "202",
+      "title": "排列数 n 元取 m 记法",
+      "latex": "A_n^m=\\frac{n!}{(n-m)!}"
+    },
+    {
+      "id": "203",
+      "title": "排列数全排列特例",
+      "latex": "A_n^n=n!"
+    },
+    {
+      "id": "204",
+      "title": "排列数取一个特例",
+      "latex": "A_n^1=n"
+    },
+    {
+      "id": "205",
+      "title": "排列数取零特例",
+      "latex": "A_n^0=1"
+    },
+    {
+      "id": "206",
+      "title": "组合数上标下标记法",
+      "latex": "C^{n}_{m}=\\frac{m!}{n!(m-n)!}"
+    },
+    {
+      "id": "207",
+      "title": "组合数下标上标记法",
+      "latex": "C_m^n=\\frac{m!}{n!(m-n)!}"
+    },
+    {
+      "id": "208",
+      "title": "组合数 n 元取 m 记法",
+      "latex": "C_n^m=\\frac{n!}{m!(n-m)!}"
+    },
+    {
+      "id": "209",
+      "title": "组合数与排列数关系",
+      "latex": "A_n^m=m!C_n^m"
+    },
+    {
+      "id": "210",
+      "title": "组合数由排列数表示",
+      "latex": "C_n^m=\\frac{A_n^m}{m!}"
+    },
+    {
+      "id": "211",
+      "title": "组合数对称记号",
+      "latex": "C_n^m=C_n^{n-m}"
+    },
+    {
+      "id": "212",
+      "title": "组合数边界特例",
+      "latex": "C_n^0=C_n^n=1"
+    },
+    {
+      "id": "213",
+      "title": "组合数取一个特例",
+      "latex": "C_n^1=n"
+    },
+    {
+      "id": "214",
+      "title": "可重组合记号公式",
+      "latex": "H_n^m=C_{n+m-1}^{m}"
+    },
+    {
+      "id": "215",
+      "title": "可重组合对称记号",
+      "latex": "H_m^n=C_{m+n-1}^{n}"
+    }
+  ],
+  "evaluations": [
+    {
+      "name": "pdf-simple-permutation-sup-sub",
+      "query": "A^{n}_{m}=\\frac{m!}{(m-n)!}",
+      "expected_ids": [
+        "200"
+      ]
+    },
+    {
+      "name": "pdf-simple-permutation-sub-sup",
+      "query": "A_m^n=\\frac{m!}{(m-n)!}",
+      "expected_ids": [
+        "201"
+      ]
+    },
+    {
+      "name": "pdf-simple-combination-sup-sub",
+      "query": "C^{n}_{m}=\\frac{m!}{n!(m-n)!}",
+      "expected_ids": [
+        "206"
+      ]
+    },
+    {
+      "name": "pdf-simple-combination-permutation",
+      "query": "C_n^m=\\frac{A_n^m}{m!}",
+      "expected_ids": [
+        "210"
+      ]
+    },
+    {
+      "name": "pdf-simple-combination-boundary",
+      "query": "C_n^0=C_n^n=1",
+      "expected_ids": [
+        "212"
+      ]
+    },
+    {
+      "name": "pdf-simple-repetition-combination",
+      "query": "H_n^m=C_{n+m-1}^{m}",
+      "expected_ids": [
+        "214"
+      ]
+    }
+  ]
+}
