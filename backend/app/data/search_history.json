@@ -1,0 +1,17 @@
+[
+  {
+    "id": "d2604cb6-a9b9-4487-a1b5-0329c751a860",
+    "input_formula": "\\sum_{k=0}^{n} \\binom{n}{k}=2^n",
+    "normalized_formula": "sum_{v0=0}^{v1}binom{v1}{v0}=2^v1",
+    "result_ids": [
+      "1",
+      "116"
+    ],
+    "filters": {
+      "formula": "\\sum_{k=0}^{n} \\binom{n}{k}=2^n",
+      "use_ai": false,
+      "top_k": 2
+    },
+    "created_at": "2026-06-24T12:44:41.254078"
+  }
+]

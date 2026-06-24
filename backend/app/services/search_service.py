@@ -97,6 +97,19 @@ class SearchService:
             normalized = re.sub(pattern, replacement, normalized)
 
         normalized = normalized.lower()
+        #保留希腊字母
+        greek_variables = {
+            "alpha", "beta", "gamma", "delta", "epsilon", "varepsilon",
+            "theta", "lambda", "mu", "nu", "xi", "rho", "sigma",
+            "tau", "phi", "varphi", "omega"
+        }
+
+        def keep_greek(match: re.Match[str]) -> str:
+            command = match.group(1)
+            return command if command in greek_variables else match.group(0)
+
+        normalized = re.sub(r"\\([a-zA-Z]+)", keep_greek, normalized)
+
         normalized = re.sub(r"\\[a-zA-Z]+", "", normalized)
         normalized = re.sub(r"\s+", "", normalized)
         normalized = normalized.replace("\\{", "{").replace("\\}", "}")
@@ -165,13 +178,44 @@ class SearchService:
             normalized,
         )
         return normalized
-
     def extract_variables(self, latex: str) -> List[str]:
         """Extract likely mathematical variables while ignoring LaTeX commands."""
-        without_commands = re.sub(r"\\[a-zA-Z]+", " ", latex)
-        variables = set(re.findall(r"\b[a-zA-Z]\b", without_commands))
-        command_letters = set("".join(self.LATEX_COMMANDS))
-        return sorted(v for v in variables if v.lower() not in command_letters)
+        if not latex:
+            return []
+
+        variables = set()
+
+        greek_variables = {
+            "alpha", "beta", "gamma", "delta", "epsilon", "varepsilon",
+            "theta", "lambda", "mu", "nu", "xi", "rho", "sigma",
+            "tau", "phi", "varphi", "omega"
+        }
+        
+        # 先移除文本/算子包装，避免 \mathrm{E} 里的 E 被当成变量
+        text = re.sub(r"\\text\{[^{}]*\}", " ", text)
+        text = re.sub(r"\\mathrm\{[^{}]*\}", " ", text)
+        text = re.sub(r"\\operatorname\{[^{}]*\}", " ", text)
+
+        def replace_command(match: re.Match[str]) -> str:
+            command = match.group(1)
+            if command in greek_variables:
+                variables.add(command)
+            return " "
+
+        text = re.sub(r"\\([a-zA-Z]+)\*?", replace_command, latex)
+        
+        text = re.sub(r"(?<![a-zA-Z])[ACH](?=\s*(?:_|\^))", " ", text)
+
+        variables.update(re.findall(r"(?<![a-zA-Z])([a-zA-Z])(?![a-zA-Z])", text))
+
+        return sorted(variables)
+    
+    # 简单版
+    # def extract_variables(self, latex: str) -> List[str]:
+    #     """Extract likely mathematical variables while ignoring LaTeX commands."""
+    #     without_commands = re.sub(r"\\[a-zA-Z]+", " ", latex)
+    #     variables = set(re.findall(r"\b[a-zA-Z]\b", without_commands))
+    #     return sorted(variables)
 
     def extract_tokens(self, latex: str) -> List[str]:
         normalized = self.normalize(latex)
