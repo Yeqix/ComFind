@@ -7,6 +7,7 @@ import {
   getVectorStatus,
   importConfirmedPdfFormulas,
   listAICallLogs,
+  migrateVectorSchema,
   runEvaluation,
   syncVectorRecords,
   uploadFormulaOCR,
@@ -77,6 +78,20 @@ export default function OperationsPanel() {
       await refresh()
     } catch {
       setMessage('pgvector 同步失败')
+    } finally {
+      setLoading('')
+    }
+  }
+
+  const handleVectorMigrate = async () => {
+    setLoading('migrate')
+    setMessage('')
+    try {
+      const data = await migrateVectorSchema()
+      setMessage(data.message)
+      await refresh()
+    } catch {
+      setMessage('pgvector 迁移失败')
     } finally {
       setLoading('')
     }
@@ -172,12 +187,16 @@ export default function OperationsPanel() {
               <p>模式：{vectorStatus.ready ? 'pgvector' : '本地 token 向量'}</p>
               <p>维度：{vectorStatus.dimensions}</p>
               <p>Schema：{vectorStatus.schema_file_exists ? '已找到' : '缺失'}</p>
+              <p>迁移：{vectorStatus.migration_available ? '可执行' : '未就绪'}</p>
               <p>驱动：{vectorStatus.driver_available ? '可用' : '不可用'}</p>
             </div>
           )}
           <div className="mt-4 flex flex-wrap gap-2">
             <button onClick={handleVectorExport} className="px-3 py-2 rounded border border-gray-300 text-sm hover:bg-gray-50">
               {loading === 'export' ? '导出中...' : '导出向量'}
+            </button>
+            <button onClick={handleVectorMigrate} className="px-3 py-2 rounded border border-gray-300 text-sm hover:bg-gray-50">
+              {loading === 'migrate' ? '迁移中...' : '迁移 schema'}
             </button>
             <button onClick={handleVectorSync} className="px-3 py-2 rounded bg-gray-900 text-white text-sm hover:bg-gray-800">
               {loading === 'sync' ? '同步中...' : '同步 pgvector'}

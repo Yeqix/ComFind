@@ -5,9 +5,11 @@ import type { SearchResult } from '../services/api'
 
 interface ResultCardProps {
   result: SearchResult
+  isFavorite?: boolean
+  onToggleFavorite?: (formulaId: string) => void
 }
 
-export default function ResultCard({ result }: ResultCardProps) {
+export default function ResultCard({ result, isFavorite = false, onToggleFavorite }: ResultCardProps) {
   const navigate = useNavigate()
   const matchReason = result.matchReason || result.match_reason
   const reasoningSteps = result.reasoning_steps || []
@@ -20,6 +22,22 @@ export default function ResultCard({ result }: ResultCardProps) {
       <div className="flex items-start justify-between mb-3">
         <h3 className="font-semibold text-gray-900">{result.title}</h3>
         <div className="flex items-center gap-2">
+          {onToggleFavorite && (
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation()
+                onToggleFavorite(result.id)
+              }}
+              className={`rounded border px-2 py-1 text-xs ${
+                isFavorite
+                  ? 'border-amber-300 bg-amber-50 text-amber-700'
+                  : 'border-gray-200 bg-white text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              {isFavorite ? 'Saved' : 'Save'}
+            </button>
+          )}
           <EditFormulaButton
             formulaId={result.id}
             formula={result}

@@ -56,6 +56,14 @@ class VectorService:
     def _vector_literal(self, vector: List[float]) -> str:
         return "[" + ",".join(f"{value:.8f}" for value in vector) + "]"
 
+    def _json_dump(self, value) -> str:
+        def default(item):
+            if hasattr(item, "model_dump"):
+                return item.model_dump()
+            return str(item)
+
+        return json.dumps(value or [], ensure_ascii=False, default=default)
+
     def _connect(self):
         database_url = self._database_url()
         if not database_url:
@@ -93,25 +101,36 @@ class VectorService:
                         cursor.execute(
                             """
                             INSERT INTO formulas (
-                                id, title, latex, normalized_expression, category, tags,
-                                description, conditions, references, difficulty,
-                                proof_sketch, application_scenarios, source,
-                                created_at, updated_at
+                                id, title, latex, normalized_expression, formula_type, category, tags,
+                                description, conditions, aliases, references, related_formula_ids,
+                                difficulty, proof_sketch, proof_steps, application_scenarios,
+                                source, source_page, status, created_at, updated_at
                             )
-                            VALUES (%s, %s, %s, %s, %s, %s::jsonb, %s, %s, %s::jsonb, %s, %s, %s::jsonb, %s, %s, %s)
+                            VALUES (
+                                %s, %s, %s, %s, %s, %s, %s::jsonb,
+                                %s, %s, %s::jsonb, %s::jsonb, %s::jsonb,
+                                %s, %s, %s::jsonb, %s::jsonb,
+                                %s, %s, %s, %s, %s
+                            )
                             ON CONFLICT (id) DO UPDATE SET
                                 title = EXCLUDED.title,
                                 latex = EXCLUDED.latex,
                                 normalized_expression = EXCLUDED.normalized_expression,
+                                formula_type = EXCLUDED.formula_type,
                                 category = EXCLUDED.category,
                                 tags = EXCLUDED.tags,
                                 description = EXCLUDED.description,
                                 conditions = EXCLUDED.conditions,
+                                aliases = EXCLUDED.aliases,
                                 references = EXCLUDED.references,
+                                related_formula_ids = EXCLUDED.related_formula_ids,
                                 difficulty = EXCLUDED.difficulty,
                                 proof_sketch = EXCLUDED.proof_sketch,
+                                proof_steps = EXCLUDED.proof_steps,
                                 application_scenarios = EXCLUDED.application_scenarios,
                                 source = EXCLUDED.source,
+                                source_page = EXCLUDED.source_page,
+                                status = EXCLUDED.status,
                                 updated_at = EXCLUDED.updated_at
                             """,
                             (
@@ -119,15 +138,21 @@ class VectorService:
                                 formula.title,
                                 formula.latex,
                                 formula.normalized_expression,
+                                formula.formula_type,
                                 formula.category,
-                                json.dumps(formula.tags, ensure_ascii=False),
+                                self._json_dump(formula.tags),
                                 formula.description,
                                 formula.conditions,
-                                json.dumps(formula.references, ensure_ascii=False),
+                                self._json_dump(formula.aliases),
+                                self._json_dump(formula.references),
+                                self._json_dump(formula.related_formula_ids),
                                 formula.difficulty,
                                 formula.proof_sketch,
-                                json.dumps(formula.application_scenarios, ensure_ascii=False),
+                                self._json_dump(formula.proof_steps),
+                                self._json_dump(formula.application_scenarios),
                                 formula.source,
+                                formula.source_page,
+                                formula.review_status,
                                 formula.created_at,
                                 formula.updated_at,
                             ),

@@ -7,6 +7,7 @@ import os
 import json
 from pathlib import Path
 from io import BytesIO
+from difflib import SequenceMatcher
 
 from app.schemas.formula import (
     FormulaCreate,
@@ -677,7 +678,8 @@ async def ai_enhanced_search(request: dict):
     )
     
     # 转换公式列表为字典列表
-    formulas = [f.model_dump() for f in filter_formulas(FORMULAS_DB, filters)]
+    formula_pool = filter_formulas(FORMULAS_DB, filters)
+    formulas = [f.model_dump() for f in formula_pool]
     
     # 本地规则推理链无需外部 Key；配置了 Key 时可在 ai_service 内继续扩展真实 LLM 调用。
     if use_ai:
@@ -701,8 +703,11 @@ async def ai_enhanced_search(request: dict):
                     references=r.get('references', []),
                     difficulty=r.get('difficulty'),
                     proof_sketch=r.get('proof_sketch'),
+                    proof_steps=r.get('proof_steps', []),
                     application_scenarios=r.get('application_scenarios', []),
                     source=r.get('source'),
+                    source_page=r.get('source_page'),
+                    review_status=r.get('review_status', 'approved'),
                     created_at=r.get('created_at'),
                     updated_at=r.get('updated_at'),
                     similarity=r.get('combined_score', 0),
@@ -731,10 +736,12 @@ async def ai_enhanced_search(request: dict):
             print(f"[ERROR] AI enhanced search failed: {e}")
             print(traceback.format_exc())
             # 降级到传统搜索
-            results = search_service.search(query, filter_formulas(FORMULAS_DB, filters), top_k)
+            results = search_service.search(query, formula_pool, top_k)
+            normalized = search_service.normalize(query)
+            save_search_history(query, normalized, results, request)
             return {
                 "results": results,
-                "normalized_formula": search_service.normalize(query),
+                "normalized_formula": normalized,
                 "type_info": "二项式恒等式" if "binom" in query else "未知类型",
                 "ai_enhanced": False,
                 "ai_available": True,
@@ -742,10 +749,12 @@ async def ai_enhanced_search(request: dict):
             }
     else:
         # 降级到传统搜索
-        results = search_service.search(query, filter_formulas(FORMULAS_DB, filters), top_k)
+        results = search_service.search(query, formula_pool, top_k)
+        normalized = search_service.normalize(query)
+        save_search_history(query, normalized, results, request)
         return {
             "results": results,
-            "normalized_formula": search_service.normalize(query),
+            "normalized_formula": normalized,
             "type_info": "二项式恒等式" if "binom" in query else "未知类型",
             "ai_enhanced": False,
             "ai_available": True,
@@ -907,7 +916,7 @@ async def duplicate_check(request: dict):
             reasons.append("结构哈希一致")
             score += 0.8
         if title and formula.title:
-            title_score = search_service._cosine(title, formula.title)
+            title_score = SequenceMatcher(None, title, formula.title).ratio()
             if title_score > 0.6:
                 reasons.append("标题高度相似")
                 score += title_score * 0.4

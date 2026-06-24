@@ -149,6 +149,26 @@ export default function FormulaDetailPage() {
               </div>
             )}
 
+            {formula.proof_steps && formula.proof_steps.length > 0 && (
+              <div>
+                <h3 className="text-sm font-medium text-gray-500 mb-2">Proof steps</h3>
+                <ol className="space-y-2">
+                  {formula.proof_steps.map((step) => (
+                    <li key={step.order} className="rounded border border-gray-100 bg-gray-50 p-3">
+                      <div className="flex items-center gap-2">
+                        <span className="rounded bg-primary-50 px-2 py-0.5 text-xs text-primary-700">
+                          {step.order}
+                        </span>
+                        <span className="font-medium text-gray-800">{step.title}</span>
+                        {step.method && <span className="text-xs text-gray-400">{step.method}</span>}
+                      </div>
+                      <p className="mt-2 text-sm text-gray-700">{step.detail}</p>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
+
             {formula.application_scenarios && formula.application_scenarios.length > 0 && (
               <div>
                 <h3 className="text-sm font-medium text-gray-500 mb-1">应用场景</h3>

@@ -26,9 +26,17 @@ export interface Formula {
   review_status?: 'pending' | 'approved' | 'rejected'
   reviewed_at?: string
   review_notes?: string
+  proof_steps?: ProofStep[]
   relation_ids?: string[]
   related_formula_ids?: string[]
   import_batch_id?: string
+}
+
+export interface ProofStep {
+  order: number
+  title: string
+  detail: string
+  method?: string
 }
 
 export interface SearchResult extends Formula {
@@ -67,9 +75,19 @@ export interface CreateFormulaRequest {
   source_page?: number
   review_status?: 'pending' | 'approved' | 'rejected'
   review_notes?: string
+  proof_steps?: ProofStep[]
   relation_ids?: string[]
   related_formula_ids?: string[]
   import_batch_id?: string
+}
+
+export interface SearchFilters {
+  category?: string
+  tags?: string[]
+  difficulty?: string
+  source?: string
+  structure?: string
+  review_status?: string
 }
 
 export async function searchFormulas(formula: string): Promise<SearchResponse> {
@@ -179,14 +197,60 @@ export async function aiEnhancedSearch(
   formula: string,
   useAI: boolean = true,
   topK: number = 10,
-  configId?: string
+  configId?: string,
+  filters: SearchFilters = {}
 ): Promise<AISearchResponse> {
   const { data } = await api.post('/search/ai-enhanced', {
     formula,
     use_ai: useAI,
     top_k: topK,
     config_id: configId,
+    ...filters,
   })
+  return data
+}
+
+export interface SearchHistoryItem {
+  id: string
+  input_formula: string
+  normalized_formula: string
+  result_ids: string[]
+  filters: Record<string, unknown>
+  created_at: string
+}
+
+export async function listSearchHistory(limit: number = 30): Promise<SearchHistoryItem[]> {
+  const { data } = await api.get('/history/search', { params: { limit } })
+  return data.history || []
+}
+
+export async function clearSearchHistory(): Promise<{ success: boolean }> {
+  const { data } = await api.delete('/history/search')
+  return data
+}
+
+export async function listFavorites(): Promise<{ favorites: Array<Record<string, unknown>>; formulas: Formula[] }> {
+  const { data } = await api.get('/favorites')
+  return data
+}
+
+export async function addFavorite(formulaId: string): Promise<{ success: boolean }> {
+  const { data } = await api.post(`/favorites/${formulaId}`)
+  return data
+}
+
+export async function removeFavorite(formulaId: string): Promise<{ success: boolean }> {
+  const { data } = await api.delete(`/favorites/${formulaId}`)
+  return data
+}
+
+export async function checkFormulaDuplicate(latex: string, title?: string): Promise<{
+  normalized_expression: string
+  ast_hash?: string
+  duplicate_count: number
+  candidates: Array<{ formula: Formula; score: number; reasons: string[] }>
+}> {
+  const { data } = await api.post('/admin/formulas/duplicate-check', { latex, title })
   return data
 }
 
@@ -330,6 +394,7 @@ export interface VectorStatusResponse {
   schema_file_exists: boolean
   dimensions: number
   ready: boolean
+  migration_available?: boolean
   retrieval_mode?: string
   message: string
 }
@@ -355,6 +420,14 @@ export async function syncVectorRecords(): Promise<{
   message: string
 }> {
   const { data } = await api.post('/admin/vector/sync')
+  return data
+}
+
+export async function migrateVectorSchema(): Promise<{
+  success: boolean
+  message: string
+}> {
+  const { data } = await api.post('/admin/vector/migrate')
   return data
 }
 

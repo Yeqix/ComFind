@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS formulas (
     related_formula_ids JSONB NOT NULL DEFAULT '[]'::jsonb,
     difficulty TEXT,
     proof_sketch TEXT,
+    proof_steps JSONB NOT NULL DEFAULT '[]'::jsonb,
     application_scenarios JSONB NOT NULL DEFAULT '[]'::jsonb,
     source TEXT,
     source_page INTEGER,
@@ -25,6 +26,25 @@ CREATE TABLE IF NOT EXISTS formulas (
 
 CREATE INDEX IF NOT EXISTS formulas_status_idx ON formulas(status);
 CREATE INDEX IF NOT EXISTS formulas_category_idx ON formulas(category);
+
+ALTER TABLE formulas
+    ADD COLUMN IF NOT EXISTS normalized_expression TEXT,
+    ADD COLUMN IF NOT EXISTS formula_type TEXT,
+    ADD COLUMN IF NOT EXISTS tags JSONB NOT NULL DEFAULT '[]'::jsonb,
+    ADD COLUMN IF NOT EXISTS description TEXT,
+    ADD COLUMN IF NOT EXISTS conditions TEXT,
+    ADD COLUMN IF NOT EXISTS aliases JSONB NOT NULL DEFAULT '[]'::jsonb,
+    ADD COLUMN IF NOT EXISTS references JSONB NOT NULL DEFAULT '[]'::jsonb,
+    ADD COLUMN IF NOT EXISTS related_formula_ids JSONB NOT NULL DEFAULT '[]'::jsonb,
+    ADD COLUMN IF NOT EXISTS difficulty TEXT,
+    ADD COLUMN IF NOT EXISTS proof_sketch TEXT,
+    ADD COLUMN IF NOT EXISTS proof_steps JSONB NOT NULL DEFAULT '[]'::jsonb,
+    ADD COLUMN IF NOT EXISTS application_scenarios JSONB NOT NULL DEFAULT '[]'::jsonb,
+    ADD COLUMN IF NOT EXISTS source TEXT,
+    ADD COLUMN IF NOT EXISTS source_page INTEGER,
+    ADD COLUMN IF NOT EXISTS status TEXT NOT NULL DEFAULT 'approved',
+    ADD COLUMN IF NOT EXISTS created_at TIMESTAMPTZ,
+    ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ;
 
 CREATE TABLE IF NOT EXISTS formula_features (
     formula_id TEXT PRIMARY KEY REFERENCES formulas(id) ON DELETE CASCADE,
