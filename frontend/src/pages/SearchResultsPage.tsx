@@ -17,11 +17,11 @@ import {
 } from '../services/api'
 
 const STRUCTURE_OPTIONS = [
-  { value: '', label: 'All structures' },
-  { value: 'summation', label: 'Summation' },
-  { value: 'recurrence', label: 'Recurrence' },
-  { value: 'generating_function', label: 'Generating function' },
-  { value: 'binomial', label: 'Binomial' },
+  { value: '', label: '全部结构' },
+  { value: '求和结构', label: '求和结构' },
+  { value: '递推关系', label: '递推关系' },
+  { value: '生成函数', label: '生成函数' },
+  { value: '二项式系数', label: '二项式系数' },
 ]
 
 export default function SearchResultsPage() {
@@ -90,7 +90,7 @@ export default function SearchResultsPage() {
       setSearchInfo(data)
       await refreshSideData()
     } catch {
-      setError('Search failed, please try again later.')
+      setError('搜索失败，请稍后重试。')
     } finally {
       setLoading(false)
     }
@@ -115,7 +115,7 @@ export default function SearchResultsPage() {
       setFavoriteIds(next)
       await refreshSideData()
     } catch {
-      setError('Favorite update failed.')
+      setError('收藏状态更新失败。')
     }
   }
 
@@ -132,14 +132,14 @@ export default function SearchResultsPage() {
             <FormulaInput
               value={formula}
               onChange={setFormula}
-              placeholder="Input LaTeX formula..."
+              placeholder="请输入 LaTeX 公式..."
             />
             <div className="mt-3 flex flex-wrap gap-2">
               <button onClick={handleSearch} className="btn-primary">
-                Search
+                搜索
               </button>
               <button onClick={() => navigate('/')} className="btn-secondary">
-                Back
+                返回
               </button>
             </div>
 
@@ -147,13 +147,13 @@ export default function SearchResultsPage() {
               <input
                 value={filters.category || ''}
                 onChange={(event) => setFilters((prev) => ({ ...prev, category: event.target.value }))}
-                placeholder="Category"
+                placeholder="分类"
                 className="rounded border border-gray-300 px-3 py-2 text-sm"
               />
               <input
                 value={tagInput}
                 onChange={(event) => setTagInput(event.target.value)}
-                placeholder="Tags, separated by comma"
+                placeholder="标签，用逗号分隔"
                 className="rounded border border-gray-300 px-3 py-2 text-sm"
               />
               <select
@@ -170,7 +170,7 @@ export default function SearchResultsPage() {
                 onChange={(event) => setFilters((prev) => ({ ...prev, difficulty: event.target.value }))}
                 className="rounded border border-gray-300 px-3 py-2 text-sm"
               >
-                <option value="">All difficulty</option>
+                <option value="">全部难度</option>
                 <option value="基础">基础</option>
                 <option value="中等">中等</option>
                 <option value="较难">较难</option>
@@ -178,7 +178,7 @@ export default function SearchResultsPage() {
               <input
                 value={filters.source || ''}
                 onChange={(event) => setFilters((prev) => ({ ...prev, source: event.target.value }))}
-                placeholder="Source"
+                placeholder="来源"
                 className="rounded border border-gray-300 px-3 py-2 text-sm"
               />
               <select
@@ -186,10 +186,10 @@ export default function SearchResultsPage() {
                 onChange={(event) => setFilters((prev) => ({ ...prev, review_status: event.target.value }))}
                 className="rounded border border-gray-300 px-3 py-2 text-sm"
               >
-                <option value="approved">Approved</option>
-                <option value="pending">Pending</option>
-                <option value="rejected">Rejected</option>
-                <option value="">All status</option>
+                <option value="approved">已通过</option>
+                <option value="pending">待审核</option>
+                <option value="rejected">已驳回</option>
+                <option value="">全部状态</option>
               </select>
             </div>
 
@@ -201,13 +201,13 @@ export default function SearchResultsPage() {
                   onChange={(event) => setUseAI(event.target.checked)}
                   className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                 />
-                <span className="text-sm text-gray-700">{useAI ? 'AI enhanced' : 'Traditional'}</span>
+                <span className="text-sm text-gray-700">{useAI ? 'AI 增强' : '传统检索'}</span>
               </label>
               {searchInfo && (
                 <span className={`rounded px-2 py-1 text-xs ${
                   searchInfo.ai_enhanced ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'
                 }`}>
-                  {searchInfo.ai_enhanced ? `Reranked · ${searchInfo.type_info}` : 'Traditional mode'}
+                  {searchInfo.ai_enhanced ? `已重排 · ${searchInfo.type_info}` : '传统模式'}
                 </span>
               )}
             </div>
@@ -215,7 +215,7 @@ export default function SearchResultsPage() {
 
           {formula && (
             <div className="mb-6 rounded-lg border border-gray-200 bg-white p-4">
-              <p className="mb-2 text-sm text-gray-500">Current query</p>
+              <p className="mb-2 text-sm text-gray-500">当前查询</p>
               <FormulaPreview formula={formula} />
             </div>
           )}
@@ -223,7 +223,7 @@ export default function SearchResultsPage() {
           {loading && (
             <div className="py-8 text-center">
               <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-primary-500 border-t-transparent" />
-              <p className="mt-2 text-gray-600">Searching similar formulas...</p>
+              <p className="mt-2 text-gray-600">正在搜索相似公式...</p>
             </div>
           )}
 
@@ -232,9 +232,9 @@ export default function SearchResultsPage() {
           {!loading && results.length > 0 && (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-gray-800">Found {results.length} formulas</h2>
+                <h2 className="text-lg font-semibold text-gray-800">找到 {results.length} 条公式</h2>
                 {searchInfo?.ai_enhanced && (
-                  <span className="rounded bg-green-50 px-2 py-1 text-xs text-green-600">AI reranking</span>
+                  <span className="rounded bg-green-50 px-2 py-1 text-xs text-green-600">AI 重排</span>
                 )}
               </div>
               {results.map((result) => (
@@ -249,23 +249,23 @@ export default function SearchResultsPage() {
           )}
 
           {!loading && !error && results.length === 0 && formula && (
-            <div className="py-8 text-center text-gray-500">No similar formula found.</div>
+            <div className="py-8 text-center text-gray-500">未找到相似公式。</div>
           )}
         </main>
 
         <aside className="space-y-4">
           <section className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
             <div className="mb-3 flex items-center justify-between">
-              <h3 className="font-semibold text-gray-900">History</h3>
+              <h3 className="font-semibold text-gray-900">历史记录</h3>
               {history.length > 0 && (
                 <button onClick={handleClearHistory} className="text-xs text-gray-500 hover:text-gray-800">
-                  Clear
+                  清空
                 </button>
               )}
             </div>
             <div className="space-y-2">
               {history.length === 0 ? (
-                <p className="text-sm text-gray-500">No history yet.</p>
+                <p className="text-sm text-gray-500">暂无历史记录。</p>
               ) : history.map((item) => (
                 <button
                   key={item.id}
@@ -282,8 +282,8 @@ export default function SearchResultsPage() {
           </section>
 
           <section className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-            <h3 className="font-semibold text-gray-900">Favorites</h3>
-            <p className="mt-2 text-sm text-gray-600">{favoriteIds.size} saved formulas</p>
+            <h3 className="font-semibold text-gray-900">收藏</h3>
+            <p className="mt-2 text-sm text-gray-600">已收藏 {favoriteIds.size} 条公式</p>
           </section>
         </aside>
       </div>

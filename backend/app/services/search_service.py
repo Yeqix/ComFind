@@ -101,7 +101,9 @@ class SearchService:
         greek_variables = {
             "alpha", "beta", "gamma", "delta", "epsilon", "varepsilon",
             "theta", "lambda", "mu", "nu", "xi", "rho", "sigma",
-            "tau", "phi", "varphi", "omega"
+            "tau", "phi", "varphi", "omega",
+            "Gamma", "Delta", "Theta", "Lambda", "Xi", "Sigma",
+            "Phi", "Psi", "Omega",
         }
 
         def keep_greek(match: re.Match[str]) -> str:
@@ -178,6 +180,7 @@ class SearchService:
             normalized,
         )
         return normalized
+    
     def extract_variables(self, latex: str) -> List[str]:
         """Extract likely mathematical variables while ignoring LaTeX commands."""
         if not latex:
@@ -190,11 +193,11 @@ class SearchService:
             "theta", "lambda", "mu", "nu", "xi", "rho", "sigma",
             "tau", "phi", "varphi", "omega"
         }
-        
-        # 先移除文本/算子包装，避免 \mathrm{E} 里的 E 被当成变量
-        text = re.sub(r"\\text\{[^{}]*\}", " ", text)
-        text = re.sub(r"\\mathrm\{[^{}]*\}", " ", text)
-        text = re.sub(r"\\operatorname\{[^{}]*\}", " ", text)
+
+        text = latex
+        text = re.sub(r"\\text\*?\{[^{}]*\}", " ", text)
+        text = re.sub(r"\\mathrm\*?\{[^{}]*\}", " ", text)
+        text = re.sub(r"\\operatorname\*?\{[^{}]*\}", " ", text)
 
         def replace_command(match: re.Match[str]) -> str:
             command = match.group(1)
@@ -202,10 +205,10 @@ class SearchService:
                 variables.add(command)
             return " "
 
-        text = re.sub(r"\\([a-zA-Z]+)\*?", replace_command, latex)
+        text = re.sub(r"\\([a-zA-Z]+)\*?", replace_command, text)
         
         text = re.sub(r"(?<![a-zA-Z])[ACH](?=\s*(?:_|\^))", " ", text)
-
+        
         variables.update(re.findall(r"(?<![a-zA-Z])([a-zA-Z])(?![a-zA-Z])", text))
 
         return sorted(variables)
@@ -229,13 +232,16 @@ class SearchService:
         token_set = set(tokens)
         variables = set(self.extract_variables(latex))
         operators = self.extract_operators(normalized)
+        
         structures = {
             name
             for name, needles in self.STRUCTURE_PATTERNS.items()
             if all(needle in normalized for needle in needles)
         }
+
         if "sum" in token_set and "binom" in token_set:
             structures.add("二项式求和")
+        
         if "=" in normalized and any(flag in normalized for flag in ("n+1", "n-1", "_{n+1}")):
             structures.add("递推关系")
 
@@ -351,7 +357,8 @@ class SearchService:
             return 0.0
         union = left | right
         return len(left & right) / len(union) if union else 0.0
-
+    
+    #计算余弦相似度
     def _cosine(self, left_tokens: Iterable[str], right_tokens: Iterable[str]) -> float:
         left = Counter(left_tokens)
         right = Counter(right_tokens)

@@ -35,7 +35,7 @@ export default function ResultCard({ result, isFavorite = false, onToggleFavorit
                   : 'border-gray-200 bg-white text-gray-600 hover:bg-gray-50'
               }`}
             >
-              {isFavorite ? 'Saved' : 'Save'}
+              {isFavorite ? '已收藏' : '收藏'}
             </button>
           )}
           <EditFormulaButton
