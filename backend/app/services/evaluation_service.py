@@ -83,7 +83,7 @@ class EvaluationService:
             "failed_cases": failed_cases,
             "cases": evaluated,
         }
-
+    #排序质量
     def _ndcg(self, relevance: List[int], ideal_hits: int) -> float:
         dcg = sum(rel / math.log2(idx + 2) for idx, rel in enumerate(relevance))
         ideal = sum(1 / math.log2(idx + 2) for idx in range(min(ideal_hits, len(relevance))))

@@ -52,7 +52,7 @@ class VectorService:
 
     def _database_url(self) -> Optional[str]:
         return os.environ.get("DATABASE_URL") or os.environ.get("PGVECTOR_DATABASE_URL")
-
+    #转为pgvector
     def _vector_literal(self, vector: List[float]) -> str:
         return "[" + ",".join(f"{value:.8f}" for value in vector) + "]"
 

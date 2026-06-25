@@ -3,12 +3,12 @@
     "id": "95166c08-ffa6-4cc4-ae4e-1a3a75007e02",
     "name": "D",
     "provider": "custom",
-    "api_key_masked": "http****.icu",
-    "api_url": "https://api.1ip.icu",
-    "model": "gpt-5.4",
+    "api_key_masked": "sk-a****5bd0",
+    "api_url": "https://api.deepseek.com",
+    "model": "deepseek-v4-pro",
     "remark": "",
     "enabled": true,
     "created_at": "2026-04-27 17:40:32.256424",
-    "updated_at": "2026-04-27 17:40:32.256424"
+    "updated_at": "2026-06-25 13:26:09.308766"
   }
 ]
