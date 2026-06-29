@@ -15,7 +15,7 @@ class EquivalenceResult:
 
 
 class EquivalenceService:
-    """Best-effort symbolic equivalence checks for common closed-form formulas."""
+    """对常见闭式公式做尽力而为的符号等价检查。"""
 
     @lru_cache(maxsize=4096)
     def canonicalize(self, latex: str) -> str:

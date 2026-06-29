@@ -8,7 +8,7 @@ from typing import Dict, Iterable, List, Optional
 
 
 class VectorService:
-    """Local vector retrieval with an optional pgvector-ready boundary."""
+    """本地向量检索服务，并保留可接入 pgvector 的边界。"""
 
     def __init__(self, dimensions: int = 64):
         self.dimensions = dimensions
@@ -76,7 +76,7 @@ class VectorService:
             return None
 
     def sync_pgvector(self, formulas, search_service) -> Dict[str, object]:
-        """Write formulas and local embeddings into PostgreSQL/pgvector when configured."""
+        """配置数据库后，将公式和本地 embedding 写入 PostgreSQL/pgvector。"""
         migration = self.migrate_pgvector()
         if not migration.get("success"):
             return {
@@ -189,7 +189,7 @@ class VectorService:
             conn.close()
 
     def query_pgvector(self, query_tokens: Iterable[str], top_k: int = 50) -> List[Dict[str, object]]:
-        """Return formula ids ranked by pgvector cosine distance. Empty means unavailable."""
+        """按 pgvector 余弦距离返回公式 ID 排序；不可用时返回空列表。"""
         conn = self._connect()
         if conn is None:
             return []
@@ -217,7 +217,7 @@ class VectorService:
             conn.close()
 
     def migrate_pgvector(self) -> Dict[str, object]:
-        """Apply the bundled pgvector schema when a database is configured."""
+        """配置数据库后执行内置 pgvector schema。"""
         schema_path = Path(__file__).parent.parent / "db" / "pgvector_schema.sql"
         if not schema_path.exists():
             return {"success": False, "message": "pgvector schema file is missing"}

@@ -8,7 +8,7 @@ from app.services.search_service import SearchService
 
 
 class EvaluationService:
-    """Run lightweight retrieval metrics against curated formula queries."""
+    """使用整理好的公式查询集运行轻量级检索评测指标。"""
 
     def __init__(self, data_path: Optional[Path] = None):
         self.data_path = data_path or Path(__file__).parent.parent / "data" / "evaluation_queries.json"

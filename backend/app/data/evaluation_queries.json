@@ -271,5 +271,12 @@
     "expected_ids": [
       "214"
     ]
+  },
+  {
+    "name": "pdf-simple-circular-permutation",
+    "query": "Q_n^m=\\frac{A_n^m}{m}=\\frac{n!}{m\\cdot(n-m)!}",
+    "expected_ids": [
+      "216"
+    ]
   }
 ]

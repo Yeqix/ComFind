@@ -11,7 +11,7 @@ from app.services.vector_service import VectorService
 
 
 class SearchService:
-    """Formula normalization, feature extraction, and hybrid retrieval."""
+    """公式标准化、特征提取和混合检索"""
     equivalence_service = EquivalenceService()
     vector_service = VectorService()
 
@@ -66,7 +66,7 @@ class SearchService:
     }
 
     def normalize(self, latex: str) -> str:
-        """Normalize common LaTeX variants into a stable searchable form."""
+        """将常见 LaTeX 变体标准化为稳定的可检索形式"""
         if not latex:
             return ""
 
@@ -121,7 +121,7 @@ class SearchService:
         return normalized
 
     def _normalize_matrix_binomials(self, latex: str) -> str:
-        """Convert common array-style binomial notation to binom{n}{k}."""
+        """将常见数组形式的二项式记号转换为 binom{n}{k}"""
         pattern = re.compile(
             r"\\left\s*\(\s*\\begin\{array\}\{[clrl]*\}\s*"
             r"(?P<top>.*?)\s*\\\\\s*(?P<bottom>.*?)\s*"
@@ -134,7 +134,7 @@ class SearchService:
         )
 
     def _normalize_sum_bounds(self, latex: str) -> str:
-        """Make common summation bounds easier to compare structurally."""
+        """统一常见求和上下界写法，便于结构比较"""
         normalized = re.sub(
             r"\\sum\s*_\s*\{\s*(?P<idx>[a-zA-Z])\s*=\s*(?P<lo>[^{}]+?)\s*\}\s*\^\s*\{\s*(?P<hi>[^{}]+?)\s*\}",
             lambda m: f"\\sum_{{{m.group('idx')}={m.group('lo').strip()}}}^{{{m.group('hi').strip()}}}",
@@ -148,7 +148,7 @@ class SearchService:
         return normalized
 
     def _normalize_variable_names(self, expression: str) -> str:
-        """Alpha-normalize single-letter variables while preserving command words."""
+        """对单字母变量做 Alpha 归一化，同时保留命令词"""
         mapping: Dict[str, str] = {}
         next_index = 0
 
@@ -166,23 +166,23 @@ class SearchService:
             return mapping[name]
 
         return re.sub(r"(?<![a-z])([a-z])(?![a-z])", replace, expression)
-
+    # 常见排列组合记号
     def _normalize_combinatorial_notation(self, expression: str) -> str:
-        """Canonicalize common A/C/H subscript-superscript teaching notation."""
+        """规范化常见 A/C/H 下标上标教材记号"""
         normalized = re.sub(
-            r"([ach])\^\{([^{}]+)\}_\{([^{}]+)\}",
+            r"([achp])\^\{([^{}]+)\}_\{([^{}]+)\}",
             lambda m: f"{m.group(1)}_{{{m.group(3)}}}^{{{m.group(2)}}}",
             expression,
         )
         normalized = re.sub(
-            r"([ach])\^([a-z0-9]+)_([a-z0-9]+)",
+            r"([achp])\^([a-z0-9]+)_([a-z0-9]+)",
             lambda m: f"{m.group(1)}_{{{m.group(3)}}}^{{{m.group(2)}}}",
             normalized,
         )
         return normalized
     
     def extract_variables(self, latex: str) -> List[str]:
-        """Extract likely mathematical variables while ignoring LaTeX commands."""
+        """提取可能的数学变量，同时忽略 LaTeX 命令"""
         if not latex:
             return []
 
@@ -207,7 +207,7 @@ class SearchService:
 
         text = re.sub(r"\\([a-zA-Z]+)\*?", replace_command, text)
         
-        text = re.sub(r"(?<![a-zA-Z])[ACH](?=\s*(?:_|\^))", " ", text)
+        text = re.sub(r"(?<![a-zA-Z])[ACHP](?=\s*(?:_|\^))", " ", text)
         
         variables.update(re.findall(r"(?<![a-zA-Z])([a-zA-Z])(?![a-zA-Z])", text))
 
@@ -215,7 +215,7 @@ class SearchService:
     
     # 简单版
     # def extract_variables(self, latex: str) -> List[str]:
-    #     """Extract likely mathematical variables while ignoring LaTeX commands."""
+    #     """提取可能的数学变量，同时忽略 LaTeX 命令"""
     #     without_commands = re.sub(r"\\[a-zA-Z]+", " ", latex)
     #     variables = set(re.findall(r"\b[a-zA-Z]\b", without_commands))
     #     return sorted(variables)
@@ -305,8 +305,12 @@ class SearchService:
         return score
 
     def calculate_similarity(self, query: str, formula: str) -> float:
-        """Combined similarity used by callers that need one scalar score."""
+        """为需要单一标量分数的调用方返回综合相似度"""
         return self.calculate_detailed_similarity(query, formula)["combined"]
+
+    def _has_plain_equals(self, expression: str) -> bool:
+        """识别普通等号，排除 <=、>= 和 != 运算符"""
+        return bool(re.search(r"(?<![<>=!])=(?![=>])", expression))
 
     def calculate_detailed_similarity(self, query: str, formula: str) -> Dict[str, float]:
         query_features = self.extract_features(query)
@@ -327,6 +331,12 @@ class SearchService:
             0.0,
             1.0 - abs(query_features["complexity"] - formula_features["complexity"]) / 10,
         )
+        equation_score = (
+            1.0
+            if self._has_plain_equals(query_features["normalized"])
+            and self._has_plain_equals(formula_features["normalized"])
+            else 0.0
+        )
 
         combined = (
             normalized_score * 0.16
@@ -338,6 +348,8 @@ class SearchService:
             + equivalence.score * 0.12
             + complexity_score * 0.06
         )
+        if equation_score:
+            combined += 0.12 * (1.0 - combined)
 
         return {
             "combined": round(combined, 4),
@@ -349,6 +361,7 @@ class SearchService:
             "vector": round(vector_score, 4),
             "equivalence": round(equivalence.score, 4),
             "complexity": round(complexity_score, 4),
+            "equation": round(equation_score, 4),
             "equivalence_reason": equivalence.reason,
         }
 
@@ -384,6 +397,8 @@ class SearchService:
             reasons.append(f"共享变量: {', '.join(sorted(common_variables))}")
         if formula.category and any(token in formula.category.lower() for token in common_tokens):
             reasons.append(f"类别相关: {formula.category}")
+        if scores and scores.get("equation"):
+            reasons.append("查询包含等号，候选也是等式公式")
 
         if scores:
             reasons.append(
@@ -413,7 +428,7 @@ class SearchService:
         formulas: List[FormulaResponse],
         top_k: int = 10,
     ) -> List[SearchResult]:
-        """Search similar formulas with hybrid structural and semantic ranking."""
+        """使用结构与语义混合排序检索相似公式"""
         results: List[SearchResult] = []
         formula_pool = formulas
         vector_candidates = self.vector_service.query_pgvector(

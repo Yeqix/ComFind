@@ -1,10 +1,9 @@
 """
-AI-assisted formula understanding.
+AI 辅助的公式理解服务。
 
-The service is intentionally useful without an external model: it combines
-domain rules, structural features from SearchService, and explanation templates.
-External LLM calls can be added behind _call_ai_api later without changing API
-contracts.
+该服务在没有外部模型时也能工作：它结合领域规则、
+SearchService 提供的结构特征以及解释模板。后续可以在
+_call_ai_api 后面接入外部 LLM 调用，而不改变 API 契约。
 """
 
 from __future__ import annotations
@@ -22,7 +21,7 @@ from app.services.search_service import SearchService
 
 
 class AIService:
-    """Rule-enhanced formula analysis and explainable search support."""
+    """基于规则增强的公式分析与可解释搜索支持。"""
 
     LOG_FILE = Path(__file__).parent.parent / "data" / "llm_call_logs.json"
 

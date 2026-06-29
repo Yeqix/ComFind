@@ -5298,5 +5298,35 @@
     "created_at": "2026-06-23 14:44:06.429506",
     "updated_at": "2026-06-23 14:44:06.429506",
     "review_status": "approved"
+  },
+  {
+    "title": "取 m 个元素的圆排列公式",
+    "latex": "Q_n^m=\\frac{A_n^m}{m}=\\frac{n!}{m\\cdot(n-m)!}",
+    "category": "排列组合基础",
+    "tags": [
+      "圆排列",
+      "排列数",
+      "阶乘",
+      "PDF基础记号"
+    ],
+    "description": "从 n 个不同元素中取 m 个并围成一圈的圆排列数，旋转等价视为同一种。",
+    "conditions": "n\\geq m\\geq1",
+    "difficulty": "基础",
+    "proof_sketch": "先从 n 个元素中取 m 个并线性排列得到 A_n^m，每个圆排列对应 m 个旋转等价的线性排列，因此除以 m。",
+    "application_scenarios": [
+      "环形座位安排",
+      "圆排列计数",
+      "排列组合基础"
+    ],
+    "id": "216",
+    "normalized_expression": "v0_v1^v2=frac{a_v1^v2}{v2}=frac{v1!}{v2*(v1-v2)!}",
+    "references": [
+      "4_组合数学(1).pdf"
+    ],
+    "source": "4_组合数学(1).pdf",
+    "source_page": 1,
+    "created_at": "2026-06-26 14:11:45.384398",
+    "updated_at": "2026-06-26 14:11:45.384398",
+    "review_status": "approved"
   }
 ]

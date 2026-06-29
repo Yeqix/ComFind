@@ -1,1 +1,277 @@
-[]
+[
+  {
+    "id": "d4b9e584-f91a-45c2-99ed-416a05351f7d",
+    "input_formula": "\\binom{n}{m}=n/m",
+    "normalized_formula": "binom{v0}{v1}=v0/v1",
+    "result_ids": [
+      "3",
+      "152",
+      "185",
+      "5",
+      "6",
+      "158",
+      "165",
+      "177",
+      "157",
+      "151"
+    ],
+    "filters": {
+      "formula": "\\binom{n}{m}=n/m",
+      "use_ai": true,
+      "top_k": 10,
+      "review_status": "approved",
+      "tags": []
+    },
+    "created_at": "2026-06-27T20:35:43.786163"
+  },
+  {
+    "id": "de3b6365-e8c4-4953-8dae-f1019032a19e",
+    "input_formula": "\\binom{n}{m}=n/m",
+    "normalized_formula": "binom{v0}{v1}=v0/v1",
+    "result_ids": [
+      "3",
+      "152",
+      "185",
+      "5",
+      "6",
+      "158",
+      "165",
+      "177",
+      "157",
+      "151"
+    ],
+    "filters": {
+      "formula": "\\binom{n}{m}=n/m",
+      "use_ai": true,
+      "top_k": 10,
+      "review_status": "approved",
+      "tags": []
+    },
+    "created_at": "2026-06-27T20:35:39.140665"
+  },
+  {
+    "id": "a7b90cd7-8ccb-45a4-a49b-6350f5ed10b2",
+    "input_formula": "\\binom{n}{m}=n/m",
+    "normalized_formula": "binom{v0}{v1}=v0/v1",
+    "result_ids": [
+      "3",
+      "152",
+      "185",
+      "5",
+      "6",
+      "158",
+      "165",
+      "177",
+      "157",
+      "151"
+    ],
+    "filters": {
+      "formula": "\\binom{n}{m}=n/m",
+      "use_ai": true,
+      "top_k": 10,
+      "review_status": "approved",
+      "tags": []
+    },
+    "created_at": "2026-06-26T14:13:34.013606"
+  },
+  {
+    "id": "73f8750f-9622-4ded-8440-fac7fddca3ce",
+    "input_formula": "\\binom{n}{m}=A_n^m",
+    "normalized_formula": "binom{v0}{v1}=a_v0^v1",
+    "result_ids": [
+      "3",
+      "185",
+      "152",
+      "6",
+      "158",
+      "165",
+      "5",
+      "177",
+      "157",
+      "151"
+    ],
+    "filters": {
+      "formula": "\\binom{n}{m}=A_n^m",
+      "use_ai": true,
+      "top_k": 10,
+      "review_status": "approved",
+      "tags": []
+    },
+    "created_at": "2026-06-26T14:13:06.171849"
+  },
+  {
+    "id": "ff5831e3-f0ce-4737-853c-9a52cf0027c8",
+    "input_formula": "\\binom{n}{m}=",
+    "normalized_formula": "binom{v0}{v1}=",
+    "result_ids": [
+      "3",
+      "5",
+      "152",
+      "185",
+      "6",
+      "158",
+      "165",
+      "177",
+      "157",
+      "151"
+    ],
+    "filters": {
+      "formula": "\\binom{n}{m}=",
+      "use_ai": true,
+      "top_k": 10,
+      "review_status": "approved",
+      "tags": []
+    },
+    "created_at": "2026-06-26T14:12:39.288164"
+  },
+  {
+    "id": "a1c12493-3c3c-4633-9a80-46abd0781c10",
+    "input_formula": "Q_n^m",
+    "normalized_formula": "v0_v1^v2",
+    "result_ids": [
+      "175",
+      "197",
+      "183",
+      "204",
+      "163",
+      "156",
+      "153",
+      "155",
+      "168",
+      "205"
+    ],
+    "filters": {
+      "formula": "Q_n^m",
+      "use_ai": true,
+      "top_k": 10,
+      "review_status": "approved",
+      "tags": []
+    },
+    "created_at": "2026-06-25T21:59:10.850717"
+  },
+  {
+    "id": "8ae9f04a-a6fa-4584-a84b-aa482aa10409",
+    "input_formula": "3^n = \\sum_{i=0}^{n}",
+    "normalized_formula": "3^v0=sum_{v1=0}^{v0}",
+    "result_ids": [
+      "193",
+      "7",
+      "187",
+      "191",
+      "10",
+      "189",
+      "188",
+      "170",
+      "172",
+      "204"
+    ],
+    "filters": {
+      "formula": "3^n = \\sum_{i=0}^{n}",
+      "use_ai": true,
+      "top_k": 10,
+      "review_status": "approved",
+      "tags": []
+    },
+    "created_at": "2026-06-25T21:03:53.647432"
+  },
+  {
+    "id": "aa1e5480-8e25-4117-bd54-720c1e628ad6",
+    "input_formula": "3^n",
+    "normalized_formula": "3^v0",
+    "result_ids": [
+      "175",
+      "197",
+      "204",
+      "203",
+      "205",
+      "155",
+      "156",
+      "199",
+      "183",
+      "163"
+    ],
+    "filters": {
+      "formula": "3^n",
+      "use_ai": true,
+      "top_k": 10,
+      "review_status": "approved",
+      "tags": []
+    },
+    "created_at": "2026-06-25T21:03:22.203010"
+  },
+  {
+    "id": "dd0407a1-c45d-4f88-b2ba-4b27e288db8a",
+    "input_formula": "\\binom{n}{m}=",
+    "normalized_formula": "binom{v0}{v1}=",
+    "result_ids": [
+      "3",
+      "5",
+      "152",
+      "185",
+      "6",
+      "158",
+      "165",
+      "177",
+      "157",
+      "151"
+    ],
+    "filters": {
+      "formula": "\\binom{n}{m}=",
+      "use_ai": true,
+      "top_k": 10,
+      "review_status": "approved",
+      "tags": []
+    },
+    "created_at": "2026-06-25T21:01:47.065481"
+  },
+  {
+    "id": "d5a43fb1-f2fb-45cd-8034-4560629d3bc9",
+    "input_formula": "\\binom{n}{m}",
+    "normalized_formula": "binom{v0}{v1}",
+    "result_ids": [
+      "5",
+      "152",
+      "3",
+      "185",
+      "6",
+      "158",
+      "165",
+      "177",
+      "157",
+      "151"
+    ],
+    "filters": {
+      "formula": "\\binom{n}{m}",
+      "use_ai": true,
+      "top_k": 10,
+      "review_status": "approved",
+      "tags": []
+    },
+    "created_at": "2026-06-25T21:01:44.702101"
+  },
+  {
+    "id": "f28ccaf9-c785-45eb-9ab3-96c253fade38",
+    "input_formula": "\\binom{n}{m}",
+    "normalized_formula": "binom{v0}{v1}",
+    "result_ids": [
+      "5",
+      "152",
+      "3",
+      "185",
+      "6",
+      "158",
+      "165",
+      "177",
+      "157",
+      "151"
+    ],
+    "filters": {
+      "formula": "\\binom{n}{m}",
+      "use_ai": true,
+      "top_k": 10,
+      "review_status": "approved",
+      "tags": []
+    },
+    "created_at": "2026-06-25T21:01:43.284630"
+  }
+]

@@ -8,7 +8,7 @@ from typing import Dict, Optional
 
 
 class FormulaOCRService:
-    """Formula OCR entrypoint with text fallback and optional Mathpix support."""
+    """公式 OCR 入口，支持文本回退和可选 Mathpix 接入。"""
 
     TEXT_EXTENSIONS = {".txt", ".tex", ".md", ".latex"}
 

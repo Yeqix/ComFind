@@ -5,10 +5,10 @@ from typing import Any, Dict, Optional
 
 
 class SecretService:
-    """Small local secret wrapper for API keys.
+    """用于 API Key 的轻量本地密钥封装。
 
-    This avoids storing raw keys in JSON. For stronger production security,
-    configure COMBFIND_SECRET_KEY from a deployment secret manager.
+    这样可以避免在 JSON 中保存原始密钥。生产环境需要更强安全性时，
+    应通过部署密钥管理服务配置 COMBFIND_SECRET_KEY。
     """
 
     scheme = "xor-sha256-v1"
